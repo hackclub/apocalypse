@@ -8,26 +8,36 @@ import Layout from "../layouts/Layout.astro";
     class="h-screen flex flex-col items-center"
   >
     <div
-      class="flex items-end justify-center w-full max-h-[40vh] overflow-hidden"
+      class="flex items-end justify-center w-full max-h-[35vh] overflow-hidden"
     >
       <img class="object-cover w-full" src="/top.svg" alt="Top Graphic" />
     </div>
-    <div class="text-white text-center space-y-11 max-w-[1200px]">
+    <div
+      class="text-white text-center space-y-5 xs:space-y-8 sm:space-y-11 max-w-[1200px] mx-2 sm:mx-12 grow flex flex-col mt-[5vh]"
+    >
       <div class="space-y-3">
-        <p class="uppercase text-2xl tracking-wide">Welcome to the</p>
-        <h1 class="uppercase text-8xl tracking-wide">Apocalypse</h1>
-        <p class="text-2xl tracking-wide">Location TBA - March 8-10th, 2024</p>
+        <p class="uppercase text-sm xs:text-lg sm:text-2xl tracking-wide">
+          Welcome to the
+        </p>
+        <h1
+          class="uppercase text-3xl xs:text-5xl sm:text-7xl md:text-8xl tracking-wide"
+        >
+          Apocalypse
+        </h1>
+        <p class="text-sm xs:text-lg sm:text-2xl tracking-wide">
+          Location TBA - March 8-10th, 2024
+        </p>
       </div>
       <div>
         <a
           href="#"
-          class="bg-secondary-bg px-10 py-3 mt-3 rounded-full text-2xl tracking-wide"
+          class="text-sm bg-secondary-bg px-5 py-2 xs:px-10 xs:py-3 mt-3 rounded-full xs:text-lg md:text-xl tracking-wide"
         >
           Apply now!
         </a>
       </div>
       <div>
-        <p class="text-2xl">
+        <p class="xs:text-lg md:text-xl">
           a <span class="font-bold text-accent">high school hackathon</span>
            where you can build anything <span
             id="changingText"
