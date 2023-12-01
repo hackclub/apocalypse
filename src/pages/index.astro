@@ -2,56 +2,77 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Apocalypse 2024">
+<Layout title="Apocalypse: Survive the zombies!">
   <div
     style="background-image: radial-gradient(#6692cf 0%, #401986 70%);"
     class="h-screen flex flex-col items-center"
   >
+    <!-- Top graphic -->
+
     <div
       class="flex items-end justify-center w-full max-h-[35vh] overflow-hidden"
     >
       <img class="object-cover w-full" src="/top.svg" alt="Top Graphic" />
     </div>
+
+    <!-- Text content -->
+
     <div
       class="text-white text-center space-y-5 xs:space-y-8 sm:space-y-11 max-w-[1200px] mx-2 sm:mx-12 grow flex flex-col mt-[5vh]"
     >
-      <div class="space-y-3">
-        <p class="uppercase text-sm xs:text-lg sm:text-2xl tracking-wide">
-          Welcome to the
-        </p>
-        <h1
-          class="uppercase text-3xl xs:text-5xl sm:text-7xl md:text-8xl tracking-wide"
-        >
-          Apocalypse
-        </h1>
+      <div class="space-y-10">
+        <div>
+          <p class="uppercase text-sm xs:text-lg sm:text-2xl tracking-wide">
+            Welcome to the
+          </p>
+
+          <h1
+            class="uppercase text-3xl xs:text-5xl sm:text-7xl md:text-8xl tracking-wide font-bold"
+          >
+            Apocalypse
+          </h1>
+        </div>
+
         <p class="text-sm xs:text-lg sm:text-2xl tracking-wide">
-          Location TBA - March 8-10th, 2024
+          Location TBA — March 8–10th, 2024
         </p>
+
+        <div class="flex flex-col">
+          <p class="text-sm xs:text-md sm:text-lg tracking-wide">
+            Get notified when registrations open!
+          </p>
+
+          <div class="flex space-x-2 self-center">
+            <input
+              class="text-sm bg-secondary-bg px-3 py-2 xs:px-6 xs:py-3 mt-3 rounded-full xs:text-lg md:text-xl placeholder-white placeholder-opacity-50"
+              placeholder="you@example.com"
+            />
+
+            <button
+              class="text-sm bg-accent px-5 py-2 xs:px-10 xs:py-3 mt-3 rounded-full xs:text-lg md:text-xl self-center"
+            >
+              ➡️
+            </button>
+          </div>
+        </div>
       </div>
-      <div>
-        <a
-          href="#"
-          class="text-sm bg-secondary-bg px-5 py-2 xs:px-10 xs:py-3 mt-3 rounded-full xs:text-lg md:text-xl tracking-wide"
-        >
-          Apply now!
-        </a>
-      </div>
+
       <div>
         <p class="xs:text-lg md:text-xl">
-          a <span class="font-bold text-accent">high school hackathon</span>
-           where you can build anything <span
+          A <span class="font-bold text-accent">high school hackathon</span>
+           where you can build <span
             id="changingText"
             class="inline-block motion-safe:duration-200 motion-safe:transition-all underline decoration-wavy decoration-1 decoration-accent"
             >fun</span
           >
-           so long as it helps us <span class="font-bold text-accent"
-            >survive</span
-          >
+           things to <span class="font-bold text-accent">survive</span> the
+          zombie apocalypse.
         </p>
       </div>
     </div>
   </div>
 </Layout>
+
 <script>
   const changingText = document.getElementById("changingText");
   const words = ["fun", "weird", "wacky"];
