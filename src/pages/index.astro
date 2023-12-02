@@ -5,51 +5,51 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Apocalypse: Survive the zombies!">
   <div
     style="background-image: radial-gradient(#6692cf 0%, #401986 70%);"
-    class="h-screen flex flex-col items-center"
+    class="flex h-screen flex-col items-center"
   >
     <!-- Top graphic -->
 
     <div
-      class="flex items-end justify-center w-full max-h-[35vh] overflow-hidden"
+      class="flex max-h-[35vh] w-full items-end justify-center overflow-hidden"
     >
-      <img class="object-cover w-full" src="/top.svg" alt="Top Graphic" />
+      <img class="w-full object-cover" src="/top.svg" alt="Top Graphic" />
     </div>
 
     <!-- Text content -->
 
     <div
-      class="text-white text-center space-y-5 xs:space-y-8 sm:space-y-11 max-w-[1200px] mx-2 sm:mx-12 grow flex flex-col mt-[5vh]"
+      class="mx-2 mt-[5vh] flex max-w-[1200px] grow flex-col space-y-5 text-center text-white xs:space-y-8 sm:mx-12 sm:space-y-11"
     >
       <div class="space-y-10">
         <div>
-          <p class="uppercase text-sm xs:text-lg sm:text-2xl tracking-wide">
+          <p class="text-sm uppercase tracking-wide xs:text-lg sm:text-2xl">
             Welcome to the
           </p>
 
           <h1
-            class="uppercase text-3xl xs:text-5xl sm:text-7xl md:text-8xl tracking-wide font-bold"
+            class="text-3xl font-bold uppercase tracking-wide xs:text-5xl sm:text-7xl md:text-8xl"
           >
             Apocalypse
           </h1>
         </div>
 
-        <p class="text-sm xs:text-lg sm:text-2xl tracking-wide">
+        <p class="text-sm tracking-wide xs:text-lg sm:text-2xl">
           Location TBA — March 8–10th, 2024
         </p>
 
         <div class="flex flex-col">
-          <p class="text-sm xs:text-md sm:text-lg tracking-wide">
+          <p class="xs:text-md text-sm tracking-wide sm:text-lg">
             Get notified when registrations open!
           </p>
 
           <div class="flex space-x-2 self-center">
             <input
-              class="text-sm bg-secondary-bg px-3 py-2 xs:px-6 xs:py-3 mt-3 rounded-full xs:text-lg md:text-xl placeholder-white placeholder-opacity-50"
+              class="mt-3 rounded-full bg-secondary-bg px-3 py-2 text-sm placeholder-white placeholder-opacity-50 xs:px-6 xs:py-3 xs:text-lg md:text-xl"
               placeholder="you@example.com"
             />
 
             <button
-              class="text-sm bg-accent px-5 py-2 xs:px-10 xs:py-3 mt-3 rounded-full xs:text-lg md:text-xl self-center"
+              class="mt-3 self-center rounded-full bg-accent px-5 py-2 text-sm xs:px-10 xs:py-3 xs:text-lg md:text-xl"
             >
               ➡️
             </button>
@@ -62,7 +62,7 @@ import Layout from "../layouts/Layout.astro";
           A <span class="font-bold text-accent">high school hackathon</span>
            where you can build <span
             id="changingText"
-            class="inline-block motion-safe:duration-200 motion-safe:transition-all underline decoration-wavy decoration-1 decoration-accent"
+            class="inline-block underline decoration-accent decoration-wavy decoration-1 motion-safe:transition-all motion-safe:duration-200"
             >fun</span
           >
            things to <span class="font-bold text-accent">survive</span> the
