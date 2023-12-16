@@ -11,6 +11,7 @@ export default {
         "dark-bg": "#1F1037",
         dark: "#A183B2",
         accent: "#79E2F0",
+        accent2: "#FF5DA9",
       },
       fontFamily: {
         sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
