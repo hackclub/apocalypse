@@ -1,0 +1,54 @@
+---
+const futureDate = new Date();
+futureDate.setFullYear(futureDate.getFullYear() + 10);
+
+// TO BE CONFIRMED
+const respondDate = new Date("2024-02-28");
+const eventDate = new Date("2024-03-15");
+---
+
+<section class="flex justify-center px-4 py-14">
+  <div
+    class="flex max-w-[900px] grow flex-col space-y-3 text-lg text-white drop-shadow-[0_0_8px_#FF5DA9]"
+  >
+    <!-- ----------------------------- Letterhead ------------------------------ -->
+    <div class="ml-auto text-right">
+      <p>
+        {
+          futureDate.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+      <p>
+        {Math.round((respondDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days to
+        respond
+      </p>
+      <p>
+        {Math.round((eventDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
+        until event
+      </p>
+    </div>
+
+    <!-- --------------------------- Letter Contents --------------------------- -->
+    <div class="space-y-10">
+      <p class="text-2xl font-bold italic">Greetings, hacker.</p>
+      <p>
+        Over the past few weeks, humanity has been shaken by a virus outbreak, spreading
+        across the globe. This one transformed people into mindless, aggressive, zombies.
+      </p>
+      <p>
+        Villages and cities became battlefields. Subways and schools, hospitals and
+        hotels, all grew infected with the fallen.
+      </p>
+      <p class="font-bold italic">It's the beginning of the end.</p>
+      <p>
+        Thankfully, technology stands. WIFI is up, electricity runs, hardware still
+        functions.
+      </p>
+      <p class="font-bold italic">And we need your help.</p>
+    </div>
+  </div>
+</section>
