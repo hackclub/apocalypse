@@ -1,0 +1,46 @@
+---
+const { question, answer, cardId } = Astro.props;
+---
+
+<div
+  class="bg-light-bg space-y-1 overflow-clip rounded-md px-6 py-4 text-left text-sm text-black motion-safe:transition-transform motion-safe:hover:scale-105"
+  id=`faq${cardId}`
+>
+  <p class="font-bold">{question}</p>
+  <p>{answer}</p>
+</div>
+
+<script define:vars={{ cardId }}>
+  let hash = window.location.hash;
+  if (hash == `#faq${cardId}`) {
+    document
+      .getElementById(`faq${cardId}`)
+      .classList.add("drop-shadow-[0_0_14px_#FF5DA9]");
+  }
+</script>
+
+<!-- ---
+const { question, answer, cardId } = Astro.props;
+---
+
+<div
+  class="overflow-clip rounded-lg bg-primary-bg text-left motion-safe:transition-transform motion-safe:hover:scale-105"
+  id=`faq${cardId}`
+>
+  <div class="block px-6 py-4">
+    <p>- {question}</p>
+  </div>
+
+  <div class="bg-light-bg w-full px-6 py-4 font-normal text-black">
+    <p>{answer}</p>
+  </div>
+</div>
+
+<script define:vars={{ cardId }}>
+  let hash = window.location.hash;
+  if (hash == `#faq${cardId}`) {
+    document
+      .getElementById(`faq${cardId}`)
+      .classList.add("drop-shadow-[0_0_14px_#FF5DA9]");
+  }
+</script> -->
