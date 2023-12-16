@@ -8,6 +8,8 @@ export default {
       colors: {
         "primary-bg": "#401986",
         "secondary-bg": "#80ABF4",
+        "dark-bg": "#1F1037",
+        dark: "#A183B2",
         accent: "#79E2F0",
       },
       fontFamily: {
