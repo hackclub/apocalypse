@@ -7,48 +7,63 @@ const respondDate = new Date("2024-02-28");
 const eventDate = new Date("2024-03-15");
 ---
 
-<section class="flex justify-center px-8 pb-14 sm:py-14 sm:pb-24">
+<section class="flex justify-center px-8 py-8">
   <div
-    class="flex max-w-[900px] grow flex-col space-y-6 text-sm text-white drop-shadow-[0_0_8px_#FF5DA9] sm:text-lg"
+    class="flex max-w-[900px] grow flex-col space-y-10 border-2 border-accent bg-primary-bg px-16 py-12 text-sm text-white shadow-[16px_16px_rgba(0,0,0,0.3)] sm:text-lg"
   >
     <!-- ----------------------------- Letterhead ------------------------------ -->
-    <div class="ml-auto text-right">
-      <p>
-        {
-          futureDate.toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        }
-      </p>
-      <p>
-        {Math.round((respondDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days to
-        respond
-      </p>
-      <p>
-        {Math.round((eventDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
-        until event
-      </p>
+    <div class="space-y-6">
+      <div class="text-right drop-shadow-[0_0_8px_#FF5DA9]">
+        <p>
+          {
+            futureDate.toLocaleDateString(undefined, {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </p>
+        <p>
+          {Math.round((respondDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
+          to respond
+        </p>
+        <p>
+          {Math.round((eventDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
+          until event
+        </p>
+      </div>
+      <!-- --------------------------- Letter Contents --------------------------- -->
+      <div class="space-y-4 drop-shadow-[0_0_8px_#FF5DA9] sm:space-y-10">
+        <p class="text-lg font-bold italic sm:text-2xl">Greetings, hacker.</p>
+        <p>
+          Over the past few weeks, humanity has been shaken by a virus outbreak, spreading
+          across the globe. This one transformed people into mindless, aggressive,
+          zombies.
+        </p>
+        <p>
+          Villages and cities became battlefields. Subways and schools, hospitals and
+          hotels, all grew infected with the fallen.
+        </p>
+        <p class="font-bold italic">It's the beginning of the end.</p>
+        <p>
+          Thankfully, technology stands. WIFI is up, electricity runs, hardware still
+          functions.
+        </p>
+        <p class="font-bold italic">And we need your help.</p>
+      </div>
     </div>
 
-    <!-- --------------------------- Letter Contents --------------------------- -->
-    <div class="space-y-4 sm:space-y-10">
-      <p class="text-lg font-bold italic sm:text-2xl">Greetings, hacker.</p>
-      <p>
-        Over the past few weeks, humanity has been shaken by a virus outbreak, spreading
-        across the globe. This one transformed people into mindless, aggressive, zombies.
-      </p>
-      <p>
-        Villages and cities became battlefields. Subways and schools, hospitals and
-        hotels, all grew infected with the fallen.
-      </p>
-      <p class="font-bold italic">It's the beginning of the end.</p>
-      <p>
-        Thankfully, technology stands. WIFI is up, electricity runs, hardware still
-        functions.
-      </p>
-      <p class="font-bold italic">And we need your help.</p>
+    <div class="flex justify-center py-6 drop-shadow-[0_0_8px_#FF5DA9]">
+      <div class="flex max-w-[900px] grow flex-col space-y-6 text-center text-white">
+        <p class="text-lg sm:text-2xl">
+          Join <span class="font-bold text-accent">150 hackers</span> like you for
+          <span class="font-bold text-accent2">42 hours</span> at our safehouse.
+        </p>
+        <p class="text-lg font-bold text-white sm:text-2xl">
+          Build something, <span class="italic">anything</span>, to helps us survive this
+          apocalypse.
+        </p>
+      </div>
     </div>
   </div>
 </section>
