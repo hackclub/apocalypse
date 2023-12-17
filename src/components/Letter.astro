@@ -1,4 +1,5 @@
 ---
+import ProjectItem from "./Projects/ProjectItem.astro";
 const futureDate = new Date();
 futureDate.setFullYear(futureDate.getFullYear() + 10);
 
@@ -7,13 +8,13 @@ const respondDate = new Date("2024-02-28");
 const eventDate = new Date("2024-03-15");
 ---
 
-<section class="flex justify-center px-8 py-8">
+<section class="flex justify-center px-8 py-8 pb-24">
   <div
     class="flex max-w-[900px] grow flex-col space-y-10 border-2 border-accent bg-primary-bg px-16 py-12 text-sm text-white shadow-[16px_16px_rgba(0,0,0,0.3)] sm:text-lg"
   >
     <!-- ----------------------------- Letterhead ------------------------------ -->
     <div class="space-y-6">
-      <div class="text-right drop-shadow-[0_0_8px_#FF5DA9]">
+      <div class="text-right">
         <p>
           {
             futureDate.toLocaleDateString(undefined, {
@@ -33,8 +34,10 @@ const eventDate = new Date("2024-03-15");
         </p>
       </div>
       <!-- --------------------------- Letter Contents --------------------------- -->
-      <div class="space-y-4 drop-shadow-[0_0_8px_#FF5DA9] sm:space-y-10">
-        <p class="text-lg font-bold italic sm:text-2xl">Greetings, hacker.</p>
+      <div class="space-y-4 sm:space-y-10">
+        <p class="text-lg font-bold italic drop-shadow-[0_0_8px_#FF5DA9] sm:text-2xl">
+          Greetings, hacker.
+        </p>
         <p>
           Over the past few weeks, humanity has been shaken by a virus outbreak, spreading
           across the globe. This one transformed people into mindless, aggressive,
@@ -53,17 +56,46 @@ const eventDate = new Date("2024-03-15");
       </div>
     </div>
 
-    <div class="flex justify-center py-6 drop-shadow-[0_0_8px_#FF5DA9]">
+    <div class="flex justify-center py-8">
       <div class="flex max-w-[900px] grow flex-col space-y-6 text-center text-white">
         <p class="text-lg sm:text-2xl">
           Join <span class="font-bold text-accent">150 hackers</span> like you for
           <span class="font-bold text-accent2">42 hours</span> at our safehouse.
         </p>
-        <p class="text-lg font-bold text-white sm:text-2xl">
+        <p class="text-lg font-bold text-white drop-shadow-[0_0_8px_#FF5DA9] sm:text-2xl">
           Build something, <span class="italic">anything</span>, to helps us survive this
           apocalypse.
         </p>
       </div>
     </div>
+
+    <section class="flex flex-col items-center">
+      <div class="flex max-w-[900px] grow flex-col space-y-8 text-center text-white">
+        <p class="tracking-widec text-xl">Whether it be...</p>
+        <div class="space-y-14">
+          <ProjectItem
+            img="https://cloud-a79ukykof-hack-club-bot.vercel.app/0outernet-127.jpg"
+            description="a flamethrower guitar made from a toy guitar and a sunscreen bottle, that blows flames when played!"
+            credit="Outernet"
+            creditLink="https://outernet.hackclub.com"
+          />
+          <ProjectItem
+            img="https://cloud-fo135ts22-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01238.jpg"
+            description="or make a game to help you navigate the world with JavaScript, using Hack Club Sprig."
+            credit="Assemble"
+            creditLink="https://assemble.hackclub.com"
+          />
+        </div>
+        <div class="space-y-3 py-5 text-base font-bold">
+          <p>
+            We believe you have the skills, knowledge, and creativity to spark a new era
+            of survival.
+          </p>
+          <p class="text-lg font-bold drop-shadow-[0_0_8px_#FF5DA9]">
+            So, what will <span class="italic">you</span> make?
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 </section>

@@ -9,9 +9,9 @@ const { img, description, credit, creditLink } = Astro.props;
       alt={description}
       width="200px"
       height="260px"
-      class="h-[260px] w-full border-2 border-accent2 object-cover shadow-[10px_10px_rgba(0,0,0,0.3)] sm:w-[400px]"
+      class="h-[260px] w-full border-2 border-accent2 bg-yellow-200 object-cover shadow-[10px_10px_rgba(0,0,0,0.3)]"
     />
-    <p class="ml-2 mt-1 text-left text-xs text-slate-300">
+    <p class="ml-2 mt-2 text-left text-xs text-slate-300">
       Photo credit:
       <a
         class="hover:underline"
@@ -21,7 +21,7 @@ const { img, description, credit, creditLink } = Astro.props;
       >
     </p>
   </div>
-  <div class="mx-8 flex items-center text-lg drop-shadow-[0_0_8px_#FF5DA9] md:mx-20">
+  <div class="ml-12 flex items-center text-lg">
     <p>{description}</p>
   </div>
 </div>
