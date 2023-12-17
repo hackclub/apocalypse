@@ -15,7 +15,14 @@ const { question, answer, cardId } = Astro.props;
   if (hash == `#faq${cardId}`) {
     document
       .getElementById(`faq${cardId}`)
-      .classList.add("drop-shadow-[0_0_14px_#FF5DA9]");
+      .classList.remove("shadow-[6px_6px_rgba(0,0,0,0.3)]");
+    document.getElementById(`faq${cardId}`).classList.add("shadow-[6px_6px_#FF5DA9]");
+    document
+      .getElementById(`faq${cardId}`)
+      .classList.remove("motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)]");
+    document
+      .getElementById(`faq${cardId}`)
+      .classList.add("motion-safe:hover:shadow-[8px_8px_#FF5DA9]");
   }
 </script>
 
