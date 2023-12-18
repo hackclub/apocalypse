@@ -3,7 +3,7 @@ const { question, answer, cardId } = Astro.props;
 ---
 
 <div
-  class="space-y-1 overflow-clip bg-dark-bg px-6 py-4 text-left text-sm text-white shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:transition-transform motion-safe:hover:scale-105 motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)]"
+  class="space-y-1 overflow-clip rounded-md bg-dark-bg px-6 py-4 text-left text-sm text-white shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:transition-transform motion-safe:hover:scale-105 motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)]"
   id=`faq${cardId}`
 >
   <p class="font-bold">{question}</p>
