@@ -144,7 +144,7 @@
     document.getElementById("email-form").addEventListener("submit", (e) => {
       e.preventDefault();
 
-      fetch("/lists/subscribe", {
+      fetch("/api/lists/subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
