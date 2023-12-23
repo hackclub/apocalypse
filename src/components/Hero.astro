@@ -155,6 +155,7 @@
       })
         .then((res) => {
           if (res.status === 200) {
+            // Success: Switch to done and enable editing
             document.querySelector("#email-button #todo").classList.add("hidden");
             document.querySelector("#email-button #loading").classList.add("hidden");
             document.querySelector("#email-button #done").classList.remove("hidden");
@@ -163,24 +164,31 @@
               .querySelector("#email-form #submit")
               .setAttribute("disabled", "true");
           } else {
+            // Failure: Switch to todo, enable editing and submitting
             document.querySelector("#email-button #todo").classList.remove("hidden");
             document.querySelector("#email-button #loading").classList.add("hidden");
             document.querySelector("#email-button #done").classList.add("hidden");
             document.querySelector("#email-form #email").removeAttribute("disabled");
+            document.querySelector("#email-form #submit").removeAttribute("disabled");
           }
         })
         .catch(() => {
+          // Failure: Switch to todo, enable editing and submitting
           document.querySelector("#email-button #todo").classList.remove("hidden");
           document.querySelector("#email-button #loading").classList.add("hidden");
           document.querySelector("#email-button #done").classList.add("hidden");
           document.querySelector("#email-form #email").removeAttribute("disabled");
+          document.querySelector("#email-form #submit").removeAttribute("disabled");
         });
 
-      document.querySelector("#email-form #email").setAttribute("disabled", "true");
+      // Loading: Switch to loading, disable editing and submitting
       document.querySelector("#email-button #todo").classList.add("hidden");
       document.querySelector("#email-button #loading").classList.remove("hidden");
+      document.querySelector("#email-form #email").setAttribute("disabled", "true");
+      document.querySelector("#email-form #submit").setAttribute("disabled", "true");
     });
 
+    // Reset button when user starts typing
     document.querySelector("#email-form #email").addEventListener("keydown", (e) => {
       document.querySelector("#email-button #todo").classList.remove("hidden");
       document.querySelector("#email-button #loading").classList.add("hidden");
