@@ -51,7 +51,7 @@ export async function POST({ request }) {
             { headers: { "Content-Type": "application/json", }, status: 500 }
         )
     }
-    if (res.redirected && res.url == "https://www.apohacks.com/lists/success" || res.url == "https://www.apohacks.com/lists/prevsub") {
+    if (res.redirected && (res.url == "https://www.apohacks.com/lists/success" || res.url == "https://www.apohacks.com/lists/prevsub")) {
         return new Response(
             JSON.stringify({ success: true }),
             { headers: { "Content-Type": "application/json", }, status: 200 }
