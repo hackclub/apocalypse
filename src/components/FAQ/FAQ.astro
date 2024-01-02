@@ -2,18 +2,18 @@
 import FAQCard from "./FAQCard.astro";
 ---
 
-<section
-  class="flex justify-center bg-black/40 px-8 py-3 shadow-[inset_0_16px_rgba(0,0,0,0.3)]"
->
-  <div class="flex max-w-[1000px] grow flex-col space-y-14 py-16 text-center text-white">
-    <div class="space-y-3 drop-shadow-[0_0_8px_#FF5DA9]">
-      <p class="text-4xl font-bold">FAQ</p>
-      <p class="text-lg font-bold">You got questions? We got answers :D</p>
+<section class="flex justify-center bg-black/40 shadow-[inset_0_16px_rgba(0,0,0,0.3)]">
+  <div class="flex max-w-5xl grow flex-col gap-12 px-4 py-24 text-center text-2xl">
+    <div>
+      <p class="text-6xl drop-shadow-[0_0_8px_#FF5DA9]">FAQ</p>
+      <p class="text-3xl drop-shadow-[0_0_4px_#FF5DA9]">
+        You got questions? We got answers :D
+      </p>
     </div>
-    <div class="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       <FAQCard
         question="What is this?"
-        answer="This is the Apocalypse website, currently under construction."
+        answer="This is the website for Apocalypse, a weekend-long hackathon for high school students in the Greater Toronto Area. Come learn, build, and share your best zombie-fighting tech!"
         cardId={0}
       />
       <FAQCard
@@ -41,7 +41,11 @@ import FAQCard from "./FAQCard.astro";
         answer="There will be free meals and refreshments for the full duration of the event. Workshops & activities will be held all throughout. Adult supervision will be present at all times with venue access restricted to participants."
         cardId={5}
       />
-      <FAQCard question="Do I need technical experience?" answer="Beginners and experienced makers alike are welcome!" cardId={6} />
+      <FAQCard
+        question="Do I need technical experience?"
+        answer="Beginners and experienced makers alike are welcome!"
+        cardId={6}
+      />
       <FAQCard
         question="Who’s running this?"
         answer="We're a group of teenagers from across Southern Ontario who have run hackathons like this before. You may have attended AngelHacks Toronto and Haunted House Toronto—we ran those! We're fiscally sponsored by Hack Club, a 501(c)(3) nonprofit."
@@ -50,3 +54,9 @@ import FAQCard from "./FAQCard.astro";
     </div>
   </div>
 </section>
+
+<style>
+  section {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='temple' fill='%2328184d' fill-opacity='0.12'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+</style>
