@@ -123,7 +123,7 @@
   </div>
   <div>
     <p
-      class="text-lg leading-4 md:leading-6 md:text-xl motion-safe:transition-opacity {transitioning
+      class="mt-10 text-xl leading-5 md:leading-7 md:text-2xl motion-safe:transition-opacity {transitioning
         ? 'opacity-0'
         : 'opacity-100'}"
     >
