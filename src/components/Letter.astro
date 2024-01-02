@@ -4,65 +4,76 @@ import Projects from "./Projects/Projects.svelte";
 const futureDate = new Date();
 futureDate.setFullYear(futureDate.getFullYear() + 10);
 
-// TO BE CONFIRMED
+// TODO: TO BE CONFIRMED
 const respondDate = new Date("2024-02-28");
 const eventDate = new Date("2024-03-15");
 ---
 
-<section class="flex justify-center px-6 py-8 pb-24 sm:px-8">
+<div class="-mt-6 h-12 rotate-1 border-t-8 border-accent2 bg-dark-bg"></div>
+
+<section class="flex justify-center px-8 py-16 sm:py-32">
   <div
-    class="flex max-w-[1000px] grow flex-col space-y-10 rounded-lg border-2 border-accent bg-primary-bg px-8 py-8 text-sm text-white shadow-[16px_16px_rgba(0,0,0,0.3)] sm:px-16 sm:py-12 sm:text-lg"
+    id="letter"
+    class="flex max-w-3xl grow flex-col space-y-6 border-2 border-accent bg-primary-bg px-6 py-8 text-sm shadow-[16px_16px_rgba(0,0,0,0.3)] sm:space-y-10 sm:px-12 sm:py-8 sm:text-lg md:px-16 md:py-12"
   >
     <!-- ----------------------------- Letterhead ------------------------------ -->
-    <div class="space-y-6">
-      <div class="text-right drop-shadow-[0_0_8px_#FF5DA9]">
-        <p>
-          {
-            futureDate.toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          }
-        </p>
-        <p>
-          {Math.round((respondDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
-          to respond
-        </p>
-        <p>
-          {Math.round((eventDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
-          until event
-        </p>
-      </div>
-      <!-- --------------------------- Letter Contents --------------------------- -->
-      <div class="space-y-4 sm:space-y-10">
-        <p class="text-lg font-bold italic drop-shadow-[0_0_8px_#FF5DA9] sm:text-2xl">
-          Greetings, hacker.
-        </p>
-        <p>
-          I hope you and your loved ones are well. It’s scary how fast the “zombie virus”
-          has spread across the world.
-        </p>
-        <p>
-          Our cities have turned to battlefields. Our subways and schools have grown
-          infected with the fallen.
-        </p>
-        <p class="font-bold italic">It could be the beginning of the end.</p>
-        <p>
-          But technology still stands. WiFi is up, electricity runs, and hardware
-          operates.
-        </p>
-        <p class="font-bold italic">We need your help.</p>
-      </div>
+    <div class="text-right text-xl leading-5 md:text-2xl md:leading-6">
+      <p>
+        {
+          futureDate.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+      <p>
+        {Math.round((respondDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days to
+        respond
+      </p>
+      <p>
+        {Math.round((eventDate.valueOf() - Date.now()) / (24 * 60 * 60 * 1000))} days
+        until event
+      </p>
     </div>
 
-    <div class="flex justify-center py-8">
-      <div class="flex max-w-[900px] grow flex-col space-y-6 text-center text-white">
-        <p class="text-lg sm:text-2xl">
-          Join <span class="font-bold text-accent">150 hackers</span> like you for
-          <span class="font-bold text-accent2">42 hours</span> at our safehouse.
+    <!-- --------------------------- Letter Contents --------------------------- -->
+
+    <div class="-mt-8 space-y-4 text-2xl leading-6 md:text-3xl md:leading-8">
+      <p
+        class="text-3xl italic drop-shadow-[0_0_8px_#FF5DA9] sm:pt-4 sm:text-4xl md:text-5xl"
+      >
+        Greetings, hacker.
+      </p>
+      <p>
+        I hope you and your loved ones are well. It’s scary how fast the “zombie virus”
+        has spread across the world.
+      </p>
+      <p>
+        Our cities have turned to battlefields. Our subways and schools have grown
+        infected with the fallen.
+      </p>
+      <p class="drop-shadow-[0_0_4px_#FF5DA9]">It could be the beginning of the end.</p>
+      <p>
+        But technology still stands. WiFi is up, electricity runs, and hardware operates.
+      </p>
+      <p class="italic drop-shadow-[0_0_4px_#FF5DA9]">We need your help.</p>
+    </div>
+
+    <!-- ----------------------------- Letter CTA ------------------------------ -->
+
+    <div class="justify-center py-4 sm:py-8">
+      <div
+        class="flex max-w-3xl grow flex-col gap-4 text-center text-white sm:gap-6 md:gap-10"
+      >
+        <p class="text-3xl leading-6 sm:text-4xl sm:leading-7 md:text-5xl md:leading-9">
+          Join <span class="text-accent">150 hackers</span> like you for
+          <span class="text-accent2">42 hours</span> at our safehouse.
         </p>
-        <p class="text-lg font-bold text-white drop-shadow-[0_0_8px_#FF5DA9] sm:text-2xl">
+
+        <p
+          class="text-3xl leading-6 text-white drop-shadow-[0_0_4px_#FF5DA9] sm:text-4xl sm:leading-7 md:text-5xl md:leading-9"
+        >
           Build something, <span class="italic">anything</span>, to help us survive this
           apocalypse.
         </p>
@@ -72,3 +83,10 @@ const eventDate = new Date("2024-03-15");
     <Projects client:load />
   </div>
 </section>
+
+<style>
+  #letter {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
+      linear-gradient(#5b21b6 0%, rgb(64 25 134) 100%);
+  }
+</style>

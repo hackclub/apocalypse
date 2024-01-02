@@ -26,10 +26,6 @@ const { title } = Astro.props;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <slot />
@@ -38,6 +34,23 @@ const { title } = Astro.props;
 
 <style is:global>
   body {
-    @apply overflow-x-clip bg-dark-bg;
+    @apply overflow-x-clip bg-dark-bg font-main text-purple-50;
+  }
+
+  @font-face {
+    font-family: "NeueBit-Bold";
+    src: url("/fonts/NeueBit-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+    /* TODO: block is a little controversial, but swap feels more jarring */
+  }
+
+  @font-face {
+    font-family: "NeueMontreal-Book";
+    src: url("/fonts/NeueMontreal-Book.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
   }
 </style>
