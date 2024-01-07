@@ -85,7 +85,6 @@
     setTimeout(() => {
       transitioning = false;
       currentId = value;
-      console.log(currentId);
     }, 350);
   });
 
