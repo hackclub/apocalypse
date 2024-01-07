@@ -15,7 +15,7 @@ export default {
         accent2: "#FF5DA9",
       },
       fontFamily: {
-        sans: ["NeueMontreal-Book", ...defaultTheme.fontFamily.sans],
+        sans: [...defaultTheme.fontFamily.sans],
         main: ["NeueBit-Bold", ...defaultTheme.fontFamily.mono],
       },
       screens: {
@@ -23,5 +23,4 @@ export default {
       },
     },
   },
-  plugins: [],
 };
