@@ -1,5 +1,5 @@
 ---
-const { question, answer, cardId } = Astro.props;
+const { question, cardId } = Astro.props;
 ---
 
 <div
@@ -9,12 +9,14 @@ const { question, answer, cardId } = Astro.props;
   <p class="text-2xl leading-6 lg:text-3xl lg:leading-7">
     {question}
   </p>
-  <p class="font-sans text-sm lg:text-base">{answer}</p>
+  <p class="font-sans text-sm lg:text-base">
+    <slot />
+  </p>
 </div>
 
 <script define:vars={{ cardId }}>
   let hash = window.location.hash;
-  if (hash == `#faq${cardId}`) {
+  if (hash == `#faq${cardId + 1}`) {
     document
       .getElementById(`faq${cardId}`)
       .classList.remove("shadow-[6px_6px_rgba(0,0,0,0.3)]");
