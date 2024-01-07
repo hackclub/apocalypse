@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+// import SpeedInsights from "@vercel/speed-insights/astro";
 ---
 
 <!doctype html>
@@ -29,6 +31,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
+    <SpeedInsights />
   </body>
 </html>
 
@@ -46,11 +49,19 @@ const { title } = Astro.props;
     /* TODO: block is a little controversial, but swap feels more jarring */
   }
 
-  @font-face {
-    font-family: "NeueMontreal-Book";
-    src: url("/fonts/NeueMontreal-Book.otf") format("opentype");
-    font-weight: bold;
+  /* @font-face {
+    font-family: "NeueMontreal";
+    src: url("/fonts/NeueMontreal-Medium.otf") format("opentype");
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
+
+  @font-face {
+    font-family: "NeueMontreal";
+    src: url("/fonts/NeueMontreal-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  } */
 </style>
