@@ -15,12 +15,12 @@ export default {
         accent2: "#FF5DA9",
       },
       fontFamily: {
-        sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
+        sans: [...defaultTheme.fontFamily.sans],
+        main: ["NeueBit-Bold", ...defaultTheme.fontFamily.mono],
       },
       screens: {
         xs: "320px",
       },
     },
   },
-  plugins: [],
 };

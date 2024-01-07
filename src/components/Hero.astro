@@ -1,200 +1,214 @@
-<header
-  style="background-image: radial-gradient(#5b21b6 0%, #28184d 70%);"
-  class="flex flex-col items-center pb-20"
->
-  <!-- ----------------------------- Top graphic ----------------------------- -->
+<header class="flex min-h-screen flex-col items-center text-purple-50">
+  <!-- --------------------------------- Top --------------------------------- -->
 
-  <div class="flex max-h-[35vh] w-full items-end justify-center overflow-hidden">
-    <img class="w-full object-cover" src="/top.svg" alt="Top Graphic" />
-  </div>
+  <nav class="flex h-48 items-center justify-center">
+    <!-- TODO: Centering issues...this setup is kinda janky -->
+    <div class="w-72 sm:w-96">
+      <img
+        class="w-full"
+        src="apotitle.png"
+        alt="Apocalypse written in capitals in a graffiti, glitching style"
+      />
+      <!-- <h1
+        id="splash"
+        class="relative bottom-8 left-72 w-[24ch] text-center text-lg leading-[0.9] text-white sm:text-xl sm:leading-[0.9] lg:-translate-x-14 lg:-translate-y-6 lg:-rotate-6 lg:text-2xl lg:leading-[0.85]"
+      >
+        What if your ideas weren't restricted to the real world?
+      </h1> -->
+    </div>
+  </nav>
 
-  <!-- ------------------------- Title and subtitles ------------------------- -->
+  <!-- -------------------------------- Main --------------------------------- -->
 
-  <div
-    class="mt-6 flex max-w-[1000px] grow flex-col space-y-5 px-8 text-center text-white xs:space-y-7 sm:mx-11 sm:mt-0 sm:space-y-10"
-  >
-    <div class="space-y-2 md:space-y-3">
-      <div class="flex flex-col">
-        <p class="text-sm uppercase tracking-wide xs:text-lg sm:text-2xl">
-          Welcome to the
-        </p>
-
-        <img src="apotitle.png" class="max-h-48 w-auto self-center drop-shadow-2xl" />
-      </div>
-
-      <p class="text-sm tracking-wide xs:text-lg sm:text-2xl">
-        Toronto — Tentatively March 15–17th, 2024
+  <div class="flex flex-col justify-center px-6 lg:px-0">
+    <div class="max-w-2xl">
+      <h1
+        class="mt-3 text-3xl leading-[0.8] sm:text-4xl sm:leading-[0.8] lg:mt-5 lg:text-5xl lg:leading-[0.85]"
+      >
+        The <span class="text-accent2">high school hackathon</span> where you build fun
+        tech to survive a <span class="text-accent">zombie apocalypse</span>!
+      </h1>
+      <!-- TODO: Vertical spacing around here is a little funky! -->
+      <p class="mt-1 text-2xl sm:mt-2 sm:text-3xl lg:mt-3 lg:text-4xl">
+        Toronto <span class="text-accent2">|</span> March 15–17, 2024
       </p>
-
-      <div class="flex flex-col">
-        <p class="xs:text-md text-sm tracking-wide sm:text-lg">
-          Get notified when registrations open!
-        </p>
-
-        <!-- TODO, make this a HTML form -->
-        <form
-          action="https://postal.hackclub.com/subscribe"
-          method="POST"
-          accept-charset="utf-8"
-          class="mt-3 flex self-center overflow-clip rounded-md bg-dark-bg shadow-[inset_5px_5px_rgba(0,0,0,0.3)]"
-          id="email-form"
+      <p class="mt-4 text-lg text-purple-200 sm:mt-6 sm:text-xl lg:mt-8 lg:text-2xl">
+        Get notified when registrations open!
+      </p>
+      <form
+        action="https://postal.hackclub.com/subscribe"
+        method="POST"
+        accept-charset="utf-8"
+        class="mt-1 flex overflow-clip bg-[#280f61] shadow-[inset_5px_5px_#0c0726] lg:mt-2"
+        id="email-form"
+      >
+        <!-- Coloring for <form> was originally bg-dark-bg shadow-[inset_5px_5px_rgba(0,0,0,0.3)] -->
+        <!-- Fix alignment for this text -->
+        <input
+          class="flex-1 bg-transparent pb-1 pl-4 pt-2 text-xl placeholder-white placeholder-opacity-75 focus:outline-none sm:pb-3 sm:pl-6 sm:pt-4 sm:text-2xl lg:text-3xl"
+          placeholder="you@example.com"
+          type="email"
+          name="email"
+          id="email"
+          required
+        />
+        <input type="hidden" name="list" value="YAbJpY892wYYel892gyGNghouQ" />
+        <input type="hidden" name="subform" value="yes" />
+        <label
+          for="submit"
+          id="email-button"
+          class="group flex cursor-pointer items-center px-4 py-2 sm:px-7 sm:py-3"
         >
-          <input
-            class="bg-transparent py-2 pl-4 text-sm placeholder-white placeholder-opacity-75 focus:outline-none sm:py-3 sm:pl-6 sm:text-lg md:text-xl"
-            placeholder="you@example.com"
-            type="email"
-            name="email"
-            id="email"
-            required
-          />
-
-          <input type="hidden" name="list" value="YAbJpY892wYYel892gyGNghouQ" />
-          <input type="hidden" name="subform" value="yes" />
-
-          <label
-            for="submit"
-            id="email-button"
-            class="flex items-center px-4 py-2 text-sm sm:px-7 sm:py-3 sm:text-lg md:text-xl"
+          <svg
+            class="h-6 w-6 text-white motion-safe:transition-transform motion-safe:group-hover:translate-x-1 sm:h-8 sm:w-8"
+            id="todo"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
           >
-            <svg
-              id="todo"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              class="h-4 w-4 fill-white sm:h-6 sm:w-6"
+            <path
+              d="M4 11v2h12v2h2v-2h2v-2h-2V9h-2v2H4zm10-4h2v2h-2V7zm0 0h-2V5h2v2zm0 10h2v-2h-2v2zm0 0h-2v2h2v-2z"
+              fill="currentColor"
             >
-              <path
-                d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"
-              ></path>
-            </svg>
-            <svg
-              class="hidden h-4 w-4 animate-spin text-white sm:h-6 sm:w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              id="loading"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-            <svg
-              id="done"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              class="hidden h-6 w-6 fill-white"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </label>
-          <input type="submit" name="submit" id="submit" value="" class="w-0" />
-        </form>
-      </div>
-    </div>
-
-    <!-- ----------------------------- Bottom text ----------------------------- -->
-
-    <div>
-      <p class="xs:text-lg md:text-xl">
-        A <span class="font-bold text-accent">high school hackathon</span>
-         where you make <span
-          id="changingText"
-          class="inline-block underline decoration-accent decoration-wavy decoration-1 motion-safe:transition-all motion-safe:duration-200"
-          >fun</span
-        >
-         things to <span class="font-bold text-accent">survive</span> the zombie
-        apocalypse.
-      </p>
+            </path>
+          </svg>
+          <svg
+            id="loading"
+            class="hidden h-6 w-6 animate-spin text-white sm:h-8 sm:w-8"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12.9999 2H10.9999V8H12.9999V2ZM12.9999 16H10.9999V22H12.9999V16ZM21.9998 11V13L15.9998 13V11H21.9998ZM7.99963 13V11H1.99963V13L7.99963 13ZM14.9996 6.99997H16.9996V8.99997H14.9996V6.99997ZM18.9995 4.99997H16.9995V6.99997H18.9995V4.99997ZM8.99963 6.99997H6.99963V8.99997H8.99963V6.99997ZM4.99973 4.99997H6.99973V6.99997H4.99973V4.99997ZM14.9996 17H16.9995V18.9999H18.9995V16.9999H16.9996V15H14.9996V17ZM6.99963 16.9999V15H8.99963V17H6.99973V18.9999H4.99973V16.9999H6.99963Z"
+              fill="currentColor"></path></svg
+          >
+          <svg
+            id="done"
+            class="hidden h-6 w-6 text-white sm:h-8 sm:w-8"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4 4H20H22V6V14H20V6H4V18H12V20H4H2V18V6V4H4ZM8 8H6V10H8V12H10V14H14V12H16V10H18V8H16V10H14V12H10V10H8V8ZM14 18H16V20H14V18ZM18 20V22H16V20H18ZM20 18H18V20H20V18ZM20 18V16H22V18H20Z"
+              fill="currentColor"></path></svg
+          >
+        </label>
+        <input type="submit" name="submit" id="submit" value="" class="w-0" />
+      </form>
     </div>
   </div>
 
-  <script>
-    const changingText = document.getElementById("changingText");
-    const words = ["fun", "weird", "wacky"];
-    let i = 1;
+  <!-- --------------------------- Bottom graphic ---------------------------- -->
 
-    setInterval(() => {
-      changingText.classList.add("motion-safe:-translate-y-3");
-      changingText.classList.add("motion-safe:opacity-0");
+  <img
+    class="max-h-full w-full grow rotate-180 object-cover object-bottom drop-shadow-lg"
+    src="/skyline.svg"
+    alt="City skyline"
+  />
+</header>
 
-      setTimeout(() => {
-        changingText.innerText = words[i];
-        changingText.classList.remove("motion-safe:-translate-y-3");
-        changingText.classList.add("motion-safe:translate-y-3");
-        i++;
-        if (i >= words.length) i = 0;
-      }, 200);
+<style>
+  header {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
+      radial-gradient(#5b21b6 0%, #28184d 70%);
+  }
 
-      setTimeout(() => {
-        changingText.classList.remove("motion-safe:translate-y-3");
-        changingText.classList.remove("motion-safe:opacity-0");
-      }, 400);
-    }, 5000);
+  #splash {
+    text-shadow:
+      -1px -1px 0 #28184d,
+      1px -1px 0 #28184d,
+      -1px 1px 0 #28184d,
+      1px 1px 0 #28184d;
+  }
 
-    document.getElementById("email-form").addEventListener("submit", (e) => {
-      e.preventDefault();
+  /* Alternative gradients */
 
-      fetch("/api/lists/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: (document.getElementById("email") as HTMLFormElement).value,
-        }),
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            // Success: Switch to done and enable editing
-            document.querySelector("#email-button #todo").classList.add("hidden");
-            document.querySelector("#email-button #loading").classList.add("hidden");
-            document.querySelector("#email-button #done").classList.remove("hidden");
-            document.querySelector("#email-form #email").removeAttribute("disabled");
-            document
-              .querySelector("#email-form #submit")
-              .setAttribute("disabled", "true");
-          } else {
-            // Failure: Switch to todo, enable editing and submitting
-            document.querySelector("#email-button #todo").classList.remove("hidden");
-            document.querySelector("#email-button #loading").classList.add("hidden");
-            document.querySelector("#email-button #done").classList.add("hidden");
-            document.querySelector("#email-form #email").removeAttribute("disabled");
-            document.querySelector("#email-form #submit").removeAttribute("disabled");
-          }
-        })
-        .catch(() => {
+  /* radial-gradient(#4a1b9d 0%, #1c1340 70%); */
+  /* radial-gradient(#39157f 0%, #120d33 70%); */
+  /* radial-gradient(#280f61 0%, #0c0726 70%); */
+</style>
+
+<script>
+  const changingText = document.getElementById("changingText");
+  const words = ["fun", "weird", "wacky"];
+  let i = 1;
+
+  setInterval(() => {
+    changingText.classList.add("motion-safe:-translate-y-3");
+    changingText.classList.add("motion-safe:opacity-0");
+
+    setTimeout(() => {
+      changingText.innerText = words[i];
+      changingText.classList.remove("motion-safe:-translate-y-3");
+      changingText.classList.add("motion-safe:translate-y-3");
+      i++;
+      if (i >= words.length) i = 0;
+    }, 200);
+
+    setTimeout(() => {
+      changingText.classList.remove("motion-safe:translate-y-3");
+      changingText.classList.remove("motion-safe:opacity-0");
+    }, 400);
+  }, 5000);
+
+  document.getElementById("email-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    fetch("/api/lists/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: (document.getElementById("email") as HTMLFormElement).value,
+      }),
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          // Success: Switch to done and enable editing
+          document.querySelector("#email-button #todo").classList.add("hidden");
+          document.querySelector("#email-button #loading").classList.add("hidden");
+          document.querySelector("#email-button #done").classList.remove("hidden");
+          document.querySelector("#email-form #email").removeAttribute("disabled");
+          document.querySelector("#email-form #submit").setAttribute("disabled", "true");
+        } else {
           // Failure: Switch to todo, enable editing and submitting
           document.querySelector("#email-button #todo").classList.remove("hidden");
           document.querySelector("#email-button #loading").classList.add("hidden");
           document.querySelector("#email-button #done").classList.add("hidden");
           document.querySelector("#email-form #email").removeAttribute("disabled");
           document.querySelector("#email-form #submit").removeAttribute("disabled");
-        });
+        }
+      })
+      .catch(() => {
+        // Failure: Switch to todo, enable editing and submitting
+        document.querySelector("#email-button #todo").classList.remove("hidden");
+        document.querySelector("#email-button #loading").classList.add("hidden");
+        document.querySelector("#email-button #done").classList.add("hidden");
+        document.querySelector("#email-form #email").removeAttribute("disabled");
+        document.querySelector("#email-form #submit").removeAttribute("disabled");
+      });
 
-      // Loading: Switch to loading, disable editing and submitting
-      document.querySelector("#email-button #todo").classList.add("hidden");
-      document.querySelector("#email-button #loading").classList.remove("hidden");
-      document.querySelector("#email-form #email").setAttribute("disabled", "true");
-      document.querySelector("#email-form #submit").setAttribute("disabled", "true");
-    });
+    // Loading: Switch to loading, disable editing and submitting
+    document.querySelector("#email-button #todo").classList.add("hidden");
+    document.querySelector("#email-button #loading").classList.remove("hidden");
+    document.querySelector("#email-form #email").setAttribute("disabled", "true");
+    document.querySelector("#email-form #submit").setAttribute("disabled", "true");
+  });
 
-    // Reset button when user starts typing
-    document.querySelector("#email-form #email").addEventListener("keydown", (e) => {
-      document.querySelector("#email-button #todo").classList.remove("hidden");
-      document.querySelector("#email-button #loading").classList.add("hidden");
-      document.querySelector("#email-button #done").classList.add("hidden");
-      document.querySelector("#email-form #submit").removeAttribute("disabled");
-    });
-  </script>
-</header>
+  // Reset button when user starts typing
+  document.querySelector("#email-form #email").addEventListener("keydown", (e) => {
+    document.querySelector("#email-button #todo").classList.remove("hidden");
+    document.querySelector("#email-button #loading").classList.add("hidden");
+    document.querySelector("#email-button #done").classList.add("hidden");
+    document.querySelector("#email-form #submit").removeAttribute("disabled");
+  });
+</script>
