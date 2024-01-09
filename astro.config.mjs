@@ -8,7 +8,7 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind(), svelte()],
 redirects: {
-    '/prospectus': '/prospectus.pdf'
+    '/prospectus': 'https://drive.google.com/file/d/14HfsaimWtsQ7kZwUoKATH1Ufk6uCODre/view?usp=drivesdk'
   },
   output: "server",
   adapter: vercel({
