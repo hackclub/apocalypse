@@ -1,0 +1,39 @@
+---
+import SponsorCard from "./SponsorCard.astro";
+---
+
+<section class="flex justify-center">
+  <div class="flex max-w-5xl grow flex-col gap-12 px-4 pb-24 pt-12 text-center text-2xl">
+    <div>
+      <p class="text-6xl drop-shadow-[0_0_8px_#FF5DA9]">Our Sponsors</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <!-- The images are already cropped to brand guidelines, do crop smaller or change colour -->
+      <!-- Some padding is added to make spacing consistent -->
+      <SponsorCard
+        name="AMD"
+        img="/sponsors/AMD_E_Blk_RGB.jpg"
+        href="https://www.amd.com/"
+      />
+      <SponsorCard
+        name="BlueDot"
+        img="/sponsors/BlueDot_Horizontal_RGB.png"
+        href="https://bluedot.global/"
+        class="px-12 py-10"
+      />
+    </div>
+
+    <div class="font-sans text-base">
+      <p>Our sponsors allow us to run a memorable event at no cost for participants.</p>
+      <p>
+        Interested in supporting future innovators, creators and technologists? Contact us
+        at <span class="drop-shadow-[0_0_3px_#FF5DA999]"
+          ><a class="hover:underline" href="mailto:team@apohacks.com" target="_blank"
+            >team@apohacks.com</a
+          ></span
+        >!
+      </p>
+    </div>
+  </div>
+</section>
