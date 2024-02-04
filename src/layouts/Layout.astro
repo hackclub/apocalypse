@@ -12,8 +12,17 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta property="og:site_name" content="Apocalypse">
     <meta
       name="description"
+      content="Apocalypse is a high school hackathon in Toronto where you hack your survival!"
+    />
+    <meta
+      name="twitter:description"
+      content="Apocalypse is a high school hackathon in Toronto where you hack your survival!"
+    />
+    <meta
+      property="og:description"
       content="Apocalypse is a high school hackathon in Toronto where you hack your survival!"
     />
     <meta name="viewport" content="width=device-width" />
@@ -42,7 +51,9 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "NeueBit-Bold";
-    src: url("/fonts/NeueBit-Bold.otf") format("opentype");
+    src:
+      url("/fonts/NeueBit-Bold.woff2") format("woff2"),
+      url("/fonts/NeueBit-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: block;
