@@ -5,7 +5,9 @@ const { name, img, href, class: className = "" } = Astro.props;
 <div
   class="space-y-2 overflow-clip p-4 text-4xl text-black motion-safe:transition-transform motion-safe:hover:scale-105 lg:space-y-3 lg:p-6"
 >
-  <div class=`flex h-full items-center justify-center bg-white ${className}`>
+  <div
+    class=`flex h-full items-center justify-center bg-white rounded-md overflow-hidden ${className}`
+  >
     <a href={href} target="_blank">
       <img src={img} alt={name} />
     </a>
