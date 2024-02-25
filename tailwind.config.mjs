@@ -15,7 +15,7 @@ export default {
         accent2: "#FF5DA9",
       },
       fontFamily: {
-        sans: [...defaultTheme.fontFamily.sans],
+        sans: ["Geist", ...defaultTheme.fontFamily.sans],
         main: ["NeueBit-Bold", ...defaultTheme.fontFamily.mono],
       },
       screens: {
