@@ -46,6 +46,7 @@ export async function POST({ request }) {
             method: "POST"
         });
     } catch {
+        console.error("Failed to fetch");
         return new Response(
             JSON.stringify({ success: false }),
             { headers: { "Content-Type": "application/json", }, status: 500 }
@@ -57,6 +58,7 @@ export async function POST({ request }) {
             { headers: { "Content-Type": "application/json", }, status: 200 }
         )
     } else {
+        console.error("Failed to subscribe", await res.text());
         return new Response(
             JSON.stringify({ success: false }),
             { headers: { "Content-Type": "application/json", }, status: 500 }
