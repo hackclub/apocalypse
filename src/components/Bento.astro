@@ -1,8 +1,8 @@
 <article class="flex justify-center pb-16">
   <section class="flex max-w-5xl flex-col gap-4">
-    <div class="col-span-3 row-span-4 flex gap-4">
+    <div class="flex flex-col lg:flex-row lg:gap-4">
       <div
-        class="flex grow flex-col gap-3 bg-gradient-to-br from-fuchsia-700 to-purple-800 p-8"
+        class="flex flex-col gap-3 bg-gradient-to-br from-fuchsia-700 to-purple-800 p-8"
       >
         <h2 class="text-4xl font-bold text-white">What’s a hackathon?</h2>
         <div class="space-y-3 font-sans">
@@ -20,15 +20,18 @@
       </div>
 
       <iframe
-        class="w-[36rem] shrink-0"
+        class="aspect-video w-full lg:w-[36rem] lg:shrink-0"
         src="https://www.youtube.com/embed/PnK4gzO6S3Q?si=VgYF42Z0y3BOOhcQ"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
     </div>
 
-    <div class="col-span-3 row-span-4 flex h-80 gap-4">
-      <img src="https://cloud-g9s3zq2py-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01609.jpg" class="w-[36rem] shrink-0 object-cover" />
+    <div class="flex flex-col-reverse lg:h-80 lg:flex-row lg:gap-4">
+      <img
+        src="https://res.cloudinary.com/dacrrezls/image/upload/f_auto,q_auto/ux6lup3yxt5mv62j329t"
+        class="h-[20rem] object-cover lg:h-auto lg:w-[36rem] lg:shrink-0"
+      />
 
       <div class="flex grow flex-col gap-3 bg-primary-bg p-8">
         <h2 class="text-4xl font-bold text-white">Build what you love</h2>
@@ -46,7 +49,7 @@
       </div>
     </div>
 
-    <div class="col-span-3 row-span-4 flex h-80 gap-4">
+    <div class="flex flex-col lg:h-80 lg:flex-row lg:gap-4">
       <div class="flex grow flex-col gap-3 bg-primary-bg p-8">
         <h2 class="text-4xl font-bold text-white">Share your knowledge</h2>
         <div class="space-y-3 font-sans">
@@ -62,11 +65,17 @@
         </div>
       </div>
 
-      <img class="w-[36rem] shrink-0 object-cover" src="https://cloud-ceg2b0vb9-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_00205.jpg" />
+      <img
+        class="h-[20rem] object-cover lg:h-auto lg:w-[36rem] lg:shrink-0"
+        src="https://res.cloudinary.com/dacrrezls/image/upload/f_auto,q_auto/jf6rzwjn3ibsdiajwsig"
+      />
     </div>
 
-    <div class="col-span-3 row-span-4 flex h-80 gap-4">
-      <img src="https://cloud-7ct1m1nnk-hack-club-bot.vercel.app/0k_gsxmho.jpeg" class="w-[36rem] shrink-0 object-cover" />
+    <div class="flex flex-col-reverse lg:h-80 lg:flex-row lg:gap-4">
+      <img
+        src="https://res.cloudinary.com/dacrrezls/image/upload/f_auto,q_auto/tap6ajlfihfqwh95k9fw"
+        class="h-[20rem] object-cover object-top lg:h-auto lg:w-[36rem] lg:shrink-0"
+      />
 
       <div class="flex grow flex-col gap-3 bg-primary-bg p-8">
         <h2 class="text-4xl font-bold text-white">Make new friends</h2>
@@ -84,7 +93,7 @@
       </div>
     </div>
 
-    <div class="col-span-3 row-span-4 flex h-80 flex-col gap-4 md:flex-row">
+    <div class="flex flex-col lg:h-96 lg:flex-row lg:gap-4">
       <div
         class="flex grow flex-col gap-3 bg-gradient-to-tl from-fuchsia-700 to-purple-800 p-8"
       >
@@ -106,14 +115,10 @@
         >
       </div>
 
-      <img class="w-[18rem] shrink-0 object-cover" src="https://cloud-ptig1oimb-hack-club-bot.vercel.app/0outernet-50.jpg" />
+      <img
+        class="h-[20rem] object-cover lg:h-auto lg:w-[36rem] lg:shrink-0"
+        src="https://res.cloudinary.com/dacrrezls/image/upload/f_auto,q_auto/ksawdi7rqsrpwxnvzfzh"
+      />
     </div>
   </section>
 </article>
-
-<style>
-  #bento {
-    grid-template-columns: repeat(3, 20rem);
-    grid-template-rows: repeat(20, 5rem);
-  }
-</style>
