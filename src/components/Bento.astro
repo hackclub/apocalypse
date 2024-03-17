@@ -109,18 +109,18 @@
         </div>
 
         <!-- TODO: Add form itself here -->
-
+        <!-- mt-auto self-start bg-purple-900 px-8 py-3 font-main text-2xl shadow-sm -->
         <form
           action="https://postal.hackclub.com/subscribe"
           method="POST"
           accept-charset="utf-8"
-          class="mt-1 flex overflow-clip bg-[#280f61] shadow-[inset_5px_5px_#0c0726] lg:mt-2"
+          class="mt-auto flex border-b-2 border-purple-100 bg-purple-900 px-5 py-2 font-main text-2xl shadow-sm"
           id="email-form2"
         >
           <!-- Coloring for <form> was originally bg-dark-bg shadow-[inset_5px_5px_rgba(0,0,0,0.3)] -->
           <!-- Fix alignment for this text -->
           <input
-            class="flex-1 bg-transparent pb-1 pl-4 pt-2 text-xl placeholder-white placeholder-opacity-75 focus:outline-none sm:pb-3 sm:pl-6 sm:pt-4 sm:text-2xl lg:text-3xl"
+            class="flex-1 bg-transparent pt-0.5 text-2xl placeholder-white placeholder-opacity-75 focus:outline-none"
             placeholder="you@example.com"
             type="email"
             name="email"
@@ -132,10 +132,10 @@
           <label
             for="submit2"
             id="email-button2"
-            class="group flex cursor-pointer items-center px-4 py-2 sm:px-7 sm:py-3"
+            class="group flex cursor-pointer items-center"
           >
             <svg
-              class="h-6 w-6 text-white motion-safe:transition-transform motion-safe:group-hover:translate-x-1 sm:h-8 sm:w-8"
+              class="motion-safe:group-hover:translate-x-17 h-7 w-7 text-purple-100 motion-safe:transition-transform"
               id="todo"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@
             </svg>
             <svg
               id="loading"
-              class="hidden h-6 w-6 animate-spin text-white sm:h-8 sm:w-8"
+              class="hidden h-7 w-7 animate-spin text-purple-100"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -163,7 +163,7 @@
             >
             <svg
               id="done"
-              class="hidden h-6 w-6 text-white sm:h-8 sm:w-8"
+              class="hidden h-7 w-7 text-purple-100"
               width="24"
               height="24"
               viewBox="0 0 24 24"
