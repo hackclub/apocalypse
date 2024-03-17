@@ -1,12 +1,12 @@
 ---
-const { name, img, href, class: className = "" } = Astro.props;
+const { name, img, href, class: classname = "", innerclass = "" } = Astro.props;
 ---
 
 <div
-  class="space-y-2 overflow-clip p-4 text-4xl text-black motion-safe:transition-transform motion-safe:hover:scale-105 lg:space-y-3 lg:p-6"
+  class=`space-y-2 overflow-clip p-4 text-4xl text-black motion-safe:transition-transform motion-safe:hover:scale-105 lg:space-y-3 lg:p-6 ${classname}`
 >
   <div
-    class=`flex items-center justify-center bg-white rounded-md overflow-hidden ${className}`
+    class=`flex items-center justify-center bg-white rounded-md overflow-hidden ${innerclass}`
   >
     <a href={href} target="_blank">
       <img src={img} alt={name} />
