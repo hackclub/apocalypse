@@ -109,11 +109,75 @@
         </div>
 
         <!-- TODO: Add form itself here -->
-
-        <a
-          class="mt-auto self-start bg-purple-900 px-8 py-3 font-main text-2xl shadow-sm"
-          href="#email-form">Pre-register now</a
+        <!-- mt-auto self-start bg-purple-900 px-8 py-3 font-main text-2xl shadow-sm -->
+        <form
+          action="https://postal.hackclub.com/subscribe"
+          method="POST"
+          accept-charset="utf-8"
+          class="mt-auto flex border-b-2 border-purple-100 bg-purple-900 px-5 py-2 font-main text-2xl shadow-sm"
+          id="email-form2"
         >
+          <!-- Coloring for <form> was originally bg-dark-bg shadow-[inset_5px_5px_rgba(0,0,0,0.3)] -->
+          <!-- Fix alignment for this text -->
+          <input
+            class="flex-1 bg-transparent pt-0.5 text-2xl placeholder-white placeholder-opacity-75 focus:outline-none"
+            placeholder="you@example.com"
+            type="email"
+            name="email"
+            id="email2"
+            required
+          />
+          <input type="hidden" name="list" value="YAbJpY892wYYel892gyGNghouQ" />
+          <input type="hidden" name="subform" value="yes" />
+          <label
+            for="submit2"
+            id="email-button2"
+            class="group flex cursor-pointer items-center"
+          >
+            <svg
+              class="motion-safe:group-hover:translate-x-17 h-7 w-7 text-purple-100 motion-safe:transition-transform"
+              id="todo"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4 11v2h12v2h2v-2h2v-2h-2V9h-2v2H4zm10-4h2v2h-2V7zm0 0h-2V5h2v2zm0 10h2v-2h-2v2zm0 0h-2v2h2v-2z"
+                fill="currentColor"
+              >
+              </path>
+            </svg>
+            <svg
+              id="loading"
+              class="hidden h-7 w-7 animate-spin text-purple-100"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.9999 2H10.9999V8H12.9999V2ZM12.9999 16H10.9999V22H12.9999V16ZM21.9998 11V13L15.9998 13V11H21.9998ZM7.99963 13V11H1.99963V13L7.99963 13ZM14.9996 6.99997H16.9996V8.99997H14.9996V6.99997ZM18.9995 4.99997H16.9995V6.99997H18.9995V4.99997ZM8.99963 6.99997H6.99963V8.99997H8.99963V6.99997ZM4.99973 4.99997H6.99973V6.99997H4.99973V4.99997ZM14.9996 17H16.9995V18.9999H18.9995V16.9999H16.9996V15H14.9996V17ZM6.99963 16.9999V15H8.99963V17H6.99973V18.9999H4.99973V16.9999H6.99963Z"
+                fill="currentColor"></path></svg
+            >
+            <svg
+              id="done"
+              class="hidden h-7 w-7 text-purple-100"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4 4H20H22V6V14H20V6H4V18H12V20H4H2V18V6V4H4ZM8 8H6V10H8V12H10V14H14V12H16V10H18V8H16V10H14V12H10V10H8V8ZM14 18H16V20H14V18ZM18 20V22H16V20H18ZM20 18H18V20H20V18ZM20 18V16H22V18H20Z"
+                fill="currentColor"></path></svg
+            >
+          </label>
+          <input type="submit" name="submit" id="submit2" value="" class="w-0" />
+        </form>
       </div>
 
       <img
@@ -123,3 +187,60 @@
     </div>
   </section>
 </article>
+
+<script>
+  document.getElementById("email-form2").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    fetch("/api/lists/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: (document.getElementById("email2") as HTMLFormElement).value,
+      }),
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          // Success: Switch to done and enable editing
+          document.querySelector("#email-button2 #todo").classList.add("hidden");
+          document.querySelector("#email-button2 #loading").classList.add("hidden");
+          document.querySelector("#email-button2 #done").classList.remove("hidden");
+          document.querySelector("#email-form2 #email2").removeAttribute("disabled");
+          document
+            .querySelector("#email-form2 #submit2")
+            .setAttribute("disabled", "true");
+        } else {
+          // Failure: Switch to todo, enable editing and submitting
+          document.querySelector("#email-button2 #todo").classList.remove("hidden");
+          document.querySelector("#email-button2 #loading").classList.add("hidden");
+          document.querySelector("#email-button2 #done").classList.add("hidden");
+          document.querySelector("#email-form2 #email2").removeAttribute("disabled");
+          document.querySelector("#email-form2 #submit2").removeAttribute("disabled");
+        }
+      })
+      .catch(() => {
+        // Failure: Switch to todo, enable editing and submitting
+        document.querySelector("#email-button2 #todo").classList.remove("hidden");
+        document.querySelector("#email-button2 #loading").classList.add("hidden");
+        document.querySelector("#email-button2 #done").classList.add("hidden");
+        document.querySelector("#email-form2 #email2").removeAttribute("disabled");
+        document.querySelector("#email-form2 #submit2").removeAttribute("disabled");
+      });
+
+    // Loading: Switch to loading, disable editing and submitting
+    document.querySelector("#email-button2 #todo").classList.add("hidden");
+    document.querySelector("#email-button2 #loading").classList.remove("hidden");
+    document.querySelector("#email-form2 #email2").setAttribute("disabled", "true");
+    document.querySelector("#email-form2 #submit2").setAttribute("disabled", "true");
+  });
+
+  // Reset button when user starts typing
+  document.querySelector("#email-form2 #email2").addEventListener("keydown", (e) => {
+    document.querySelector("#email-button2 #todo").classList.remove("hidden");
+    document.querySelector("#email-button2 #loading").classList.add("hidden");
+    document.querySelector("#email-button2 #done").classList.add("hidden");
+    document.querySelector("#email-form2 #submit2").removeAttribute("disabled");
+  });
+</script>
