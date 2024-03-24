@@ -1,3 +1,6 @@
+<div id="homesection" class="top-[-100px]]">
+  <!-- Content of the section you want to scroll to -->
+</div>
 <header class="flex min-h-screen flex-col items-center text-purple-50">
   <!-- --------------------------------- Top --------------------------------- -->
 
@@ -9,6 +12,7 @@
         src="apotitle.png"
         alt="Apocalypse written in capitals in a graffiti, glitching style"
       />
+
       <!-- <h1
         id="splash"
         class="relative bottom-8 left-72 w-[24ch] text-center text-lg leading-[0.9] text-white sm:text-xl sm:leading-[0.9] lg:-translate-x-14 lg:-translate-y-6 lg:-rotate-6 lg:text-2xl lg:leading-[0.85]"
@@ -21,7 +25,7 @@
   <!-- -------------------------------- Main --------------------------------- -->
 
   <div class="flex flex-col justify-center px-6 lg:px-0">
-    <div class="max-w-2xl">
+    <div id="homepart" class="max-w-2xl">
       <h1
         class="mt-3 text-3xl leading-[0.8] sm:text-4xl sm:leading-[0.8] lg:mt-5 lg:text-5xl lg:leading-[0.85]"
       >
@@ -140,25 +144,25 @@
 </style>
 
 <script>
-  const changingText = document.getElementById("changingText");
+  //const changingText = document.getElementById("changingText");
   const words = ["fun", "weird", "wacky"];
   let i = 1;
 
   setInterval(() => {
-    changingText.classList.add("motion-safe:-translate-y-3");
-    changingText.classList.add("motion-safe:opacity-0");
+    //changingText.classList.add("motion-safe:-translate-y-3");
+    //changingText.classList.add("motion-safe:opacity-0");
 
     setTimeout(() => {
-      changingText.innerText = words[i];
-      changingText.classList.remove("motion-safe:-translate-y-3");
-      changingText.classList.add("motion-safe:translate-y-3");
+      //changingText.innerText = words[i];
+      //changingText.classList.remove("motion-safe:-translate-y-3");
+      //changingText.classList.add("motion-safe:translate-y-3");
       i++;
       if (i >= words.length) i = 0;
     }, 200);
 
     setTimeout(() => {
-      changingText.classList.remove("motion-safe:translate-y-3");
-      changingText.classList.remove("motion-safe:opacity-0");
+      //changingText.classList.remove("motion-safe:translate-y-3");
+      //changingText.classList.remove("motion-safe:opacity-0");
     }, 400);
   }, 5000);
 
