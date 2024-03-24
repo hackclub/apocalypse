@@ -1,36 +1,35 @@
-<div
-  class="fixed bottom-0 z-10 flex h-screen w-screen items-center justify-center p-10 md:justify-start"
->
+<div class="fixed bottom-0 z-10 flex h-screen w-screen items-center justify-center p-10">
   <div
-    class="fixed bottom-[2%] flex w-auto flex-row items-center justify-center rounded-full bg-gradient-to-b from-[#ff0080] to-[#7928ca] p-1 drop-shadow-[0_0_8px_#200a3d] md:bottom-auto md:w-[5vw] md:flex-col md:justify-between md:p-[5px]"
+    id="outer"
+    class="fixed bottom-[2%] flex w-auto flex-row items-center justify-center rounded-full bg-gradient-to-b from-[#ff0080] to-[#7928ca] p-1 drop-shadow-[0_0_8px_#200a3d] md:w-1/4"
   >
     <div
-      class="flex min-h-full w-full flex-row items-center justify-center rounded-full bg-purple-950 md:min-h-full md:flex-col"
+      class="flex min-h-full w-full flex-row items-center justify-center rounded-full bg-purple-950"
     >
       <!-- Sidebar -->
       <img
         src="../navbar/home.png"
         id="homeicon"
-        class="images m-3 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:m-3"
-        alt="Home"
+        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 md:w-[4vh]"
+        title="Home"
       />
       <img
         src="../navbar/letter.png"
         id="lettericon"
-        class="images m-3 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:m-3"
-        alt="Letter"
+        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
+        title="Letter"
       />
       <img
         src="../navbar/info.png"
         id="infoicon"
-        class="images m-3 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:m-3"
-        alt="Info"
+        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
+        title="Info"
       />
       <img
         src="../navbar/faq.png"
         id="faqicon"
-        class="images m-3 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:m-3"
-        alt="Faq"
+        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
+        title="Faq"
       />
     </div>
   </div>
@@ -59,9 +58,42 @@
   .images {
     display: flex;
     align-items: center;
-    height: 4vh;
-    width: 4vh;
     margin-top: 3vh;
     margin-bottom: 3vh;
   }
+  .click-shrink:active {
+    transition: all 0.01s;
+    transform: scale(0.5);
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const element = document.getElementById("outer");
+
+    let isScrolling = false;
+
+    function toggleVisibility() {
+      if (isScrolling) {
+        element.style.transition = "opacity 0.5s";
+        element.style.opacity = "0";
+      } else {
+        element.style.transition = "opacity 0.5s";
+        element.style.opacity = "1";
+      }
+    }
+
+    window.addEventListener("scroll", function () {
+      isScrolling = true;
+      toggleVisibility();
+
+      timeout = setTimeout(function () {
+        isScrolling = false;
+        toggleVisibility();
+      }, 200);
+      clearTimeout(timeout);
+    });
+
+    toggleVisibility();
+  });
+</script>
