@@ -42,6 +42,10 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
+  :root {
+    color-scheme: dark;
+  }
+
   body {
     @apply overflow-x-clip bg-dark-bg font-main text-purple-50;
   }
@@ -127,20 +131,4 @@ const { title } = Astro.props;
     font-style: normal;
     font-display: block;
   }
-
-  /* @font-face {
-    font-family: "NeueMontreal";
-    src: url("/fonts/NeueMontreal-Medium.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "NeueMontreal";
-    src: url("/fonts/NeueMontreal-Bold.otf") format("opentype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  } */
 </style>
