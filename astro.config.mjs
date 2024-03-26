@@ -7,8 +7,10 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), svelte()],
-redirects: {
-    '/prospectus': 'https://drive.google.com/file/d/1GO3YpUhYm2QeL-kS411a6lZbemWFXcpQ/view'
+  redirects: {
+    '/parents': '',
+    '/teachers': '',
+    '/travel': ''
   },
   output: "server",
   adapter: vercel({
