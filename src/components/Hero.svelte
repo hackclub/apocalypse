@@ -55,24 +55,24 @@
     style="background-image: url(/hero/parallax-4.svg);
       transform: translate(0,{screenW > 640 ? (y * 3) / 4 : 0}px)"
   ></div>
-  <div class="absolute w-screen opacity-30 -top-20 -z-10">
+  <div class="absolute w-screen opacity-30 sm:-top-20 -z-10">
     <div
-      class="absolute hidden w-screen min-h-screen mt-16 bg-top bg-repeat-x bg-contain sm:block -z-10"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:mt-16 -z-10"
       style="background-image: url(/hero/parallax-top-1.svg);
       transform: translate(0,{(y * 3) / 8}px)"
     ></div>
     <div
-      class="absolute hidden w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:block -z-20"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-20"
       style="background-image: url(/hero/parallax-top-2.svg);
       transform: translate(0,{(y * 2) / 8}px)"
     ></div>
     <div
-      class="absolute hidden w-screen min-h-screen bg-top bg-no-repeat bg-contain sm:block -z-30"
+      class="absolute w-screen min-h-screen bg-top bg-no-repeat bg-contain -z-30"
       style="background-image: url(/hero/parallax-top-3.svg);
       transform: translate(0,{y / 8}px)"
     ></div>
     <div
-      class="absolute hidden w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:block -z-40"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-40"
       style="background-image: url(/hero/parallax-top-4.svg);
       "
     ></div>
