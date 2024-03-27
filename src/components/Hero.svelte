@@ -12,18 +12,24 @@
       class="flex flex-col items-center sm:gap-y-6 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
-      <img src="/apotitle.png" alt="Apocalypse" class=" max-w-64 sm:max-w-sm" />
+      <img
+        src="/apotitle.png"
+        alt="Apocalypse"
+        class="max-w-64 sm:max-w-sm xl:max-w-lg"
+      />
       <div class="space-y-2 text-center">
-        <h1 class="text-3xl xs:text-4xl sm:text-5xl">
+        <h1 class="text-3xl xs:text-4xl sm:text-5xl xl:text-6xl">
           The <span class="text-accent2">high school hackathon</span> where you build fun
           tech to survive the
           <span class="text-accent">zombie apocalypse</span>!
         </h1>
-        <h2 class="text-xl xs:text-2xl sm:text-3xl">May 17-19 @ Shopify Toronto</h2>
+        <h2 class="text-xl xs:text-2xl sm:text-3xl xl:text-4xl">
+          May 17-19 @ Shopify Toronto
+        </h2>
         <a
           href="#"
           target="_blank"
-          class="inline-block px-12 text-xl bg-accent2 sm:px-16 xs:text-2xl sm:text-3xl rounded-xl"
+          class="inline-block px-12 text-xl bg-accent2 sm:px-16 xl:px-24 xs:text-2xl sm:text-3xl xl:text-4xl rounded-xl"
           >Register now!</a
         >
       </div>
