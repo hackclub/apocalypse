@@ -15,21 +15,21 @@
       <img
         src="/apotitle.png"
         alt="Apocalypse"
-        class="max-w-64 sm:max-w-sm xl:max-w-lg"
+        class="max-w-64 sm:max-w-sm 3xl:max-w-lg"
       />
       <div class="space-y-2 text-center">
-        <h1 class="text-3xl xs:text-4xl sm:text-5xl xl:text-6xl">
+        <h1 class="text-3xl xs:text-4xl sm:text-5xl 3xl:text-6xl">
           The <span class="text-accent2">high school hackathon</span> where you build fun
           tech to survive the
           <span class="text-accent">zombie apocalypse</span>!
         </h1>
-        <h2 class="text-xl xs:text-2xl sm:text-3xl xl:text-4xl">
+        <h2 class="text-xl xs:text-2xl sm:text-3xl 3xl:text-4xl">
           May 17-19 @ Shopify Toronto
         </h2>
         <a
           href="#"
           target="_blank"
-          class="inline-block px-12 text-xl bg-accent2 sm:px-16 xl:px-24 xs:text-2xl sm:text-3xl xl:text-4xl rounded-xl"
+          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-2xl sm:text-3xl 3xl:text-4xl rounded-xl"
           >Register now!</a
         >
       </div>
