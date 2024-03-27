@@ -1,7 +1,7 @@
 ---
 import Bento from "../components/Bento.astro";
 import FAQ from "../components/FAQ/FAQ.astro";
-import Hero from "../components/Hero.astro";
+import Hero from "../components/Hero.svelte";
 import Layout from "../layouts/Layout.astro";
 import Letter from "../components/Letter.astro";
 import Sponsors from "../components/Sponsors/Sponsors.astro";
@@ -10,7 +10,7 @@ import NavBar from "../components/NavBar.astro";
 ---
 
 <Layout title="Apocalypse: Toronto's zombified high school hackathon!">
-  <Hero />
+  <Hero client:load />
   <main>
     <Letter />
     <Bento />
