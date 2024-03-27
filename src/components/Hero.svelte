@@ -42,7 +42,7 @@
     transform: translate(0,{screenW > 640 ? (-y * 3) / 16 : 0}px)"
   ></div>
   <div
-    class="absolute w-screen min-h-screen -z-20 bottom-0 bg-repeat-x bg-bottom bg-contain sm:-mb-32"
+    class="absolute w-screen min-h-screen -z-20 bottom-0 bg-repeat-x bg-bottom bg-contain sm:-mb-24"
     style="background-image: url(/hero/parallax-2.svg);
     transform: translate(0,{screenW > 640 ? (-y * 2) / 16 : 0}px)"
   ></div>
@@ -52,7 +52,7 @@
     transform: translate(0,{screenW > 640 ? (-y * 1) / 16 : 0}px)"
   ></div>
   <div
-    class="absolute w-screen min-h-screen -z-40 bottom-0 bg-repeat-x bg-bottom sm:-mb-32 bg-contain"
+    class="absolute w-screen min-h-screen -z-40 bottom-0 bg-repeat-x bg-bottom sm:-mb-44 bg-contain"
     style="background-image: url(/hero/parallax-4.svg);
     transform: translate(0,{screenW > 640 ? (-y * 0) / 16 : 0}px)"
   ></div>
