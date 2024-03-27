@@ -32,29 +32,25 @@
 
   <!-- Background Effects -->
   <div class="absolute min-h-screen w-screen sm:bg-radial -z-40 mt-12 sm:mt-32"></div>
-  <div
-    style="height: {(y * 3) / 16}px"
-    class="bg-dark-bg z-20 absolute w-screen bottom-0"
-  ></div>
+
   <div
     class="absolute w-screen min-h-screen bottom-0 bg-repeat-x bg-bottom bg-contain sm:-mb-32"
-    style="background-image: url(/hero/parallax-1.svg);
-    transform: translate(0,{screenW > 640 ? (-y * 3) / 16 : 0}px)"
+    style="background-image: url(/hero/parallax-1.svg);"
   ></div>
   <div
     class="absolute w-screen min-h-screen -z-20 bottom-0 bg-repeat-x bg-bottom bg-contain sm:-mb-24"
     style="background-image: url(/hero/parallax-2.svg);
-    transform: translate(0,{screenW > 640 ? (-y * 2) / 16 : 0}px)"
+    transform: translate(0,{screenW > 640 ? (y * 1) / 4 : 0}px)"
   ></div>
   <div
     class=" absolute w-screen min-h-screen -z-30 bottom-0 bg-no-repeat bg-bottom sm:-mb-24 bg-contain"
     style="background-image: url(/hero/parallax-3.svg);
-    transform: translate(0,{screenW > 640 ? (-y * 1) / 16 : 0}px)"
+    transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
   ></div>
   <div
     class="absolute w-screen min-h-screen -z-40 bottom-0 bg-repeat-x bg-bottom sm:-mb-44 bg-contain"
     style="background-image: url(/hero/parallax-4.svg);
-    transform: translate(0,{screenW > 640 ? (-y * 0) / 16 : 0}px)"
+    transform: translate(0,{screenW > 640 ? (y * 3) / 4 : 0}px)"
   ></div>
   <div
     class="hidden sm:block opacity-30 absolute w-screen min-h-screen -z-10 bottom-0 bg-repeat-x bg-top bg-contain"
