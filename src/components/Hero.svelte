@@ -9,7 +9,7 @@
   <!-- Content  -->
   <div class="flex items-center justify-center max-w-4xl mx-4 sm:grid sm:grid-rows-9">
     <div
-      class="flex flex-col items-center sm:gap-y-6 sm:row-span-6 sm:row-start-1"
+      class="flex flex-col items-center gap-y-8 sm:gap-y-6 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
       <img
@@ -17,7 +17,7 @@
         alt="Apocalypse"
         class="max-w-64 sm:max-w-sm 3xl:max-w-lg"
       />
-      <div class="space-y-2 text-center">
+      <div class="space-y-4 text-center sm:space-y-2">
         <h1 class="text-3xl xs:text-4xl sm:text-5xl 3xl:text-6xl">
           The <span class="text-accent2">high school hackathon</span> where you build fun
           tech to survive the
