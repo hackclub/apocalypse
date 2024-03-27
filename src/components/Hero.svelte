@@ -46,10 +46,16 @@
     transform: translate(0,{screenW > 640 ? (y * 1) / 4 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-contain -z-30 sm:-mb-24"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-30 sm:-mb-24"
     style="background-image: url(/hero/parallax-3.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
   ></div>
+  <img
+    src="/hero/parallax-3-cn.svg"
+    alt="CN Tower"
+    class="absolute bottom-0 left-0 -z-30 sm:-mb-24 ml-[5vw] max-w-[4vw]"
+    style="transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
+  />
   <div
     class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 sm:-mb-44"
     style="background-image: url(/hero/parallax-4.svg);
