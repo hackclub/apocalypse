@@ -43,7 +43,7 @@
   ></div>
 
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain sm:-mb-32"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain sm:-mb-32 pointer-events-none"
     style="background-image: url(/hero/parallax-1.svg);"
   ></div>
   <div
