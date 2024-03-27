@@ -5,15 +5,15 @@
 
 <svelte:window bind:scrollY={y} bind:innerWidth={screenW} />
 
-<header class="min-h-screen flex justify-center text-purple-50 relative overflow-hidden">
+<header class="relative flex justify-center min-h-screen overflow-hidden text-purple-50">
   <!-- Content  -->
-  <div class="max-w-4xl items-center flex justify-center sm:grid sm:grid-rows-9 mx-4">
+  <div class="flex items-center justify-center max-w-4xl mx-4 sm:grid sm:grid-rows-9">
     <div
       class="flex flex-col items-center sm:gap-y-6 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
       <img src="/apotitle.png" alt="Apocalypse" class=" max-w-64 sm:max-w-sm" />
-      <div class="text-center space-y-2">
+      <div class="space-y-2 text-center">
         <h1 class="text-3xl xs:text-4xl sm:text-5xl">
           The <span class="text-accent2">high school hackathon</span> where you build fun
           tech to survive the
@@ -23,7 +23,7 @@
         <a
           href="#"
           target="_blank"
-          class="bg-accent2 px-12 sm:px-16 text-xl xs:text-2xl sm:text-3xl rounded-xl inline-block"
+          class="inline-block px-12 text-xl bg-accent2 sm:px-16 xs:text-2xl sm:text-3xl rounded-xl"
           >Register now!</a
         >
       </div>
@@ -31,45 +31,48 @@
   </div>
 
   <!-- Background Effects -->
-  <div class="absolute min-h-screen w-screen sm:bg-radial -z-40 mt-12 sm:mt-32"></div>
+  <div
+    class="absolute sm:min-h-screen sm:w-screen w-[150vw] bg-radial -z-40 mt-12 sm:mt-32 bottom-0 sm:bottom-auto h-96"
+    style="transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 120}px)"
+  ></div>
 
   <div
-    class="absolute w-screen min-h-screen bottom-0 bg-repeat-x bg-bottom bg-contain sm:-mb-32"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain sm:-mb-32"
     style="background-image: url(/hero/parallax-1.svg);"
   ></div>
   <div
-    class="absolute w-screen min-h-screen -z-20 bottom-0 bg-repeat-x bg-bottom bg-contain sm:-mb-24"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-20 sm:-mb-24"
     style="background-image: url(/hero/parallax-2.svg);
     transform: translate(0,{screenW > 640 ? (y * 1) / 4 : 0}px)"
   ></div>
   <div
-    class=" absolute w-screen min-h-screen -z-30 bottom-0 bg-no-repeat bg-bottom sm:-mb-24 bg-contain"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-contain -z-30 sm:-mb-24"
     style="background-image: url(/hero/parallax-3.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
   ></div>
   <div
-    class="absolute w-screen min-h-screen -z-40 bottom-0 bg-repeat-x bg-bottom sm:-mb-44 bg-contain"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 sm:-mb-44"
     style="background-image: url(/hero/parallax-4.svg);
       transform: translate(0,{screenW > 640 ? (y * 3) / 4 : 0}px)"
   ></div>
-  <div class="absolute opacity-30 w-screen -top-32 -z-10">
+  <div class="absolute w-screen opacity-30 -top-32 -z-10">
     <div
-      class="hidden sm:block absolute w-screen min-h-screen -z-10 bg-repeat-x bg-top bg-contain mt-16"
+      class="absolute hidden w-screen min-h-screen mt-16 bg-top bg-repeat-x bg-contain sm:block -z-10"
       style="background-image: url(/hero/parallax-top-1.svg);
       transform: translate(0,{(y * 3) / 8}px)"
     ></div>
     <div
-      class="hidden sm:block absolute w-screen min-h-screen -z-20 bg-repeat-x bg-top bg-contain"
+      class="absolute hidden w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:block -z-20"
       style="background-image: url(/hero/parallax-top-2.svg);
       transform: translate(0,{(y * 2) / 8}px)"
     ></div>
     <div
-      class="hidden sm:block absolute w-screen min-h-screen -z-30 bg-no-repeat bg-top bg-contain -mt-10"
+      class="absolute hidden w-screen min-h-screen -mt-10 bg-top bg-no-repeat bg-contain sm:block -z-30"
       style="background-image: url(/hero/parallax-top-3.svg);
       transform: translate(0,{y / 8}px)"
     ></div>
     <div
-      class="hidden sm:block absolute w-screen min-h-screen -z-40 bg-repeat-x bg-top bg-contain"
+      class="absolute hidden w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:block -z-40"
       style="background-image: url(/hero/parallax-top-4.svg);
       "
     ></div>
@@ -77,9 +80,7 @@
 </header>
 
 <style>
-  @media (min-width: 0) {
-    .sm\:bg-radial {
-      background-image: radial-gradient(#6b5ffe 0%, #2b1b50 70%);
-    }
+  .bg-radial {
+    background-image: radial-gradient(#6b5ffe 0%, #2b1b50 70%);
   }
 </style>
