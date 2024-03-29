@@ -7,8 +7,8 @@ export default {
     extend: {
       colors: {
         "primary-bg": "#401986",
-        "secondary-bg": "#80ABF4",
-        "dark-bg": "#28184d",
+        "secondary-bg": "#6B5FFE",
+        "dark-bg": "#2B1B50",
         "light-bg": "#EDDAF8",
         dark: "#A183B2",
         accent: "#79E2F0",
@@ -20,6 +20,7 @@ export default {
       },
       screens: {
         xs: "320px",
+        "3xl": "1792px",
       },
     },
   },
