@@ -40,7 +40,7 @@
   <img
     src="https://assets.hackclub.com/flag-orpheus-left.svg"
     alt="Hack Club Flag"
-    class="absolute top-0 left-0 h-24 hover:rotate-6 hover:translate-y-3 motion-safe:transition-transform -ml-2 mt-5"
+    class="absolute top-0 left-0 h-20 sm:h-24 hover:rotate-6 hover:translate-y-3 motion-safe:transition-transform -ml-2 mt-5"
   />
 
   <!-- Radial gradient -->
