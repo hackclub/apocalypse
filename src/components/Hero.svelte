@@ -17,8 +17,10 @@
         alt="Apocalypse"
         class="max-w-64 sm:max-w-sm 3xl:max-w-lg"
       />
-      <div class="space-y-4 text-center sm:space-y-2">
-        <h1 class="text-3xl xs:text-4xl sm:text-5xl 3xl:text-6xl">
+      <div class="space-y-4 text-center">
+        <h1
+          class="text-3xl xs:text-4xl sm:text-5xl 3xl:text-6xl leading-6 xs:leading-7 sm:leading-10"
+        >
           The <span class="text-accent2">high school hackathon</span> where you build fun
           tech to survive the
           <span class="text-accent">zombie apocalypse</span>!
@@ -29,7 +31,7 @@
         <a
           href="https://join.apocalypse.hackclub.com"
           target="_blank"
-          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-2xl sm:text-3xl 3xl:text-4xl rounded-xl"
+          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-xl sm:text-2xl 3xl:text-3xl rounded-xl"
           >Register now!</a
         >
       </div>
