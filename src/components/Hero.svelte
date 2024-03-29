@@ -48,7 +48,7 @@
   <!-- Radial gradient -->
   <div
     class="absolute sm:min-h-screen sm:w-screen w-[150vw] bg-radial -z-40 mt-12 sm:mt-32 bottom-0 sm:bottom-auto h-96"
-    style="transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 120}px)"
+    style="transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 120}px)"
   ></div>
 
   <!-- Bottom cityscape -->
@@ -59,22 +59,22 @@
   <div
     class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% -z-20 sm:-mb-20"
     style="background-image: url(/hero/parallax-2.svg);
-    transform: translate(0,{screenW > 640 ? (y * 1) / 4 : 0}px)"
+    transform: translate(0,{screenW > 640 ? (y * 1) / 6 : 0}px)"
   ></div>
   <div
     class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% -z-30 sm:-mb-20"
     style="background-image: url(/hero/parallax-3.svg);
-    transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
+    transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 0}px)"
   ></div>
   <div
     class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-75% -z-30 sm:-mb-20"
     style="background-image: url(/hero/parallax-3-cn.svg);
-    transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
+    transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 0}px)"
   ></div>
   <div
     class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% -z-40 sm:-mb-20"
     style="background-image: url(/hero/parallax-4.svg);
-      transform: translate(0,{screenW > 640 ? (y * 3) / 4 : 0}px)"
+      transform: translate(0,{screenW > 640 ? (y * 3) / 6 : 0}px)"
   ></div>
 
   <!-- Top cityscape -->
