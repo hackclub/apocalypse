@@ -36,12 +36,14 @@
     </div>
   </div>
 
-  <!-- Background Effects -->
+  <!-- === Background Effects === -->
+  <!-- Radial gradient -->
   <div
     class="absolute sm:min-h-screen sm:w-screen w-[150vw] bg-radial -z-40 mt-12 sm:mt-32 bottom-0 sm:bottom-auto h-96"
     style="transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 120}px)"
   ></div>
 
+  <!-- Bottom cityscape -->
   <div
     class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain sm:-mb-32 pointer-events-none"
     style="background-image: url(/hero/parallax-1.svg);"
@@ -67,6 +69,8 @@
     style="background-image: url(/hero/parallax-4.svg);
       transform: translate(0,{screenW > 640 ? (y * 3) / 4 : 0}px)"
   ></div>
+
+  <!-- Top cityscape -->
   <div class="absolute w-screen opacity-30 sm:-top-20 -z-10">
     <div
       class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:mt-16 -z-10"
