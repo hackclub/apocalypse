@@ -74,18 +74,15 @@
   <div class="absolute w-screen opacity-30 sm:-top-20 -z-10">
     <div
       class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:mt-16 -z-10"
-      style="background-image: url(/hero/parallax-top-1.svg);
-      transform: translate(0,{(y * 3) / 8}px)"
+      style="background-image: url(/hero/parallax-top-1.svg);"
     ></div>
     <div
       class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-20"
-      style="background-image: url(/hero/parallax-top-2.svg);
-      transform: translate(0,{(y * 2) / 8}px)"
+      style="background-image: url(/hero/parallax-top-2.svg);"
     ></div>
     <div
       class="absolute w-screen min-h-screen bg-top bg-no-repeat bg-contain -z-30"
-      style="background-image: url(/hero/parallax-top-3.svg);
-      transform: translate(0,{y / 8}px)"
+      style="background-image: url(/hero/parallax-top-3.svg);"
     ></div>
     <div
       class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-40"
