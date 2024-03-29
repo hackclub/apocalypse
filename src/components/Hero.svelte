@@ -37,11 +37,13 @@
   </div>
 
   <!-- === Background Effects === -->
-  <img
-    src="https://assets.hackclub.com/flag-orpheus-left.svg"
-    alt="Hack Club Flag"
-    class="absolute top-0 left-0 h-20 sm:h-24 hover:rotate-6 hover:translate-y-3 motion-safe:transition-transform -ml-2 mt-5"
-  />
+  <a href="https://hackclub.com" target="_blank">
+    <img
+      src="https://assets.hackclub.com/flag-orpheus-left.svg"
+      alt="Hack Club Flag"
+      class="absolute top-0 left-0 h-20 mt-5 -ml-2 sm:h-24 hover:rotate-6 hover:translate-y-3 motion-safe:transition-transform"
+    />
+  </a>
 
   <!-- Radial gradient -->
   <div
