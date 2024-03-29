@@ -27,7 +27,7 @@
           May 17-19 @ Shopify Toronto
         </h2>
         <a
-          href="#"
+          href="https://join.apocalypse.hackclub.com"
           target="_blank"
           class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-2xl sm:text-3xl 3xl:text-4xl rounded-xl"
           >Register now!</a
