@@ -22,6 +22,9 @@ export default {
         xs: "320px",
         "3xl": "1792px",
       },
+      backgroundSize: {
+        "75%": "75%",
+      },
     },
   },
 };

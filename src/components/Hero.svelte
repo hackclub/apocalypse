@@ -51,27 +51,26 @@
 
   <!-- Bottom cityscape -->
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain sm:-mb-32 pointer-events-none"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% sm:-mb-20 pointer-events-none"
     style="background-image: url(/hero/parallax-1.svg);"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-20 sm:-mb-24"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% -z-20 sm:-mb-3"
     style="background-image: url(/hero/parallax-2.svg);
     transform: translate(0,{screenW > 640 ? (y * 1) / 4 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-30 sm:-mb-24"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% -z-30 sm:-mb-2"
     style="background-image: url(/hero/parallax-3.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
   ></div>
-  <img
-    src="/hero/parallax-3-cn.svg"
-    alt="CN Tower"
-    class="absolute bottom-0 left-0 -z-30 sm:-mb-24 ml-[5vw] max-w-[4vw]"
-    style="transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
-  />
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 sm:-mb-44"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-75% -z-30 sm:-mb-2"
+    style="background-image: url(/hero/parallax-3-cn.svg);
+    transform: translate(0,{screenW > 640 ? (y * 2) / 4 : 0}px)"
+  ></div>
+  <div
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-75% -z-40 sm:mb-2"
     style="background-image: url(/hero/parallax-4.svg);
       transform: translate(0,{screenW > 640 ? (y * 3) / 4 : 0}px)"
   ></div>
@@ -79,19 +78,19 @@
   <!-- Top cityscape -->
   <div class="absolute w-screen opacity-30 sm:-top-20 -z-10">
     <div
-      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain sm:mt-16 -z-10"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-75% sm:mt-20 -z-10"
       style="background-image: url(/hero/parallax-top-1.svg);"
     ></div>
     <div
-      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-20"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-75% -z-20 sm:mt-20"
       style="background-image: url(/hero/parallax-top-2.svg);"
     ></div>
     <div
-      class="absolute w-screen min-h-screen bg-top bg-no-repeat bg-contain -z-30"
+      class="absolute w-screen min-h-screen bg-top bg-no-repeat bg-75% -z-30 sm:mt-20"
       style="background-image: url(/hero/parallax-top-3.svg);"
     ></div>
     <div
-      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-40"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-75% -z-40 sm:mt-20"
       style="background-image: url(/hero/parallax-top-4.svg);
       "
     ></div>
