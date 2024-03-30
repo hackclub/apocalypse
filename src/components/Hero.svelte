@@ -34,7 +34,7 @@
         <a
           href="https://join.apocalypse.hackclub.com"
           target="_blank"
-          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-xl sm:text-2xl 3xl:text-3xl rounded-xl"
+          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-xl sm:text-2xl 3xl:text-3xl pixel-corners"
           >Register now!</a
         >
       </div>
@@ -106,5 +106,30 @@
 <style>
   .bg-radial {
     background-image: radial-gradient(#6b5ffe 0%, #2b1b50 70%);
+  }
+
+  .pixel-corners {
+    clip-path: polygon(
+      0px calc(100% - 6px),
+      3px calc(100% - 6px),
+      3px calc(100% - 3px),
+      6px calc(100% - 3px),
+      6px 100%,
+      calc(100% - 6px) 100%,
+      calc(100% - 6px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 6px),
+      100% calc(100% - 6px),
+      100% 6px,
+      calc(100% - 3px) 6px,
+      calc(100% - 3px) 3px,
+      calc(100% - 6px) 3px,
+      calc(100% - 6px) 0px,
+      6px 0px,
+      6px 3px,
+      3px 3px,
+      3px 6px,
+      0px 6px
+    );
   }
 </style>
