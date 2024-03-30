@@ -83,23 +83,22 @@
   ></div>
 
   <!-- Top cityscape -->
-  <div class="absolute w-screen opacity-30 sm:-top-20 -z-10">
+  <div class="absolute top-0 w-screen opacity-30 -z-10">
     <div
-      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-10 sm:-mt-36"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-10"
       style="background-image: url(/hero/parallax-top-1.svg);"
     ></div>
     <div
-      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-20 sm:-mt-36"
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-20"
       style="background-image: url(/hero/parallax-top-2.svg);"
     ></div>
     <div
-      class="absolute w-screen min-h-screen bg-top bg-no-repeat bg-contain -z-30 sm:-mt-36"
+      class="absolute w-screen min-h-screen bg-top bg-no-repeat bg-contain -z-30"
       style="background-image: url(/hero/parallax-top-3.svg);"
     ></div>
     <div
-      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-40 sm:-mt-36"
-      style="background-image: url(/hero/parallax-top-4.svg);
-      "
+      class="absolute w-screen min-h-screen bg-top bg-repeat-x bg-contain -z-40"
+      style="background-image: url(/hero/parallax-top-4.svg);"
     ></div>
   </div>
 </header>
