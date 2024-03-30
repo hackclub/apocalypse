@@ -13,7 +13,7 @@
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
       <div class="flex flex-col items-center -space-y-2">
-        <img src="/hctitle.png" alt="" />
+        <img src="/hctitle.png" alt="Hack Club Presents" class="max-w-64" />
         <img
           src="/apotitle.png"
           alt="Apocalypse"
