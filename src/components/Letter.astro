@@ -15,7 +15,7 @@ const eventDate = new Date("2024-05-17");
     class="flex max-w-3xl grow flex-col space-y-2 border-2 border-accent bg-primary-bg px-6 py-8 text-sm shadow-[16px_16px_rgba(0,0,0,0.3)] sm:space-y-4 sm:px-12 sm:py-8 sm:text-lg md:col-span-3 md:mx-auto md:px-16 md:py-12"
   >
     <!-- ----------------------------- Letterhead ------------------------------ -->
-    <div class="text-right text-xl leading-5 md:text-2xl md:leading-6">
+    <div class="text-right font-sans text-sm leading-5 md:text-base md:leading-6">
       <p>
         {
           futureDate.toLocaleDateString(undefined, {
@@ -35,9 +35,11 @@ const eventDate = new Date("2024-05-17");
       </p>
     </div>
     <!-- --------------------------- Letter Contents --------------------------- -->
-    <div class="-mt-8 space-y-4 text-xl leading-6 sm:space-y-2 md:text-2xl md:leading-7">
+    <div
+      class="-mt-8 space-y-4 font-sans text-sm leading-6 sm:space-y-2 md:text-base md:leading-7"
+    >
       <p
-        class="text-2xl italic drop-shadow-[0_0_8px_#FF5DA9] sm:pt-4 sm:text-3xl md:text-4xl"
+        class="font-main text-2xl italic drop-shadow-[0_0_8px_#FF5DA9] sm:pt-4 sm:text-3xl md:text-4xl"
       >
         Greetings, hacker.
       </p>
@@ -49,7 +51,7 @@ const eventDate = new Date("2024-05-17");
         Cities have turned to battlefields. Subways and schools have grown infected with
         the fallen.
       </p>
-      <p class="italic drop-shadow-[0_0_4px_#FF5DA9]">It's the beginning of the end.</p>
+      <p class="drop-shadow-[0_0_4px_#FF5DA9]">It's the beginning of the end.</p>
       <p>
         But one thing still stands: technology. WiFi is up, electricity runs, and hardware
         operates.
@@ -72,8 +74,8 @@ const eventDate = new Date("2024-05-17");
       </div>
     </div>
     <!-- <Projects client:load /> -->
-    <div class="flex flex-col gap-4">
-      <p class="text-xl leading-6 md:text-2xl md:leading-8">
+    <div class="flex flex-col gap-4 font-sans">
+      <p class="text-sm leading-6 md:text-base md:leading-8">
         So, what will you make? We can't wait to meet you. From the Apocalypse team...
       </p>
       <img
