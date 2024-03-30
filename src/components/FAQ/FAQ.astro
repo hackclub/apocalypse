@@ -11,7 +11,7 @@ import FAQCard from "./FAQCard.astro";
 
     <div class="flex flex-col gap-6">
       <div
-        class="space-y-2 overflow-clip bg-dark-bg p-4 text-center text-sm lg:space-y-3 lg:p-6"
+        class="space-y-2 overflow-clip bg-dark-bg p-4 text-center text-sm shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:transition-transform motion-safe:hover:scale-105 motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)] lg:space-y-3 lg:p-6"
       >
         <p class="text-2xl leading-6 lg:text-3xl lg:leading-7">
           Date & Time: Starts at 6:00pm on May 17 and ends at 12:00 noon on May 19.
@@ -19,7 +19,9 @@ import FAQCard from "./FAQCard.astro";
       </div>
 
       <div class="flex flex-col gap-6 md:flex-row">
-        <div class="flex shadow-[6px_6px_rgba(0,0,0,0.3)] md:w-96 md:flex-col">
+        <div
+          class="flex shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:transition-transform motion-safe:hover:scale-105 motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)] md:w-96 md:flex-col"
+        >
           <div
             class="relative w-full space-y-2 overflow-clip bg-dark-bg p-4 text-left text-sm md:w-96 lg:space-y-3 lg:p-6"
           >
