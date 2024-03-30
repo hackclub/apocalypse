@@ -12,11 +12,14 @@
       class="flex flex-col items-center gap-y-8 sm:gap-y-6 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
-      <img
-        src="/apotitle.png"
-        alt="Apocalypse"
-        class="max-w-64 sm:max-w-sm 3xl:max-w-lg"
-      />
+      <div class="flex flex-col items-center -space-y-2">
+        <img src="/hctitle.png" alt="" />
+        <img
+          src="/apotitle.png"
+          alt="Apocalypse"
+          class="max-w-64 sm:max-w-sm 3xl:max-w-lg"
+        />
+      </div>
       <div class="space-y-4 text-center">
         <h1
           class="text-3xl leading-6 xs:text-4xl sm:text-5xl 3xl:text-6xl xs:leading-7 sm:leading-10"
