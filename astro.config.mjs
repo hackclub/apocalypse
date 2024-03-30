@@ -10,7 +10,8 @@ export default defineConfig({
   redirects: {
     '/parents': '',
     '/teachers': '',
-    '/travel': ''
+    '/travel': '',
+    '/grants': 'https://join.apocalypse.hackclub.com/grants'
   },
   output: "server",
   adapter: vercel({
