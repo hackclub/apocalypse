@@ -12,7 +12,7 @@ const eventDate = new Date("2024-05-17");
 <article class="flex justify-center px-8 py-10 sm:py-24">
   <section
     id="letter"
-    class="flex max-w-5xl grow flex-col space-y-6 border-2 border-accent bg-primary-bg px-6 py-8 text-sm shadow-[16px_16px_rgba(0,0,0,0.3)] sm:space-y-10 sm:px-12 sm:py-8 sm:text-lg md:px-16 md:py-12"
+    class="flex max-w-3xl grow flex-col space-y-2 border-2 border-accent bg-primary-bg px-6 py-8 text-sm shadow-[16px_16px_rgba(0,0,0,0.3)] sm:space-y-4 sm:px-12 sm:py-8 sm:text-lg md:col-span-3 md:mx-auto md:px-16 md:py-12"
   >
     <!-- ----------------------------- Letterhead ------------------------------ -->
     <div class="text-right text-xl leading-5 md:text-2xl md:leading-6">
@@ -34,15 +34,13 @@ const eventDate = new Date("2024-05-17");
         until event
       </p>
     </div>
-
     <!-- --------------------------- Letter Contents --------------------------- -->
-
-    <div class="-mt-8 space-y-4 text-2xl leading-6 md:text-3xl md:leading-7">
-      <h3
-        class="text-3xl italic drop-shadow-[0_0_8px_#FF5DA9] sm:pt-4 sm:text-4xl md:text-5xl"
+    <div class="-mt-8 space-y-4 text-xl leading-6 sm:space-y-2 md:text-2xl md:leading-7">
+      <p
+        class="text-2xl italic drop-shadow-[0_0_8px_#FF5DA9] sm:pt-4 sm:text-3xl md:text-4xl"
       >
         Greetings, hacker.
-      </h3>
+      </p>
       <p>
         Just a few months ago, the world fell into a zombie apocalypse. It’s absurd how
         fast civilization has fallen to the virus.
@@ -57,47 +55,31 @@ const eventDate = new Date("2024-05-17");
         operates.
       </p>
     </div>
-
     <!-- ----------------------------- Letter CTA ------------------------------ -->
-
-    <div class="justify-center py-4 sm:py-8">
+    <div class="justify-center py-2 sm:py-4">
       <div
-        class="flex max-w-full grow flex-col gap-2 text-center text-white sm:gap-3 md:gap-4"
+        class="flex max-w-full grow flex-col gap-1 text-center text-2xl leading-6 text-white sm:gap-3 sm:text-3xl sm:leading-7 md:gap-2 md:text-4xl md:leading-9"
       >
-        <p class="text-3xl leading-6 sm:text-4xl sm:leading-7 md:text-5xl md:leading-9">
-          Join <span class="text-accent">150 hackers</span> like you for
+        <p>
+          Join <span class="text-accent">150 hackers</span>
+           like you for
           <span class="text-accent2">42 hours</span> at our safehouse.
         </p>
-
-        <p
-          class="text-3xl leading-6 text-white drop-shadow-[0_0_4px_#FF5DA9] sm:text-4xl sm:leading-7 md:text-5xl md:leading-9"
-        >
+        <p class="drop-shadow-[0_0_4px_#FF5DA9]">
           Build something, <span class="italic">anything</span>, to help us survive this
           apocalypse.
         </p>
       </div>
     </div>
-
     <!-- <Projects client:load /> -->
-
     <div class="flex flex-col gap-4">
-      <p class="text-2xl leading-6 md:text-3xl md:leading-8">
-        So, what will you make? We can't wait to meet you. From the Apocalypse team…
+      <p class="text-xl leading-6 md:text-2xl md:leading-8">
+        So, what will you make? We can't wait to meet you. From the Apocalypse team...
       </p>
-
-      <!-- <div class="md:py-4">
-        <hr class="border-purple-200 shadow-inner" style="border-width: 1.5px;" />
-      </div> -->
-
       <img
         src="https://cloud-4dovhu1hs-hack-club-bot.vercel.app/0image__5_.png"
         class="self-center md:px-12"
       />
-
-      <!-- <p class="self-center font-sans italic text-center text-purple-200">
-        Shayaan A, Arhona B, Ryan D, Jason H, Acon L, Sam L, Jenis M, Sarvesh MK, Arav N,
-        Emily P, Mutammim S, Evelyn W, Sherry Z
-      </p> -->
     </div>
   </section>
 </article>
