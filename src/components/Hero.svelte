@@ -7,13 +7,17 @@
 
 <header class="relative flex justify-center min-h-screen overflow-hidden text-purple-50">
   <!-- Content  -->
-  <div class="flex items-center justify-center max-w-4xl mx-10 sm:grid sm:grid-rows-9">
+  <div class="grid items-center justify-center max-w-4xl mx-10 grid-rows-9">
     <div
-      class="flex flex-col items-center gap-y-8 sm:gap-y-6 sm:row-span-6 sm:row-start-1"
+      class="flex flex-col items-center gap-y-8 sm:gap-y-6 row-span-8 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
       <div class="flex flex-col items-center -space-y-2">
-        <img src="/hctitle.png" alt="Hack Club Presents" class="max-w-64" />
+        <img
+          src="/hctitle.png"
+          alt="Hack Club Presents"
+          class="min-w-52 max-w-52 sm:min-w-64 sm:max-w-64"
+        />
         <img
           src="/apotitle.png"
           alt="Apocalypse"
@@ -21,20 +25,18 @@
         />
       </div>
       <div class="space-y-4 text-center">
-        <h1
-          class="text-3xl leading-6 xs:text-4xl sm:text-5xl 3xl:text-6xl xs:leading-7 sm:leading-10"
-        >
+        <h1 class="text-4xl leading-7 sm:text-5xl 3xl:text-6xl sm:leading-10">
           The <span class="text-accent2">high school hackathon</span> where you build fun
           tech to survive the
           <span class="text-accent">zombie apocalypse</span>!
         </h1>
-        <h2 class="text-xl xs:text-2xl sm:text-3xl 3xl:text-4xl">
+        <h2 class="font-sans text-base sm:text-lg 3xl:text-2xl">
           May 17-19 @ Shopify Toronto
         </h2>
         <a
           href="https://join.apocalypse.hackclub.com"
           target="_blank"
-          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-xl sm:text-2xl 3xl:text-3xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
+          class="inline-block px-12 py-1 font-sans text-base bg-accent2 sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
           >Register now!</a
         >
       </div>
@@ -46,7 +48,7 @@
     <img
       src="https://assets.hackclub.com/flag-orpheus-left.svg"
       alt="Hack Club Flag"
-      class="absolute top-0 left-0 h-20 mt-5 -ml-2 sm:h-24 hover:rotate-6 hover:translate-y-3 motion-safe:transition-transform"
+      class="absolute top-0 left-0 h-16 mt-5 -ml-2 sm:h-24 hover:rotate-6 hover:translate-y-3 motion-safe:transition-transform"
     />
   </a>
 
