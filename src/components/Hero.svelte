@@ -34,7 +34,7 @@
         <a
           href="https://join.apocalypse.hackclub.com"
           target="_blank"
-          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-xl sm:text-2xl 3xl:text-3xl pixel-corners"
+          class="inline-block px-12 text-xl bg-accent2 sm:px-16 3xl:px-24 xs:text-xl sm:text-2xl 3xl:text-3xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
           >Register now!</a
         >
       </div>
