@@ -64,24 +64,16 @@ import FAQCard from "./FAQCard.astro";
         </div>
       </div>
 
-      <div class="flex flex-col gap-6 md:flex-row">
-        <div
-          class="space-y-2 overflow-clip bg-dark-bg p-4 text-left text-sm shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:transition-transform motion-safe:hover:scale-105 motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)] md:w-96 lg:space-y-3 lg:p-6"
-        >
-          <p class="text-2xl leading-6 lg:text-3xl lg:leading-7">Eligibility</p>
-          <p class="font-sans text-sm lg:text-base">
-            Anyone 13–18 is welcome! If you're in middle school or a gap year student,
-            check in with us at <a class="underline" href="mailto:apocalypse@hackclub.com"
-              >apocalypse@hackclub.com</a
-            >. Official ID with your legal name and birth date will be requested at
-            check-in.
-          </p>
-        </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[24rem,minmax(24rem,1fr)]">
+        <FAQCard question="Eligibility" cardId={"eligibility"}>
+          Anyone 13–18 is welcome! If you're in middle school or a gap year student, check
+          in with us at <a class="underline" href="mailto:apocalypse@hackclub.com"
+            >apocalypse@hackclub.com</a
+          >. Official ID with your legal name and birth date will be requested at
+          check-in.
+        </FAQCard>
 
-        <div
-          class="flex-1 space-y-2 overflow-clip bg-dark-bg p-4 text-left text-sm shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:transition-transform motion-safe:hover:scale-105 motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.3)] lg:space-y-3 lg:p-6"
-        >
-          <p class="text-2xl leading-6 lg:text-3xl lg:leading-7">Travel grants</p>
+        <FAQCard question="Travel grants" cardId={"travel-grants"}>
           <p class="font-sans text-sm lg:text-base">
             Apocalypse is for hackers across Canada and the world. If you need help paying
             for travel costs, you've got options!
@@ -101,10 +93,8 @@ import FAQCard from "./FAQCard.astro";
               >.
             </p>
           </p>
-        </div>
-      </div>
+        </FAQCard>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
         <FAQCard question="Is this free?" cardId={1}>
           100%, thanks to sponsors. We’ll have meals, snacks, and beverages free of
           charge.
