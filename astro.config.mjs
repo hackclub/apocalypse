@@ -8,8 +8,8 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind(), svelte()],
   redirects: {
-    '/parents': '',
-    '/teachers': '',
+    '/parents': 'https://docs.google.com/document/d/1NQDChsJd9dK4r1EWsVglzjHr0EnR3iW0DV3xMHSUAZ0/edit',
+    '/teachers': 'https://docs.google.com/document/d/1NQDChsJd9dK4r1EWsVglzjHr0EnR3iW0DV3xMHSUAZ0/edit',
     '/travel': '',
     '/grants': 'https://join.apocalypse.hackclub.com/grants'
   },
