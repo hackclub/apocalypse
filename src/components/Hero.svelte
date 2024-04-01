@@ -156,7 +156,7 @@
     animation: flicker 5s infinite;
   }
 
-  @media prefers-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
     .flicker {
       animation: none;
     }
