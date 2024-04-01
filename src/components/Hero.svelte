@@ -16,7 +16,7 @@
         <img
           src="/hctitle.png"
           alt="Hack Club Presents"
-          class="min-w-52 max-w-52 sm:min-w-64 sm:max-w-64 flicker"
+          class="min-w-52 max-w-52 sm:min-w-64 sm:max-w-64 motion-safe:flicker"
         />
         <img
           src="/apotitle.png"
@@ -152,12 +152,12 @@
     }
   }
 
-  .flicker {
-    animation: flicker 5s infinite;
+  .motion-safe\:flicker {
+    animation: flicker 5s 3;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .flicker {
+    .motion-safe\:flicker {
       animation: none;
     }
   }
