@@ -2,7 +2,7 @@
   <section class="flex max-w-5xl flex-col gap-4">
     <div class="flex flex-col lg:flex-row lg:gap-4">
       <div
-        class="bg-pos-100 motion-safe:hover:bg-pos-0 bg-300% flex flex-col gap-3 bg-gradient-to-br from-fuchsia-700 to-purple-800 p-8 motion-safe:transition-all motion-safe:duration-500"
+        class="flex flex-col gap-3 bg-gradient-to-br from-fuchsia-700 to-purple-800 bg-300% bg-pos-100 p-8 motion-safe:transition-all motion-safe:duration-500 motion-safe:hover:bg-pos-0"
       >
         <h2 class="text-4xl font-bold text-white">What’s a hackathon?</h2>
         <div class="space-y-3 font-sans">
@@ -98,7 +98,7 @@
 
     <div class="flex flex-col lg:h-96 lg:flex-row lg:gap-4">
       <div
-        class="bg-pos-0 motion-safe:hover:bg-pos-100 bg-300% flex grow flex-col gap-3 bg-gradient-to-tl from-fuchsia-700 to-purple-800 p-8 motion-safe:transition-all motion-safe:duration-500"
+        class="flex grow flex-col gap-3 bg-gradient-to-tl from-fuchsia-700 to-purple-800 bg-300% bg-pos-0 p-8 motion-safe:transition-all motion-safe:duration-500 motion-safe:hover:bg-pos-100"
       >
         <h2 class="text-4xl font-bold text-white">Loads of surprises</h2>
         <div class="space-y-3 font-sans">
@@ -108,30 +108,22 @@
             > for showcases of what we're cooking up. Unique swag, fun activities, and
             excursions are in the works 👀
           </p>
-          <p>Till then, pre-register to be first to know when sign-ups open!</p>
+          <p>Are you ready to spark a new age of survival? Registrations are open!</p>
         </div>
 
         <!-- TODO: Add form itself here -->
         <!-- mt-auto self-start bg-purple-900 px-8 py-3 font-main text-2xl shadow-sm -->
         <form
-          action="https://postal.hackclub.com/subscribe"
-          method="POST"
-          accept-charset="utf-8"
           class="mt-auto flex border-b-2 border-purple-100 bg-purple-900 px-5 py-2 font-main text-2xl shadow-sm"
-          id="email-form2"
         >
           <!-- Coloring for <form> was originally bg-dark-bg shadow-[inset_5px_5px_rgba(0,0,0,0.3)] -->
           <!-- Fix alignment for this text -->
-          <input
-            class="flex-1 bg-transparent pt-0.5 text-2xl placeholder-white placeholder-opacity-75 focus:outline-none"
-            placeholder="you@example.com"
-            type="email"
-            name="email"
-            id="email2"
-            required
-          />
-          <input type="hidden" name="list" value="YAbJpY892wYYel892gyGNghouQ" />
-          <input type="hidden" name="subform" value="yes" />
+          <a
+            class="flex-1 bg-transparent pt-0.5 text-2xl placeholder-white placeholder-opacity-75 hover:cursor-pointer focus:outline-none"
+            href="https://join.apocalypse.hackclub.com"
+          >
+            Register now!</a
+          >
           <label
             for="submit2"
             id="email-button2"
@@ -150,36 +142,7 @@
               >
               </path>
             </svg>
-            <svg
-              id="loading"
-              class="hidden h-7 w-7 animate-spin text-purple-100"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.9999 2H10.9999V8H12.9999V2ZM12.9999 16H10.9999V22H12.9999V16ZM21.9998 11V13L15.9998 13V11H21.9998ZM7.99963 13V11H1.99963V13L7.99963 13ZM14.9996 6.99997H16.9996V8.99997H14.9996V6.99997ZM18.9995 4.99997H16.9995V6.99997H18.9995V4.99997ZM8.99963 6.99997H6.99963V8.99997H8.99963V6.99997ZM4.99973 4.99997H6.99973V6.99997H4.99973V4.99997ZM14.9996 17H16.9995V18.9999H18.9995V16.9999H16.9996V15H14.9996V17ZM6.99963 16.9999V15H8.99963V17H6.99973V18.9999H4.99973V16.9999H6.99963Z"
-                fill="currentColor"></path></svg
-            >
-            <svg
-              id="done"
-              class="hidden h-7 w-7 text-purple-100"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M4 4H20H22V6V14H20V6H4V18H12V20H4H2V18V6V4H4ZM8 8H6V10H8V12H10V14H14V12H16V10H18V8H16V10H14V12H10V10H8V8ZM14 18H16V20H14V18ZM18 20V22H16V20H18ZM20 18H18V20H20V18ZM20 18V16H22V18H20Z"
-                fill="currentColor"></path></svg
-            >
           </label>
-          <input type="submit" name="submit" id="submit2" value="" class="w-0" />
         </form>
       </div>
 

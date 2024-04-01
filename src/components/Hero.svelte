@@ -16,7 +16,7 @@
         <img
           src="/hctitle.png"
           alt="Hack Club Presents"
-          class="min-w-52 max-w-52 sm:min-w-64 sm:max-w-64"
+          class="min-w-52 max-w-52 sm:min-w-64 sm:max-w-64 flicker"
         />
         <img
           src="/apotitle.png"
@@ -133,5 +133,32 @@
       3px 6px,
       0px 6px
     );
+  }
+
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    24%,
+    55% {
+      opacity: 0;
+    }
+  }
+
+  .flicker {
+    animation: flicker 5s infinite;
+  }
+
+  @media prefers-reduced-motion {
+    .flicker {
+      animation: none;
+    }
   }
 </style>
