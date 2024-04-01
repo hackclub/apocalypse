@@ -10,7 +10,7 @@ export default defineConfig({
   redirects: {
     '/parents': 'https://docs.google.com/document/d/1NQDChsJd9dK4r1EWsVglzjHr0EnR3iW0DV3xMHSUAZ0/edit',
     '/teachers': 'https://docs.google.com/document/d/1NQDChsJd9dK4r1EWsVglzjHr0EnR3iW0DV3xMHSUAZ0/edit',
-    '/travel': '',
+    '/travel': 'https://docs.google.com/document/d/1oEQobHOqMcHUU5N7X5egDNo6Tfvqsx3bx5h--UBDpAs/edit',
     '/grants': 'https://join.apocalypse.hackclub.com/grants'
   },
   output: "server",
