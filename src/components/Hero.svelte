@@ -60,26 +60,26 @@
 
   <!-- Bottom cityscape -->
   <div
-    class="absolute bottom-0 z-10 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none sm:-mb-20"
+    class="absolute bottom-0 z-10 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-1.svg);"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-2.svg);
     transform: translate(0,{screenW > 640 ? (y * 1) / 6 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-30 sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-30 -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-3.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-contain -z-30 sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-contain -z-30 -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-3-cn.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-4.svg);
       transform: translate(0,{screenW > 640 ? (y * 3) / 6 : 0}px)"
   ></div>
