@@ -4,7 +4,7 @@
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerWidth={screenW} />
-<div id="top"></div>
+<div id="homesection"></div>
 <header class="relative flex justify-center min-h-screen overflow-hidden text-purple-50">
   <!-- Content  -->
   <div class="grid items-center justify-center max-w-4xl mx-10 grid-rows-9">

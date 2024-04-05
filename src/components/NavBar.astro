@@ -1,32 +1,32 @@
 <div class="bottom-0 z-10 flex h-auto w-screen items-center justify-center p-10">
   <div
     id="outer"
-    class="bottom-[2%] flex w-auto flex-row items-center pixel-corners justify-center bg-gradient-to-b from-[#ff0080] to-[#7928ca] p-1 drop-shadow-[0_0_8px_#200a3d] md:w-1/4"
+    class="bottom-[2vh] flex w-auto flex-row items-center pixel-corners justify-center bg-gradient-to-r from-[#ff74ba] to-[#6b5ffe] p-1 drop-shadow-[0_0_8px_#200a3d] md:w-auto"
   >
     <div
-      class="flex min-h-full w-full flex-row items-center pixel-corners justify-center bg-purple-950"
+      class="flex min-h-full w-auto flex-row items-center pixel-corners justify-center bg-[#301c54]"
     >
       <!-- Sidebar -->
       <img
-        src="../navbar/home.png"
+        src="../navbar/home.svg"
         id="homeicon"
         class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 md:w-[4vh]"
         title="Home"
       />
       <img
-        src="../navbar/letter.png"
+        src="../navbar/letter.svg"
         id="lettericon"
         class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
         title="Letter"
       />
       <img
-        src="../navbar/info.png"
+        src="../navbar/info.svg"
         id="infoicon"
         class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
         title="Info"
       />
       <img
-        src="../navbar/faq.png"
+        src="../navbar/faq.svg"
         id="faqicon"
         class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
         title="Faq"
@@ -69,7 +69,7 @@
 
 <script>
   document.getElementById("homeicon").addEventListener("click", function () {
-    const section = document.getElementById("top");
+    const section = document.getElementById("homesection");
     section.scrollIntoView({ behavior: "smooth" });
   });
   document.getElementById("lettericon").addEventListener("click", function () {
