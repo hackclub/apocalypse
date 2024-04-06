@@ -1,34 +1,34 @@
 <div class="bottom-0 z-10 flex h-auto w-screen items-center justify-center p-10">
   <div
     id="outer"
-    class="bottom-[2vh] flex w-auto flex-row items-center pixel-corners justify-center bg-gradient-to-r from-[#ff74ba] to-[#6b5ffe] p-1 drop-shadow-[0_0_8px_#200a3d] md:w-auto"
+    class="bottom-[2vh] flex w-auto flex-row items-center pixel-corners justify-center bg-gradient-to-r from-accent2 to-accent p-1 drop-shadow-[0_0_8px_#200a3d] md:w-auto"
   >
     <div
-      class="flex min-h-full w-auto flex-row items-center pixel-corners justify-center bg-[#301c54]"
+      class="flex min-h-full w-auto flex-row items-center pixel-corners justify-center bg-dark-bg"
     >
       <!-- Sidebar -->
       <img
         src="../navbar/home.svg"
         id="homeicon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 md:w-[4vh]"
+        class="images motion-safe:active:scale-50 motion-safe:transition-all sm:m-3 md:m-4 lg:m-6 sm:w-5 md:w-8 lg:w-8 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150"
         title="Home"
       />
       <img
         src="../navbar/letter.svg"
         id="lettericon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
+        class="images motion-safe:active:scale-50 motion-safe:transition-all sm:m-3 md:m-4 lg:m-6 sm:w-5 md:w-8 lg:w-8 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150"
         title="Letter"
       />
       <img
         src="../navbar/info.svg"
         id="infoicon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
+        class="images motion-safe:active:scale-50 motion-safe:transition-all sm:m-3 md:m-4 lg:m-6 sm:w-5 md:w-8 lg:w-8 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150"
         title="Info"
       />
       <img
         src="../navbar/faq.svg"
         id="faqicon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
+        class="images motion-safe:active:scale-50 motion-safe:transition-all sm:m-3 md:m-4 lg:m-6 sm:w-5 md:w-8 lg:w-8 cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150"
         title="Faq"
       />
     </div>
@@ -36,30 +36,31 @@
 </div>
 
 <style>
-  .pixel-corners {
+
+.pixel-corners {
     clip-path: polygon(
-      0px calc(100% - 6px),
-      3px calc(100% - 6px),
-      3px calc(100% - 3px),
-      6px calc(100% - 3px),
-      6px 100%,
-      calc(100% - 6px) 100%,
-      calc(100% - 6px) calc(100% - 3px),
-      calc(100% - 3px) calc(100% - 3px),
-      calc(100% - 3px) calc(100% - 6px),
-      100% calc(100% - 6px),
-      100% 6px,
-      calc(100% - 3px) 6px,
-      calc(100% - 3px) 3px,
-      calc(100% - 6px) 3px,
-      calc(100% - 6px) 0px,
-      6px 0px,
-      6px 3px,
-      3px 3px,
-      3px 6px,
-      0px 6px
+    0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px
     );
-  }
+}
 
   .click-shrink:active {
     transition: all 0.01s;
@@ -68,20 +69,30 @@
 </style>
 
 <script>
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      section.scrollIntoView({ behavior: "auto" });
+    } else {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   document.getElementById("homeicon").addEventListener("click", function () {
-    const section = document.getElementById("homesection");
-    section.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("homesection");
   });
+
   document.getElementById("lettericon").addEventListener("click", function () {
-    const section = document.getElementById("letter");
-    section.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("letter");
   });
+
   document.getElementById("infoicon").addEventListener("click", function () {
-    const section = document.getElementById("infosection");
-    section.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("infosection");
   });
+
   document.getElementById("faqicon").addEventListener("click", function () {
-    const section = document.getElementById("faqsection");
-    section.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("faqsection");
   });
 </script>
