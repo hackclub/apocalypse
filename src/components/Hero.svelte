@@ -4,7 +4,7 @@
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerWidth={screenW} />
-<div id="homesection"></div>
+
 <header class="relative flex justify-center min-h-screen overflow-hidden text-purple-50">
   <!-- Content  -->
   <div class="grid items-center justify-center max-w-4xl mx-10 grid-rows-9">
@@ -12,7 +12,7 @@
       class="flex flex-col items-center gap-y-8 sm:gap-y-6 row-span-8 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
-      <div class="flex flex-col items-center -space-y-2" id="top">
+      <div class="flex flex-col items-center -space-y-2">
         <img
           src="/hctitle.png"
           alt="Hack Club Presents"
