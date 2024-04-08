@@ -1,99 +1,130 @@
-<div class="fixed bottom-0 z-10 flex h-auto w-screen items-center justify-center p-10">
+<div class="z-10 flex h-auto w-screen items-center justify-center p-10">
   <div
     id="outer"
-    class="fixed bottom-[2%] flex w-auto flex-row items-center justify-center rounded-full bg-gradient-to-b from-[#ff0080] to-[#7928ca] p-1 drop-shadow-[0_0_8px_#200a3d] md:w-1/4"
+    class="pixel-corners flex w-auto flex-row items-center justify-center bg-gradient-to-r from-accent2 to-accent p-1 drop-shadow-[0_0_8px_#200a3d] md:w-auto"
   >
     <div
-      class="flex min-h-full w-full flex-row items-center justify-center rounded-full bg-purple-950"
+      class="pixel-corners flex min-h-full w-auto flex-row items-center justify-center bg-dark-bg"
     >
       <!-- Sidebar -->
-      <img
-        src="../navbar/home.png"
-        id="homeicon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 md:w-[4vh]"
-        title="Home"
-      />
-      <img
-        src="../navbar/letter.png"
-        id="lettericon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
-        title="Letter"
-      />
-      <img
-        src="../navbar/info.png"
-        id="infoicon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
-        title="Info"
-      />
-      <img
-        src="../navbar/faq.png"
-        id="faqicon"
-        class="images click-shrink m-3 w-[4vh] cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] md:w-[4vh]"
-        title="Faq"
-      />
+      <div
+        class="flex flex-col items-center sm:ml-3 sm:mr-3 md:ml-4 md:mr-4 lg:ml-4 lg:mr-4"
+      >
+        <h2
+          class="font-main sm:pt-0 sm:text-xs md:pt-1 md:text-base lg:pt-2 lg:text-base"
+        >
+          HOME
+        </h2>
+        <img
+          src="../navbar/home.svg"
+          id="homeicon"
+          class="images cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 motion-safe:transition-all motion-safe:active:scale-50 xs:w-6 sm:w-7 sm:p-1 md:w-8 md:p-1 lg:w-9 lg:p-1"
+          title="Home"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center sm:ml-3 sm:mr-3 md:ml-4 md:mr-4 lg:ml-4 lg:mr-4"
+      >
+        <h2
+          class="font-main sm:pt-0 sm:text-xs md:pt-1 md:text-base lg:pt-2 lg:text-base"
+        >
+          LETTER
+        </h2>
+        <img
+          src="../navbar/letter.svg"
+          id="lettericon"
+          class="images cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 motion-safe:transition-all motion-safe:active:scale-50 xs:w-6 sm:w-7 sm:p-1 md:w-8 md:p-1 lg:w-9 lg:p-1"
+          title="Letter"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center sm:ml-3 sm:mr-3 md:ml-4 md:mr-4 lg:ml-4 lg:mr-4"
+      >
+        <h2
+          class="font-main sm:pt-0 sm:text-xs md:pt-1 md:text-base lg:pt-2 lg:text-base"
+        >
+          INFO
+        </h2>
+        <img
+          src="../navbar/info.svg"
+          id="infoicon"
+          class="images cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 motion-safe:transition-all motion-safe:active:scale-50 xs:w-6 sm:w-7 sm:p-1 md:w-8 md:p-1 lg:w-9 lg:p-1"
+          title="Info"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center sm:ml-3 sm:mr-3 md:ml-4 md:mr-4 lg:ml-4 lg:mr-4"
+      >
+        <h2
+          class="font-main sm:pt-0 sm:text-xs md:pt-1 md:text-base lg:pt-2 lg:text-base"
+        >
+          FAQ
+        </h2>
+        <img
+          src="../navbar/faq.svg"
+          id="faqicon"
+          class="images cursor-pointer transition duration-150 hover:drop-shadow-[0_0_2px_#FF5DA9] focus:scale-150 motion-safe:transition-all motion-safe:active:scale-50 xs:w-6 sm:w-7 sm:p-1 md:w-8 md:p-1 lg:w-9 lg:p-1"
+          title="Faq"
+        />
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-  document.getElementById("homeicon").addEventListener("click", function () {
-    const section = document.getElementById("homepart");
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-  document.getElementById("lettericon").addEventListener("click", function () {
-    const section = document.getElementById("letter");
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-  document.getElementById("infoicon").addEventListener("click", function () {
-    const section = document.getElementById("infosection");
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-  document.getElementById("faqicon").addEventListener("click", function () {
-    const section = document.getElementById("faqsection");
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-</script>
-
 <style>
-  .images {
-    display: flex;
-    align-items: center;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-  }
-  .click-shrink:active {
-    transition: all 0.01s;
-    transform: scale(0.5);
+  .pixel-corners {
+    clip-path: polygon(
+      0px calc(100% - 6px),
+      3px calc(100% - 6px),
+      3px calc(100% - 3px),
+      6px calc(100% - 3px),
+      6px 100%,
+      calc(100% - 6px) 100%,
+      calc(100% - 6px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 6px),
+      100% calc(100% - 6px),
+      100% 6px,
+      calc(100% - 3px) 6px,
+      calc(100% - 3px) 3px,
+      calc(100% - 6px) 3px,
+      calc(100% - 6px) 0px,
+      6px 0px,
+      6px 3px,
+      3px 3px,
+      3px 6px,
+      0px 6px
+    );
   }
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const element = document.getElementById("outer");
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    let isScrolling = false;
-
-    function toggleVisibility() {
-      if (isScrolling) {
-        element.style.transition = "opacity 0.5s";
-        element.style.opacity = "0";
-      } else {
-        element.style.transition = "opacity 0.5s";
-        element.style.opacity = "1";
-      }
+    if (prefersReducedMotion) {
+      section.scrollIntoView({ behavior: "auto" });
+    } else {
+      section.scrollIntoView({ behavior: "smooth" });
     }
+  }
 
-    window.addEventListener("scroll", function () {
-      isScrolling = true;
-      toggleVisibility();
+  document.getElementById("homeicon").addEventListener("click", function () {
+    scrollToSection("homesection");
+  });
 
-      timeout = setTimeout(function () {
-        isScrolling = false;
-        toggleVisibility();
-      }, 200);
-      clearTimeout(timeout);
-    });
+  document.getElementById("lettericon").addEventListener("click", function () {
+    scrollToSection("letter");
+  });
 
-    toggleVisibility();
+  document.getElementById("infoicon").addEventListener("click", function () {
+    scrollToSection("infosection");
+  });
+
+  document.getElementById("faqicon").addEventListener("click", function () {
+    scrollToSection("faqsection");
   });
 </script>
