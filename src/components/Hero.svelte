@@ -4,7 +4,7 @@
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerWidth={screenW} />
-<div id="homesection"></div>
+
 <header class="relative flex justify-center min-h-screen overflow-hidden text-purple-50">
   <!-- Content  -->
   <div class="grid items-center justify-center max-w-4xl mx-10 grid-rows-9">
@@ -12,7 +12,7 @@
       class="flex flex-col items-center gap-y-8 sm:gap-y-6 row-span-8 sm:row-span-6 sm:row-start-1"
       style="transform: translate(0, {screenW > 640 ? y / 2 : 0}px);"
     >
-      <div class="flex flex-col items-center -space-y-2" id="top">
+      <div class="flex flex-col items-center -space-y-2">
         <img
           src="/hctitle.png"
           alt="Hack Club Presents"
@@ -60,26 +60,26 @@
 
   <!-- Bottom cityscape -->
   <div
-    class="absolute bottom-0 z-10 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none sm:-mb-20"
+    class="absolute bottom-0 z-10 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-1.svg);"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain pointer-events-none -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-2.svg);
     transform: translate(0,{screenW > 640 ? (y * 1) / 6 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-30 sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-30 -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-3.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-contain -z-30 sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-no-repeat bg-contain -z-30 -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-3-cn.svg);
     transform: translate(0,{screenW > 640 ? (y * 2) / 6 : 0}px)"
   ></div>
   <div
-    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 sm:-mb-20"
+    class="absolute bottom-0 w-screen min-h-screen bg-bottom bg-repeat-x bg-contain -z-40 -mb-1 md:-mb-8 lg:-mb-12 xl:-mb-20"
     style="background-image: url(/hero/parallax-4.svg);
       transform: translate(0,{screenW > 640 ? (y * 3) / 6 : 0}px)"
   ></div>
