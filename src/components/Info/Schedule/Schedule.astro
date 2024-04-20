@@ -1,6 +1,10 @@
+---
+import Calendar from "./Calendar.svelte";
+---
+
 <section class="flex w-screen justify-center">
-  <div class="max-w-6xl grow space-y-3 pt-4">
-    <div class="flex items-baseline">
+  <div class="max-w-6xl grow pt-4">
+    <div class="mb-3 flex items-baseline">
       <h2 class="text-5xl">Live Schedule</h2>
       <a
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
@@ -11,12 +15,6 @@
       </a>
     </div>
     <!-- Schedule Calendar -->
-    <div class="schedule-h bg-black/40"></div>
+    <Calendar client:load />
   </div>
 </section>
-
-<style>
-  .schedule-h {
-    height: max(420px, 40vh);
-  }
-</style>
