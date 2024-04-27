@@ -52,8 +52,8 @@
   let loading = true;
 
   let events: Event[] = [];
-  let eventStyles: { startPos: number; height: number }[][];
-  let eventCols: Event[][];
+  let eventPlacement: { startPos: number; height: number }[][];
+  let scheduleCols: Event[][];
 
   onMount(async () => {
     const resp = await fetch("/api/schedule/events");
@@ -73,32 +73,8 @@
           event.start >= DATES[0] &&
           event.end <= DATES[DATES.length - 1],
       );
-    // events.push({
-    //   name: "Dinner",
-    //   description: "A simple description",
-    //   location: "Floor 11",
-    //   start: new Date("2024-05-17T17:00:00.000Z"),
-    //   end: new Date("2024-05-17T18:00:00.000Z"),
-    //   fullDay: false,
-    // });
-    // events.push({
-    //   name: "Dinner",
-    //   description: "A simple description",
-    //   location: "Floor 11",
-    //   start: new Date("2024-05-17T17:00:00.000Z"),
-    //   end: new Date("2024-05-17T18:00:00.000Z"),
-    //   fullDay: false,
-    // });
-    // events.push({
-    //   name: "Dinner",
-    //   description: "A simple description",
-    //   location: "Floor 11",
-    //   start: new Date("2024-05-17T17:00:00.000Z"),
-    //   end: new Date("2024-05-17T18:00:00.000Z"),
-    //   fullDay: false,
-    // });
-    eventCols = arrangeCols(events);
-    eventStyles = eventCols.map((col) => col.map(getEventStyle));
+    scheduleCols = arrangeCols(events);
+    eventPlacement = scheduleCols.map((col) => col.map(getEventStyle));
     loading = false;
 
     console.table([
@@ -115,7 +91,7 @@
     ]);
     console.table([
       "Event Columns",
-      ...eventCols.map((col) =>
+      ...scheduleCols.map((col) =>
         col.map((event) => `${event.start.getUTCDate()} - ${event.name}`),
       ),
     ]);
@@ -263,14 +239,14 @@
       class="absolute top-0 left-0 right-0 ml-16 mr-4"
       bind:clientWidth={scheduleWidth}
     >
-      {#each eventCols as eventCol, i}
+      {#each scheduleCols as eventCol, i}
         {#each eventCol as event, j}
           <div
-            style="height: {eventStyles[i][j]
+            style="height: {eventPlacement[i][j]
               .height}rem; width: calc(calc(100% - 5rem) * {itemWidth}); transform: translate(calc(calc({scheduleWidth}px - 5rem) * {(itemWidth -
               overlap) *
               i}),
-              {eventStyles[i][j].startPos}rem)
+              {eventPlacement[i][j].startPos}rem)
               "
             class="{(event.end.getTime() - event.start.getTime()) / 60000 > 15
               ? 'py-2'
