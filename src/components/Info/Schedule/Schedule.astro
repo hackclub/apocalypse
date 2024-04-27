@@ -15,6 +15,14 @@ import Calendar from "./Calendar.svelte";
       </a>
     </div>
     <!-- Schedule Calendar -->
-    <Calendar client:load />
+    <div class="schedule-h overflow-x-hidden overflow-y-scroll">
+      <Calendar client:load />
+    </div>
   </div>
 </section>
+
+<style>
+  .schedule-h {
+    height: max(420px, 40vh);
+  }
+</style>
