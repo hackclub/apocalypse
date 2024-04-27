@@ -1,16 +1,21 @@
 import { createClient } from "@supabase/supabase-js";
-import type { APIContext } from "astro";
 import ical, { type CalendarResponse, type VEvent } from "node-ical";
 
 const supabase = createClient(import.meta.env.SUPABASE_URL, import.meta.env.SUPABASE_SECRET);
 
 type Event = {
     name: string,
+    type?: string,
     location?: string,
     description?: string,
     start: Date,
     end: Date,
     fullDay: boolean,
+};
+
+type Milestone = {
+    name: string,
+    date: Date,
 };
 
 type EventResponse = EventsSuccess | EventError;
@@ -19,6 +24,7 @@ type EventsSuccess = {
     ok: true,
     last_updated: Date,
     events: Event[],
+    milestones: Milestone[],
 };
 
 type EventError = {
@@ -43,7 +49,7 @@ async function fetchEvents(): Promise<EventResponse> {
         }
     }
 
-    const events = Object.values(schd).map((event) => {
+    let events = Object.values(schd).map((event) => {
         if (event.type !== "VEVENT") {
             return;
         }
@@ -51,8 +57,18 @@ async function fetchEvents(): Promise<EventResponse> {
             return;
         }
 
+        const splitted = event.summary.split("-")
+        let type;
+        let name = event.summary;
+
+        if (splitted.length > 1) {
+            type = splitted[0].trim().toLowerCase();
+            name = splitted.slice(1).join("-").trim();
+        }
+
         return {
-            name: event.summary,
+            name,
+            type,
             location: event.location,
             description: event.description,
             start: event.start,
@@ -61,10 +77,20 @@ async function fetchEvents(): Promise<EventResponse> {
         };
     }).filter(event => event);
 
+    let milestones = events.filter(event => event.type === "milestone").map(event => {
+        return {
+            name: event.name,
+            date: event.start,
+        };
+    });
+
+    events = events.filter(event => event.type != "milestone");
+
     return {
         ok: true,
         last_updated: new Date(),
         events: events,
+        milestones: milestones,
     };
 }
 
@@ -129,7 +155,7 @@ export async function GET() {
             );
         }
 
-        await supabase.from("events").upsert({ id: "cache", last_updated: events.last_updated, events: events.events })
+        await supabase.from("events").upsert({ id: "cache", last_updated: events.last_updated, events: events.events, milestones: events.milestones })
 
         const expires = new Date(events.last_updated);
         expires.setMinutes(expires.getMinutes() + 1);
@@ -152,6 +178,7 @@ export async function GET() {
         ok: true,
         last_updated: new Date(data[0].last_updated),
         events: data[0].events,
+        milestones: data[0].milestones
     } as EventsSuccess;
 
     if (events.last_updated.getTime() + 60000 <= Date.now()) {
@@ -173,7 +200,7 @@ export async function GET() {
             );
         }
 
-        await supabase.from("events").upsert({ id: "cache", last_updated: newEvents.last_updated, events: newEvents.events })
+        await supabase.from("events").upsert({ id: "cache", last_updated: newEvents.last_updated, events: newEvents.events, milestones: newEvents.milestones })
 
         events = newEvents;
     }
