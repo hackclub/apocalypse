@@ -256,20 +256,25 @@
 >
   <!-- Calendar background/template -->
   {#each DATES as date, i}
+    <!-- Date display -->
     <div
-      class="sticky top-0 z-50 bg-primary-bg font-semibold px-4 flex items-center"
+      class="sticky left-0 right-0 top-0 z-40 px-4 bg-primary-bg font-semibold flex items-center"
       style="height: {dateHeight}rem"
     >
-      <p class="grow">
-        {date.toLocaleDateString("en-CA", {
-          weekday: "long",
-          month: "long",
-          day: "numeric",
-          timeZone: "UTC",
-        })}
-      </p>
-      <p>Day {i + 1}</p>
+      <div class="w-full flex">
+        <p class="sticky left-4 mr-auto">
+          {date.toLocaleDateString("en-CA", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          })}
+        </p>
+        <p class="right-4 sticky">Day {i + 1}</p>
+      </div>
     </div>
+
+    <!-- Hour markings -->
     <div style="height: {dayHours[i] * hourHeight + hourHeight / 2}rem" class="relative">
       <div style="height: {hourHeight / 2}rem"></div>
       {#each Array(dayHours[i]) as _, j}
@@ -291,18 +296,23 @@
       {/each}
     </div>
   {/each}
-  {#each milestones as milestone}
-    <div
-      class="absolute z-10 top-0 left-0 right-0 ml-16 mr-4 border-t-2 text-sm uppercase"
-      style="color: {itemColors.special}; border-color: {itemColors.special}; transform: translateY(calc({timeToPos(
-        milestone.date,
-      )}rem - 1px))"
-    >
-      <p class="text-right">{formatTime(milestone.date)} - {milestone.name}</p>
-      <p></p>
-    </div>
-  {/each}
+
   {#if !loading}
+    <!-- Milestones -->
+    {#each milestones as milestone}
+      <div
+        class="absolute z-10 top-0 left-0 right-0 ml-16 mr-4 border-t-2 text-sm uppercase flex"
+        style="color: {itemColors.special}; border-color: {itemColors.special}; transform: translateY(calc({timeToPos(
+          milestone.date,
+        )}rem - 1px))"
+      >
+        <p class="text-right ml-auto sticky right-2 font-medium">
+          {formatTime(milestone.date)} - {milestone.name}
+        </p>
+      </div>
+    {/each}
+
+    <!-- Calender Items-->
     <div
       class="absolute top-0 left-0 right-0 ml-16 mr-4"
       bind:clientWidth={scheduleWidth}
@@ -310,20 +320,19 @@
       {#each scheduleCols as eventCol, i}
         {#each eventCol as event, j}
           <div
-            style="height: {eventPlacement[i][j]
-              .height}rem; width: calc(calc(100% - 5rem) * {itemWidth});
+            style="height: calc({eventPlacement[i][j]
+              .height}rem - 1px); width: calc(calc(100% - 5rem) * {itemWidth});
               transform: translate(calc(calc({scheduleWidth}px - 5rem) * {(itemWidth -
               overlap) *
               i}), {eventPlacement[i][j].startPos}rem);
               background-color: {itemBgs[event.type] || itemBgs.default};
-              border-color: {itemColors[event.type] || itemColors.default};
-              border-bottom-color: {bgColor};"
+              border-color: {itemColors[event.type] || itemColors.default};"
             class="{durationMinutes(event) > 30
               ? 'py-2'
               : !isSameDay(event.start, event.end) && minsToMidnight(event.start) <= 15
                 ? 'py-0.5'
                 : 'flex flex-col justify-center'}
-            absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm hover:z-40 border-b"
+            absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm hover:z-40"
           >
             {#if (durationMinutes(event) > 15 && isSameDay(event.start, event.end)) || (!isSameDay(event.start, event.end) && minsToMidnight(event.start) >= 15)}
               <p class="items-center font-semibold">
@@ -335,6 +344,7 @@
                   : ""}
               </p>
             {:else if minsToMidnight(event.start) <= 15}
+              <!-- Not enough room (Restricted by date display) -->
               <p class="text-sm h-full">
                 <span class="font-semibold">{event.name}</span>,
                 {formatTime(event.start)} - {formatTime(event.end)}{event.location
@@ -342,6 +352,7 @@
                   : ""}
               </p>
             {:else}
+              <!-- Not enough room (Event is too short) -->
               <p class="text-sm h-full flex items-center">
                 <span class="font-semibold">{event.name}</span>,
                 {formatTime(event.start)} - {formatTime(event.end)}{event.location
@@ -358,6 +369,6 @@
 
 <style>
   .w-schedule {
-    width: max(100%, 50rem);
+    width: max(100%, 46rem);
   }
 </style>
