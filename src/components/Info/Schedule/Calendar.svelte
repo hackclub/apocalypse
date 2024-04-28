@@ -136,6 +136,14 @@
           };
         }),
       );
+      console.table(
+        milestones.map((milestone) => {
+          return {
+            name: milestone.name,
+            date: milestone.date.toISOString(),
+          };
+        }),
+      );
     }
   }
 
