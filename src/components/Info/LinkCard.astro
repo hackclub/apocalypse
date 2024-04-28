@@ -3,15 +3,15 @@ const { name, cardId } = Astro.props;
 ---
 
 <div
-  class="rounded-ms border-2 border-accent bg-primary-bg px-6 py-5 font-sans"
-  id=`faq${cardId}`
+  class="rounded-ms border-2 border-accent bg-primary-bg px-3 py-2 font-sans sm:px-6 sm:py-5"
+  id=`link${cardId}`
 >
-  <p class="text-2xl font-bold">
+  <p class="text-lg font-bold sm:text-2xl">
     {name}
   </p>
-  <p class="text-sm">
+  <div class="break-words text-xs sm:text-sm">
     <slot />
-  </p>
+  </div>
 </div>
 
 <script define:vars={{ cardId }}>
