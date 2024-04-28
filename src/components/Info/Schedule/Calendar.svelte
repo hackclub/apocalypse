@@ -71,7 +71,6 @@
   const overlap = 0.25;
 
   const itemWidth = (1 + (cols - 1) * overlap) / cols;
-  console.log(itemWidth);
   const totalHeight =
     DATES.length * dateHeight +
     (dayHours[0] +
@@ -115,7 +114,6 @@
     eventPlacement = scheduleCols.map((col) => col.map(getEventStyle));
 
     console.table([
-      "Valid Events",
       ...events.map((event) => {
         return {
           name: event.name,
@@ -126,16 +124,22 @@
         };
       }),
     ]);
-    console.table([
-      "Event Columns",
-      ...scheduleCols.map((col) =>
-        col.map((event) => `${event.start.getUTCDate()} - ${event.name}`),
-      ),
-    ]);
+
+    return resp.headers;
+  }
+
+  async function liveUpdate() {
+    let headers = await fetchEvents();
+    if (headers.has("Expires")) {
+      let next = new Date(headers.get("Expires"));
+      next.setSeconds(next.getSeconds() + Math.random() * 29 + 1); // Randomness to reduce load spikes
+      console.log("Next fetch at", next);
+      setTimeout(liveUpdate, next.getTime() - Date.now());
+    }
   }
 
   onMount(async () => {
-    await fetchEvents();
+    await liveUpdate();
     loading = false;
   });
 
@@ -189,14 +193,12 @@
       }
       return a.start.getTime() - b.start.getTime();
     });
-    console.log(events);
 
     events.forEach((event) => {
       let col = eventCols.findIndex((col) => !col.some((e) => conflictingTime(e, event)));
       if (col != -1) {
         eventCols[col].push(event);
       }
-      console.log(event.name, event.start.getUTCDate(), col);
     });
 
     return eventCols;
