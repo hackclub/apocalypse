@@ -37,9 +37,7 @@ async function fetchEvents(): Promise<EventResponse> {
     let schd: CalendarResponse;
 
     try {
-        schd = await ical.async.fromURL(
-            "https://calendar.google.com/calendar/ical/c_884255a22ba1e092ee65ceead5c91422fe188e21077568270fe5d0633f1927d3%40group.calendar.google.com/public/basic.ics",
-        );
+        schd = await ical.async.fromURL(import.meta.env.ICAL_URL);
     } catch (e) {
         console.error(e);
         return {
