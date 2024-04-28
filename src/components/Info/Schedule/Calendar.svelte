@@ -228,8 +228,12 @@
 
   onMount(async () => {
     updateCurrentTime();
-    document.getElementById("scheduleContainer").addEventListener("wheel", onManualScroll);
-    document.getElementById("scheduleContainer").addEventListener("touchmove", onManualScroll);
+    document
+      .getElementById("scheduleContainer")
+      .addEventListener("wheel", onManualScroll);
+    document
+      .getElementById("scheduleContainer")
+      .addEventListener("touchmove", onManualScroll);
 
     if (!loading) return;
     await liveUpdate();
@@ -437,7 +441,7 @@
       <div
         class="absolute top-0 left-0 right-0 {minsOutsideEvent(currentTime) <= 0
           ? 'ml-20'
-          : 'ml-16'} mr-4 lg:hover:z-10"
+          : 'ml-16'} mr-4 lg:hover:z-20"
       >
         {#each scheduleCols as eventCol, i}
           {#each eventCol as event, j}
@@ -489,7 +493,7 @@
 
       <!-- Current time indicator -->
       {#if minsOutsideEvent(currentTime) <= 0}
-        <div class="absolute top-0 left-0 right-0 mx-4">
+        <div class="absolute top-0 left-0 right-0 mx-4 z-10">
           <div
             id="currentTime"
             class="absolute left-[4.45rem] right-0 border-t-[3px]"
