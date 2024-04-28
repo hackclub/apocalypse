@@ -94,6 +94,7 @@
     let resp = await fetch("/api/schedule/events");
     if (!resp.ok) {
       console.error("Failed to fetch events");
+      alert("Failed to fetch events. Reload the page or view the full schedule.");
       return;
     }
     let data = await resp.json();
@@ -143,16 +144,15 @@
       let next = new Date(headers.get("Expires"));
       next.setSeconds(next.getSeconds() + Math.random() * 29 + 1); // Randomness to reduce load spikes
       if (!import.meta.env.SSR) {
-        console.log("Next fetch at", next);
+        console.log("Fetching events again at", next);
         setTimeout(liveUpdate, next.getTime() - Date.now());
       }
     }
   }
 
   async function liveUpdate() {
-    console.log("fetching");
+    console.log("Fetching events...");
     let resp = await fetchEvents();
-    console.log("fresh", resp);
     queueFetch(resp.headers);
   }
 
