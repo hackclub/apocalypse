@@ -1,26 +1,16 @@
 ---
-const { name, cardId } = Astro.props;
+const { name, link } = Astro.props;
 ---
 
-<div
-  class="rounded-ms border-2 border-accent bg-primary-bg px-3 py-2 font-sans sm:px-6 sm:py-5"
-  id=`link${cardId}`
->
-  <p class="text-lg font-bold sm:text-2xl">
-    {name}
-  </p>
-  <div class="break-words text-xs sm:text-sm">
-    <slot />
+<a href={link} target="_blank" rel="noopener noreferrer">
+  <div
+    class="rounded-ms border-2 border-accent bg-primary-bg px-3 py-2 font-sans motion-safe:transition-transform motion-safe:hover:scale-105 sm:px-6 sm:py-5"
+  >
+    <p class="text-lg font-bold sm:text-2xl">
+      {name}
+    </p>
+    <div class="break-words text-xs sm:text-sm">
+      <slot />
+    </div>
   </div>
-</div>
-
-<script define:vars={{ cardId }}>
-  let hash = window.location.hash;
-  if (hash == `#link${cardId + 1}`) {
-    document
-      .getElementById(`link${cardId}`)
-      .classList.remove("shadow-[6px_6px_rgba(0,0,0,0.3)]");
-    document.getElementById(`link${cardId}`).classList.add("border-2");
-    document.getElementById(`link${cardId}`).classList.add("border-accent");
-  }
-</script>
+</a>
