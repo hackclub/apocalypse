@@ -1,5 +1,14 @@
 ---
+import { GET } from "../../../pages/api/schedule/events";
 import Calendar from "./Calendar.svelte";
+
+let resp;
+
+try {
+  resp = await GET();
+} catch (e) {
+  console.error(e);
+}
 ---
 
 <section class="flex w-screen justify-center px-4 sm:px-6 lg:px-10">
@@ -16,7 +25,11 @@ import Calendar from "./Calendar.svelte";
     </div>
     <!-- Schedule Calendar -->
     <div class="schedule-h overflow-y-scroll overscroll-none">
-      <Calendar client:load />
+      <Calendar
+        client:load
+        preJson={resp != undefined ? await resp.json() : undefined}
+        preHeaders={resp != undefined ? Object.fromEntries(resp.headers) : undefined}
+      />
     </div>
   </div>
 </section>

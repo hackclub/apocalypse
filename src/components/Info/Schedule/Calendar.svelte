@@ -12,6 +12,10 @@
 
   import { onMount } from "svelte";
 
+  export let preJson = undefined;
+  export let preHeaders = undefined;
+  if (preHeaders) preHeaders = new Headers(preHeaders);
+
   type Event = {
     name: string;
     type?: string;
@@ -63,14 +67,13 @@
   const endHour = DATES[DATES.length - 1].getUTCHours();
 
   const dayHours = [24 - startHour, ...Array(DATES.length - 2).fill(24), endHour + 1];
-  let scheduleWidth: number;
 
   const dateHeight = 2;
   const hourHeight = 6;
-  const cols = 4;
+  const cols = 3;
   const overlap = 0.25;
 
-  const itemWidth = (1 + (cols - 1) * overlap) / cols;
+  const itemWidth = 1 / (cols * -overlap + cols + overlap);
   const totalHeight =
     DATES.length * dateHeight +
     (dayHours[0] +
@@ -88,12 +91,19 @@
   let milestones: Milestone[] = [];
 
   async function fetchEvents() {
-    const resp = await fetch("/api/schedule/events");
+    let resp = await fetch("/api/schedule/events");
     if (!resp.ok) {
       console.error("Failed to fetch events");
       return;
     }
-    const data = await resp.json();
+    let data = await resp.json();
+
+    processEvents(data);
+
+    return resp;
+  }
+
+  function processEvents(data, supressLogs = false) {
     events = data.events
       .map((event: Event) => ({
         ...event,
@@ -105,40 +115,56 @@
           !event.fullDay &&
           event.start >= DATES[0] &&
           event.end <= DATES[DATES.length - 1],
-      );
+      ) as Event[];
     milestones = data.milestones.map((milestone: Milestone) => ({
       ...milestone,
       date: normalizeToUTC(new Date(milestone.date)),
-    }));
+    })) as Milestone[];
     scheduleCols = arrangeCols(events);
     eventPlacement = scheduleCols.map((col) => col.map(getEventStyle));
 
-    console.table([
-      ...events.map((event) => {
-        return {
-          name: event.name,
-          description: event.description,
-          location: event.location,
-          start: event.start.toISOString(),
-          end: event.end.toISOString(),
-        };
-      }),
-    ]);
-
-    return resp.headers;
-  }
-
-  async function liveUpdate() {
-    let headers = await fetchEvents();
-    if (headers.has("Expires")) {
-      let next = new Date(headers.get("Expires"));
-      next.setSeconds(next.getSeconds() + Math.random() * 29 + 1); // Randomness to reduce load spikes
-      console.log("Next fetch at", next);
-      setTimeout(liveUpdate, next.getTime() - Date.now());
+    if (!supressLogs) {
+      console.table(
+        events.map((event) => {
+          return {
+            name: event.name,
+            description: event.description,
+            location: event.location,
+            start: event.start.toISOString(),
+            end: event.end.toISOString(),
+          };
+        }),
+      );
     }
   }
 
+  function queueFetch(headers: Headers) {
+    if (headers.has("Expires")) {
+      let next = new Date(headers.get("Expires"));
+      next.setSeconds(next.getSeconds() + Math.random() * 29 + 1); // Randomness to reduce load spikes
+      if (!import.meta.env.SSR) {
+        console.log("Next fetch at", next);
+        setTimeout(liveUpdate, next.getTime() - Date.now());
+      }
+    }
+  }
+
+  async function liveUpdate() {
+    console.log("fetching");
+    let resp = await fetchEvents();
+    console.log("fresh", resp);
+    queueFetch(resp.headers);
+  }
+
+  if (preJson && preHeaders) {
+    processEvents(preJson, import.meta.env.SSR);
+    loading = false;
+
+    queueFetch(preHeaders);
+  }
+
   onMount(async () => {
+    if (!loading) return;
     await liveUpdate();
     loading = false;
   });
@@ -315,18 +341,15 @@
     {/each}
 
     <!-- Calender Items-->
-    <div
-      class="absolute top-0 left-0 right-0 ml-16 mr-4"
-      bind:clientWidth={scheduleWidth}
-    >
+    <div class="absolute top-0 left-0 right-0 ml-16 mr-4">
       {#each scheduleCols as eventCol, i}
         {#each eventCol as event, j}
           <div
-            style="height: calc({eventPlacement[i][j]
-              .height}rem - 1px); width: calc(calc(100% - 5rem) * {itemWidth});
-              transform: translate(calc(calc({scheduleWidth}px - 5rem) * {(itemWidth -
-              overlap) *
-              i}), {eventPlacement[i][j].startPos}rem);
+            style="height: calc({eventPlacement[i][j].height}rem - 1px); width: {100 *
+              itemWidth}%;
+              transform: translate(calc({i * 100}% - calc({overlap *
+              100 *
+              i}%)), {eventPlacement[i][j].startPos}rem);
               background-color: {itemBgs[event.type] || itemBgs.default};
               border-color: {itemColors[event.type] || itemColors.default};"
             class="{durationMinutes(event) > 30
