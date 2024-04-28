@@ -103,7 +103,7 @@
     return resp;
   }
 
-  function processEvents(data, supressLogs = false) {
+  function processEvents(data, suppressLogs = false) {
     events = data.events
       .map((event: Event) => ({
         ...event,
@@ -123,7 +123,7 @@
     scheduleCols = arrangeCols(events);
     eventPlacement = scheduleCols.map((col) => col.map(getEventStyle));
 
-    if (!supressLogs) {
+    if (!suppressLogs) {
       console.table(
         events.map((event) => {
           return {
