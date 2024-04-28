@@ -12,6 +12,10 @@
 
   import { onMount } from "svelte";
 
+  let className = "";
+  let styleName = "";
+  let heightVal = "";
+  export { className as class, styleName as style, heightVal as height };
   export let preJson = undefined;
   export let preHeaders = undefined;
   if (preHeaders) preHeaders = new Headers(preHeaders);
@@ -48,6 +52,7 @@
     default: "#616161",
   };
   const itemBgs = { ...itemColors };
+  const timeColor = "#dc2626";
 
   const bgR = parseInt(bgColor.slice(1, 3), 16);
   const bgG = parseInt(bgColor.slice(3, 5), 16);
@@ -62,6 +67,14 @@
       b * 0.75 + bgB * 0.25
     })`;
   });
+
+  const timeR = parseInt(timeColor.slice(1, 3), 16);
+  const timeG = parseInt(timeColor.slice(3, 5), 16);
+  const timeB = parseInt(timeColor.slice(5, 7), 16);
+
+  const timeBg = `rgb(${timeR * 0.25 + bgR * 0.75}, ${timeG * 0.25 + bgG * 0.75}, ${
+    timeB * 0.25 + bgB * 0.75
+  })`;
 
   const startHour = DATES[0].getUTCHours();
   const endHour = DATES[DATES.length - 1].getUTCHours();
@@ -80,15 +93,57 @@
       dayHours[dayHours.length - 1] +
       (DATES.length - 2) * 24 +
       DATES.length * 0.5) *
-      hourHeight;
+      hourHeight -
+    hourHeight / 2;
 
   let loading = true;
+  let scrollLoaded = false;
 
   let events: Event[] = [];
   let eventPlacement: { startPos: number; height: number }[][];
   let scheduleCols: Event[][];
 
   let milestones: Milestone[] = [];
+
+  let scheduleHeight = 0;
+  let scheduleWidth = 0;
+
+  let currentTime: Date;
+  let followTime = true;
+  currentTime = normalizeToUTC(new Date());
+  currentTime.setUTCMonth(4, 17);
+  currentTime.setUTCHours(16, 0, 0);
+
+  function updateCurrentTime() {
+    // console.log(minsOutsideEvent(currentTime));
+    // console.log(currentTime.toISOString());
+    currentTime.setUTCMinutes(currentTime.getUTCMinutes() + 1);
+    currentTime = currentTime;
+
+    setTimeout(updateCurrentTime, 100 - (Date.now() % 100));
+
+    if (
+      minsOutsideEvent(currentTime) <= 0 &&
+      followTime &&
+      document.getElementById("scheduleContainer")
+    ) {
+      document.getElementById("scheduleContainer").scrollTop = scrollPos();
+      scrollLoaded = true;
+    }
+  }
+
+  function scrollPos() {
+    return remToPx(timeToPos(currentTime) - 6);
+  }
+
+  function onManualScroll() {
+    followTime = false;
+  }
+
+  function remToPx(rem: number) {
+    if (import.meta.env.SSR) return rem * 16;
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
 
   async function fetchEvents() {
     let resp = await fetch("/api/schedule/events");
@@ -172,6 +227,10 @@
   }
 
   onMount(async () => {
+    updateCurrentTime();
+    document.getElementById("scheduleContainer").addEventListener("wheel", onManualScroll);
+    document.getElementById("scheduleContainer").addEventListener("touchmove", onManualScroll);
+
     if (!loading) return;
     await liveUpdate();
     loading = false;
@@ -282,122 +341,189 @@
       timeZone: "UTC",
     });
   }
+
+  function minsOutsideEvent(date: Date) {
+    if (date.getTime() < DATES[0].getTime()) {
+      return (DATES[0].getTime() - date.getTime()) / 60000;
+    } else if (date.getTime() > DATES[DATES.length - 1].getTime()) {
+      return (date.getTime() - DATES[DATES.length - 1].getTime()) / 60000;
+    } else {
+      return -1;
+    }
+  }
 </script>
 
 <div
-  class="font-sans {loading ? 'animate-pulse' : ''} relative {loading
-    ? 'blur-sm'
-    : ''} w-schedule"
-  style="height: {totalHeight}rem; background-color: {bgColor}"
+  class={className}
+  style="height: {heightVal}; {styleName}"
+  id="scheduleContainer"
+  bind:clientHeight={scheduleHeight}
+  bind:clientWidth={scheduleWidth}
 >
-  <!-- Calendar background/template -->
-  {#each DATES as date, i}
-    <!-- Date display -->
-    <div
-      class="sticky left-0 right-0 top-0 z-40 px-4 bg-primary-bg font-semibold flex items-center"
-      style="height: {dateHeight}rem"
-    >
-      <div class="w-full flex">
-        <p class="sticky left-4 mr-auto">
-          {date.toLocaleDateString("en-CA", {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-            timeZone: "UTC",
-          })}
-        </p>
-        <p class="right-4 sticky">Day {i + 1}</p>
-      </div>
-    </div>
-
-    <!-- Hour markings -->
-    <div style="height: {dayHours[i] * hourHeight + hourHeight / 2}rem" class="relative">
-      <div style="height: {hourHeight / 2}rem"></div>
-      {#each Array(dayHours[i]) as _, j}
-        <div
-          class="border-t border-gray-400 mr-4 ml-16"
-          style="height: {hourHeight}rem"
-        ></div>
-        <p
-          class="absolute top-0 w-10 text-right text-xs text-gray-400"
-          style="transform: translate(1rem, {hourHeight / 2 + hourHeight * j - 0.5}rem)"
-        >
-          {j + (i == 0 ? startHour : 0) == 0
-            ? "12"
-            : j + (i == 0 ? startHour : 0) > 12
-              ? j + (i == 0 ? startHour : 0) - 12
-              : j + (i == 0 ? startHour : 0)}
-          {j + (i == 0 ? startHour : 0) >= 12 ? "PM" : "AM"}
-        </p>
-      {/each}
-    </div>
-  {/each}
-
-  {#if !loading}
-    <!-- Milestones -->
-    {#each milestones as milestone}
+  <div
+    class="font-sans {loading ? 'animate-pulse' : ''} relative {loading
+      ? 'blur-sm'
+      : ''} w-schedule"
+    style="height: {totalHeight}rem; background-color: {bgColor}; {scrollLoaded
+      ? ''
+      : `transform: translateY(calc(-1*max(0px, min(${scrollPos()}px, calc(${totalHeight}rem - ${heightVal})))))`}"
+  >
+    <!-- Calendar background/template -->
+    {#each DATES as date, i}
+      <!-- Date display -->
       <div
-        class="absolute z-10 top-0 left-0 right-0 ml-16 mr-4 border-t-2 text-sm uppercase flex"
-        style="color: {itemColors.special}; border-color: {itemColors.special}; transform: translateY(calc({timeToPos(
-          milestone.date,
-        )}rem - 1px))"
+        class="sticky left-0 right-0 top-0 z-40 px-4 bg-primary-bg font-semibold flex items-center"
+        style="height: {dateHeight}rem"
       >
-        <p class="text-right ml-auto sticky right-2 font-medium">
-          {formatTime(milestone.date)} - {milestone.name}
-        </p>
+        <div class="w-full flex">
+          <p class="sticky left-4 mr-auto">
+            {date.toLocaleDateString("en-CA", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              timeZone: "UTC",
+            })}
+          </p>
+          <p class="right-4 sticky">Day {i + 1}</p>
+        </div>
+      </div>
+
+      <!-- Hour markings -->
+      <div
+        style="height: {dayHours[i] * hourHeight +
+          hourHeight / 2 -
+          (i == DATES.length - 1 ? hourHeight / 2 : 0)}rem"
+        class="relative"
+      >
+        <div style="height: {hourHeight / 2}rem"></div>
+        {#each Array(dayHours[i]) as _, j}
+          <div
+            class="border-t border-gray-400 mr-4 ml-16"
+            style="height: {i == DATES.length - 1 && j == endHour
+              ? hourHeight / 2
+              : hourHeight}rem"
+          ></div>
+          <p
+            class="absolute top-0 w-10 text-right text-xs text-gray-400 left-4"
+            style="transform: translateY({hourHeight / 2 + hourHeight * j - 0.5}rem)"
+          >
+            {j + (i == 0 ? startHour : 0) == 0
+              ? "12"
+              : j + (i == 0 ? startHour : 0) > 12
+                ? j + (i == 0 ? startHour : 0) - 12
+                : j + (i == 0 ? startHour : 0)}
+            {j + (i == 0 ? startHour : 0) >= 12 ? "PM" : "AM"}
+          </p>
+        {/each}
       </div>
     {/each}
 
-    <!-- Calender Items-->
-    <div class="absolute top-0 left-0 right-0 ml-16 mr-4">
-      {#each scheduleCols as eventCol, i}
-        {#each eventCol as event, j}
-          <div
-            style="height: calc({eventPlacement[i][j].height}rem - 1px); width: {100 *
-              itemWidth}%;
-              transform: translate(calc({i * 100}% - calc({overlap *
-              100 *
-              i}%)), {eventPlacement[i][j].startPos}rem);
-              background-color: {itemBgs[event.type] || itemBgs.default};
-              border-color: {itemColors[event.type] || itemColors.default};"
-            class="{durationMinutes(event) > 30
-              ? 'py-2'
-              : !isSameDay(event.start, event.end) && minsToMidnight(event.start) <= 15
-                ? 'py-0.5'
-                : 'flex flex-col justify-center'}
-            absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm"
-          >
-            {#if (durationMinutes(event) > 15 && isSameDay(event.start, event.end)) || (!isSameDay(event.start, event.end) && minsToMidnight(event.start) >= 15)}
-              <p class="items-center font-semibold">
-                {event.name}
-              </p>
-              <p>
-                {formatTime(event.start)} - {formatTime(event.end)}{event.location
-                  ? ", " + event.location
-                  : ""}
-              </p>
-            {:else if minsToMidnight(event.start) <= 15}
-              <!-- Not enough room (Restricted by date display) -->
-              <p class="text-sm h-full">
-                <span class="font-semibold">{event.name}</span>,
-                {formatTime(event.start)} - {formatTime(event.end)}{event.location
-                  ? ", " + event.location
-                  : ""}
-              </p>
-            {:else}
-              <!-- Not enough room (Event is too short) -->
-              <p class="text-sm h-full flex items-center">
-                <span class="font-semibold">{event.name}</span>,
-                {formatTime(event.start)} - {formatTime(event.end)}{event.location
-                  ? ", " + event.location
-                  : ""}
-              </p>
-            {/if}
-          </div>
-        {/each}
+    {#if !loading}
+      <!-- Milestones -->
+      {#each milestones as milestone}
+        <div
+          class="absolute z-10 top-0 left-0 right-0 ml-16 mr-4 border-t-2 text-sm uppercase flex"
+          style="color: {itemColors.special}; border-color: {itemColors.special}; transform: translateY(calc({timeToPos(
+            milestone.date,
+          )}rem - 1px))"
+        >
+          <p class="text-right ml-auto sticky right-2 font-medium">
+            {formatTime(milestone.date)} - {milestone.name}
+          </p>
+        </div>
       {/each}
-    </div>
-  {/if}
+
+      <!-- Calender Items-->
+      <div
+        class="absolute top-0 left-0 right-0 {minsOutsideEvent(currentTime) <= 0
+          ? 'ml-20'
+          : 'ml-16'} mr-4 lg:hover:z-10"
+      >
+        {#each scheduleCols as eventCol, i}
+          {#each eventCol as event, j}
+            <div
+              style="height: calc({eventPlacement[i][j].height}rem - 1px); width: {100 *
+                itemWidth}%;
+                transform: translate(calc({i * 100}% - calc({overlap *
+                100 *
+                i}%)), {eventPlacement[i][j].startPos}rem);
+                background-color: {itemBgs[event.type] || itemBgs.default};
+                border-color: {itemColors[event.type] || itemColors.default};"
+              class="{durationMinutes(event) > 30
+                ? 'py-2'
+                : !isSameDay(event.start, event.end) && minsToMidnight(event.start) <= 15
+                  ? 'py-0.5'
+                  : 'flex flex-col justify-center'}
+              absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm"
+            >
+              {#if (durationMinutes(event) > 15 && isSameDay(event.start, event.end)) || (!isSameDay(event.start, event.end) && minsToMidnight(event.start) >= 15)}
+                <p class="items-center font-semibold">
+                  {event.name}
+                </p>
+                <p>
+                  {formatTime(event.start)} - {formatTime(event.end)}{event.location
+                    ? ", " + event.location
+                    : ""}
+                </p>
+              {:else if minsToMidnight(event.start) <= 15}
+                <!-- Not enough room (Restricted by date display) -->
+                <p class="text-sm h-full">
+                  <span class="font-semibold">{event.name}</span>,
+                  {formatTime(event.start)} - {formatTime(event.end)}{event.location
+                    ? ", " + event.location
+                    : ""}
+                </p>
+              {:else}
+                <!-- Not enough room (Event is too short) -->
+                <p class="text-sm h-full flex items-center">
+                  <span class="font-semibold">{event.name}</span>,
+                  {formatTime(event.start)} - {formatTime(event.end)}{event.location
+                    ? ", " + event.location
+                    : ""}
+                </p>
+              {/if}
+            </div>
+          {/each}
+        {/each}
+      </div>
+
+      <!-- Current time indicator -->
+      {#if minsOutsideEvent(currentTime) <= 0}
+        <div class="absolute top-0 left-0 right-0 mx-4">
+          <div
+            id="currentTime"
+            class="absolute left-[4.45rem] right-0 border-t-[3px]"
+            style="transform: translateY({timeToPos(
+              currentTime,
+            )}rem); border-top-color: {timeColor}"
+          ></div>
+          <p
+            class="sticky left-2 h-8 text-xs font-semibold flex items-center w-[4.5rem] justify-center rounded-full border-[3px]"
+            style="transform: translateY(calc({timeToPos(
+              currentTime,
+            )}rem - 0.9rem)); background-color: {timeBg}; border-color: {timeColor}"
+          >
+            {formatTime(currentTime)}
+          </p>
+        </div>
+        {#if !followTime}
+          <div class="absolute top-0 z-50 left-0 right-0 flex bottom-0 justify-center">
+            <div
+              class="h-7 rounded-full sticky left-0 right-0 top-0 flex items-center justify-center"
+              style="transform: translateY(calc({scheduleHeight}px - 2.5rem)); width: {scheduleWidth}px"
+            >
+              <button
+                class="bg-red-600 px-4 h-full rounded-full text-xs uppercase"
+                on:click|preventDefault={() => (followTime = true)}
+              >
+                Go to current time
+              </button>
+            </div>
+          </div>
+        {/if}
+      {/if}
+    {/if}
+  </div>
 </div>
 
 <style>

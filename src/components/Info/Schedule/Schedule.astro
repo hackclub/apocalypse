@@ -24,18 +24,14 @@ try {
       </a>
     </div>
     <!-- Schedule Calendar -->
-    <div class="schedule-h overflow-y-scroll overscroll-none">
+    <div class="">
       <Calendar
         client:load
         preJson={resp != undefined ? await resp.json() : undefined}
         preHeaders={resp != undefined ? Object.fromEntries(resp.headers) : undefined}
+        class="overflow-y-scroll overscroll-none"
+        height="max(420px, 40vh)"
       />
     </div>
   </div>
 </section>
-
-<style>
-  .schedule-h {
-    height: max(420px, 40vh);
-  }
-</style>
