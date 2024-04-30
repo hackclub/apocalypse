@@ -1,0 +1,40 @@
+---
+import LinkCard from "./LinkCard.astro";
+---
+
+<section class="flex w-screen justify-center px-4 sm:px-6 lg:px-10">
+  <div class="max-w-6xl grow sm:space-y-3">
+    <h2 class="text-3xl sm:text-5xl">Quick Links</h2>
+    <div
+      class="grid grid-rows-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8"
+    >
+      <LinkCard name="Register" link="https://join.apocalypse.hackclub.com">
+        <p>Join the waitlist! It's not too late to sign up; spots will be opening.</p>
+      </LinkCard>
+      <LinkCard name="Travel stipends" link="/grants">
+        <p>
+          Apply for travel stipends! Make sure to register first. Put your best foot
+          forward :)
+        </p>
+      </LinkCard>
+      <LinkCard name="How to get here" link="/travel">
+        <p>Read our guide on travelling to Apocalypse.</p>
+      </LinkCard>
+      <LinkCard name="ID policy" link="/id">
+        <p>Make sure you have an accepted form of physical photo ID at entry.</p>
+      </LinkCard>
+      <LinkCard name="Parents' Guide" link="/parents">
+        <p>Learn more about how Apocalypse will be a safe experience for your child.</p>
+      </LinkCard>
+      <LinkCard name="Teachers' Guide" link="/teachers">
+        <p>Learn more about how your students can benefit from attending Apocalypse!</p>
+      </LinkCard>
+    </div>
+  </div>
+</section>
+
+<style>
+  .schedule-h {
+    height: max(420px, 40vh);
+  }
+</style>
