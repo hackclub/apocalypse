@@ -4,12 +4,12 @@ const { name, link } = Astro.props;
 
 <a href={link} target="_blank" rel="noopener noreferrer">
   <div
-    class="rounded-ms border-2 border-accent bg-primary-bg px-3 py-2 font-sans motion-safe:transition-transform motion-safe:hover:scale-105 sm:px-6 sm:py-5"
+    class="rounded-ms border-2 border-accent bg-primary-bg px-3 py-2 font-sans motion-safe:transition-transform motion-safe:hover:scale-105 sm:space-y-2 sm:px-6 sm:py-5"
   >
-    <p class="text-lg font-bold sm:text-2xl">
+    <p class="font-bold sm:text-lg">
       {name}
     </p>
-    <div class="break-words text-xs sm:text-sm">
+    <div class="break-words text-sm sm:text-base">
       <slot />
     </div>
   </div>
