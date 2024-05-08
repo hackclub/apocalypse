@@ -112,6 +112,7 @@
     new Date().getTime() -
       (import.meta.env.SSR ? 4 * 60 : new Date().getTimezoneOffset()) * 60000,
   );
+
   let followTime = true;
 
   function updateCurrentTime() {
@@ -127,8 +128,8 @@
       document.getElementById("scheduleContainer")
     ) {
       document.getElementById("scheduleContainer").scrollTop = scrollPos();
-      scrollLoaded = true;
     }
+    scrollLoaded = true;
   }
 
   function scrollPos() {
@@ -367,7 +368,8 @@
     class="font-sans {loading ? 'animate-pulse' : ''} relative {loading
       ? 'blur-sm'
       : ''} w-schedule"
-    style="height: {totalHeight}rem; background-color: {bgColor}; {scrollLoaded
+    style="height: {totalHeight}rem; background-color: {bgColor}; {scrollLoaded ||
+    minsOutsideEvent(currentTime) >= 0
       ? ''
       : `transform: translateY(calc(-1*max(0px, min(${scrollPos()}px, calc(${totalHeight}rem - ${heightVal})))))`}"
   >
