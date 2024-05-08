@@ -120,7 +120,7 @@
 
     currentTime.setFullYear(2024, 4, 17); // TODO: DEBUGGING - REMOVE THIS IN PROD
 
-    setTimeout(updateCurrentTime, 100 - (Date.now() % 100));
+    setTimeout(updateCurrentTime, 60000 - (Date.now() % 60000));
 
     if (
       minsOutsideEvent(currentTime) <= 0 &&
