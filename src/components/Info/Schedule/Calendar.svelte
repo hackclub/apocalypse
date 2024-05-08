@@ -122,6 +122,12 @@
 
     setTimeout(updateCurrentTime, 60000 - (Date.now() % 60000));
 
+    updateFollowTime();
+
+    scrollLoaded = true;
+  }
+
+  function updateFollowTime() {
     if (
       minsOutsideEvent(currentTime) <= 0 &&
       followTime &&
@@ -129,7 +135,6 @@
     ) {
       document.getElementById("scheduleContainer").scrollTop = scrollPos();
     }
-    scrollLoaded = true;
   }
 
   function scrollPos() {
@@ -519,7 +524,10 @@
             >
               <button
                 class="bg-red-600 px-4 h-full rounded-full text-xs uppercase"
-                on:click|preventDefault={() => (followTime = true)}
+                on:click|preventDefault={() => {
+                  followTime = true;
+                  updateFollowTime();
+                }}
               >
                 Go to current time
               </button>
