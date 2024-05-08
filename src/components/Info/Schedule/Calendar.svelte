@@ -18,6 +18,8 @@
   export { className as class, styleName as style, heightVal as height };
   export let preJson = undefined;
   export let preHeaders = undefined;
+  export let videoWall = false;
+
   if (preHeaders) preHeaders = new Headers(preHeaders);
 
   type Event = {
@@ -142,6 +144,7 @@
   }
 
   function onManualScroll() {
+    if (videoWall) return;
     followTime = false;
   }
 
@@ -517,7 +520,9 @@
           </p>
         </div>
         {#if !followTime}
-          <div class="absolute top-0 z-50 left-0 right-0 flex bottom-0 justify-center">
+          <div
+            class="absolute top-0 z-50 left-0 right-0 flex bottom-0 justify-center pointer-events-none"
+          >
             <div
               class="h-7 rounded-full sticky left-0 right-0 top-0 flex items-center justify-center"
               style="transform: translateY(calc({scheduleHeight}px - 2.5rem)); width: {scheduleWidth}px"

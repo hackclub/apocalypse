@@ -3,13 +3,17 @@ import Header from "../components/Info/Header.astro";
 import Links from "../components/Info/Links.astro";
 import Schedule from "../components/Info/Schedule/Schedule.astro";
 import Layout from "../layouts/Layout.astro";
+
+const videoWall = Boolean(Astro.url.searchParams.get("videowall")) || false;
 ---
 
 <Layout title="Apocalypse: Event Information">
-  <Header />
-  <div class="space-y-8 pt-4">
-    <Schedule />
-    <Links />
+  <div class=`${videoWall ? "h-screen" : ""} flex flex-col`>
+    <Header {videoWall} />
+    <div class="flex grow flex-col space-y-8 pt-4">
+      <Schedule {videoWall} />
+      {!videoWall && <Links />}
+    </div>
   </div>
 </Layout>
 
