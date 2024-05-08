@@ -523,7 +523,7 @@
               style="transform: translateY(calc({scheduleHeight}px - 2.5rem)); width: {scheduleWidth}px"
             >
               <button
-                class="bg-red-600 px-4 h-full rounded-full text-xs uppercase"
+                class="bg-red-600 px-4 h-full rounded-full text-xs uppercase pointer-events-auto"
                 on:click|preventDefault={() => {
                   followTime = true;
                   updateFollowTime();
