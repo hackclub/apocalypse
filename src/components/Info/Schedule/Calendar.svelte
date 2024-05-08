@@ -108,17 +108,16 @@
   let scheduleHeight = 0;
   let scheduleWidth = 0;
 
-  let currentTime: Date;
+  let currentTime = new Date(
+    new Date().getTime() -
+      (import.meta.env.SSR ? 4 * 60 : new Date().getTimezoneOffset()) * 60000,
+  );
   let followTime = true;
-  currentTime = normalizeToUTC(new Date());
-  currentTime.setUTCMonth(4, 17);
-  currentTime.setUTCHours(16, 0, 0);
 
   function updateCurrentTime() {
-    // console.log(minsOutsideEvent(currentTime));
-    // console.log(currentTime.toISOString());
-    currentTime.setUTCMinutes(currentTime.getUTCMinutes() + 1);
-    currentTime = currentTime;
+    currentTime = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000);
+
+    currentTime.setFullYear(2024, 4, 17); // TODO: DEBUGGING - REMOVE THIS IN PROD
 
     setTimeout(updateCurrentTime, 100 - (Date.now() % 100));
 
@@ -146,7 +145,7 @@
   }
 
   async function fetchEvents() {
-    let resp = await fetch("/api/schedule/events");
+    let resp = await fetch("/api/schedule");
     if (!resp.ok) {
       console.error("Failed to fetch events");
       alert("Failed to fetch events. Reload the page or view the full schedule.");
@@ -441,7 +440,7 @@
       <div
         class="absolute top-0 left-0 right-0 {minsOutsideEvent(currentTime) <= 0
           ? 'ml-20'
-          : 'ml-16'} mr-4 lg:hover:z-20"
+          : 'ml-16'} mr-4"
       >
         {#each scheduleCols as eventCol, i}
           {#each eventCol as event, j}
