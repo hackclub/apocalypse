@@ -13,6 +13,7 @@ export default defineConfig({
     '/travel': 'https://docs.google.com/document/d/1oEQobHOqMcHUU5N7X5egDNo6Tfvqsx3bx5h--UBDpAs/edit',
     '/international': 'https://docs.google.com/document/d/1LuZmVCTGeFPdXYAwqTYx2IHN2d7h4wjuAdhiWNuYJVI/edit?usp=sharing',
     '/id': 'https://docs.google.com/document/d/1ro77tpRs1vpQK39YGgAP4IumkNhx3-6pc41BmvI0UzA/edit?usp=sharing',
+    '/packing': 'https://docs.google.com/document/d/1rGKr5Yn1uCT3fAUEEpQW2Hf3RzR6xymValoaBLmobHM/edit?usp=sharing',
     '/grants': 'https://join.apocalypse.hackclub.com/grants'
   },
   output: "server",
