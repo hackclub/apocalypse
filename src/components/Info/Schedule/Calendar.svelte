@@ -120,8 +120,6 @@
   function updateCurrentTime() {
     currentTime = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000);
 
-    currentTime.setFullYear(2024, 4, 17); // TODO: DEBUGGING - REMOVE THIS IN PROD
-
     setTimeout(updateCurrentTime, 60000 - (Date.now() % 60000));
 
     updateFollowTime();
@@ -478,6 +476,11 @@
                     ? ", " + event.location
                     : ""}
                 </p>
+                {#if durationMinutes(event) >= 60 && event.description}
+                  <p class="truncate text-wrap" style="height: calc(100% - 2.5rem)">
+                    {event.description}
+                  </p>
+                {/if}
               {:else if minsToMidnight(event.start) <= 15}
                 <!-- Not enough room (Restricted by date display) -->
                 <p class="text-sm h-full">
