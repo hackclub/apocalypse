@@ -85,7 +85,7 @@
 
   const dateHeight = 2;
   const hourHeight = 6;
-  const cols = 3;
+  const cols = 4;
   const overlap = 0.25;
 
   const itemWidth = 1 / (cols * -overlap + cols + overlap);
