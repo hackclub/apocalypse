@@ -465,7 +465,7 @@
                 : !isSameDay(event.start, event.end) && minsToMidnight(event.start) <= 15
                   ? 'py-0.5'
                   : 'flex flex-col justify-center'}
-              absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm"
+              absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm md:active:z-50"
             >
               {#if (durationMinutes(event) > 15 && isSameDay(event.start, event.end)) || (!isSameDay(event.start, event.end) && minsToMidnight(event.start) >= 15)}
                 <p class="items-center font-semibold">
