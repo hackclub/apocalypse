@@ -120,7 +120,7 @@
   function updateCurrentTime() {
     currentTime = normalizeToUTC(new Date());
 
-    setTimeout(updateCurrentTime, 60000 - (Date.now() % 60000));
+    setTimeout(updateCurrentTime, 60000 - (Date.now() % 60000) + 10);
 
     updateFollowTime();
 
