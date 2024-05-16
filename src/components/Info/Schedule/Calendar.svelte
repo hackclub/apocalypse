@@ -550,11 +550,6 @@
                       ? ", " + event.location
                       : ""}
                   </p>
-                  {#if durationMinutes(event) >= 60 && event.description}
-                    <p class="truncate text-wrap" style="height: calc(100% - 2.5rem)">
-                      {event.description}
-                    </p>
-                  {/if}
                 {:else if minsToMidnight(event.start) <= 15}
                   <!-- Not enough room (Restricted by date display) -->
                   <p class="text-sm h-full">
