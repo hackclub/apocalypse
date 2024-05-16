@@ -361,7 +361,72 @@
       return -1;
     }
   }
+
+  let popup = false;
+  let popupEvent = events[0];
+
+  function clickOutside(node: Node): ActionReturn<undefined, any> {
+    const handleClick = (event: MouseEvent) => {
+      if (
+        event.target &&
+        node &&
+        !node.contains(event.target as Node) &&
+        !event.defaultPrevented
+      ) {
+        node.dispatchEvent(new CustomEvent("click_outside"));
+      }
+    };
+
+    document.addEventListener("click", handleClick, true);
+
+    return {
+      destroy() {
+        document.removeEventListener("click", handleClick, true);
+      },
+    };
+  }
 </script>
+
+{#if popup}
+  <div
+    class="fixed top-0 bg-black/75 bottom-0 left-0 right-0 z-50 flex items-center justify-center font-sans"
+  >
+    <div
+      class="max-w-[32rem] mx-8 grow border-l-4 rounded-lg text-lg px-6 py-4"
+      style="background-color: {itemBgs[popupEvent.type] || itemBgs.default};
+    border-color: {itemColors[popupEvent.type] || itemColors.default};"
+      use:clickOutside
+      on:click_outside={() => (popup = false)}
+    >
+      <div class="flex space-x-2">
+        <p class="font-semibold grow">{popupEvent.name}</p>
+        <button type="button" class="hidden md:block" on:click={() => (popup = false)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <p>
+        {formatTime(popupEvent.start)} - {formatTime(
+          popupEvent.end,
+        )}{#if popupEvent.location}
+          , {popupEvent.location}
+        {/if}
+      </p>
+
+      {#if popupEvent.description}
+        <p class="mt-4">{popupEvent.description}</p>
+      {/if}
+    </div>
+  </div>
+{/if}
 
 <div
   class={className}
@@ -452,53 +517,63 @@
       >
         {#each scheduleCols as eventCol, i}
           {#each eventCol as event, j}
-            <div
-              style="height: calc({eventPlacement[i][j].height}rem - 1px); width: {100 *
-                itemWidth}%;
-                transform: translate(calc({i * 100}% - calc({overlap *
-                100 *
-                i}%)), {eventPlacement[i][j].startPos}rem);
-                background-color: {itemBgs[event.type] || itemBgs.default};
-                border-color: {itemColors[event.type] || itemColors.default};"
-              class="{durationMinutes(event) > 30
-                ? 'py-2'
-                : !isSameDay(event.start, event.end) && minsToMidnight(event.start) <= 15
-                  ? 'py-0.5'
-                  : 'flex flex-col justify-center'}
-              absolute rounded-md bg-green-600/50 border-l-[3px] border-green-600 px-3 text-sm md:active:z-50"
+            <button
+              type="button"
+              class="block appearance-none text-left"
+              on:click={() => {
+                popupEvent = event;
+                popup = true;
+              }}
             >
-              {#if (durationMinutes(event) > 15 && isSameDay(event.start, event.end)) || (!isSameDay(event.start, event.end) && minsToMidnight(event.start) >= 15)}
-                <p class="items-center font-semibold">
-                  {event.name}
-                </p>
-                <p>
-                  {formatTime(event.start)} - {formatTime(event.end)}{event.location
-                    ? ", " + event.location
-                    : ""}
-                </p>
-                {#if durationMinutes(event) >= 60 && event.description}
-                  <p class="truncate text-wrap" style="height: calc(100% - 2.5rem)">
-                    {event.description}
+              <div
+                style="height: calc({eventPlacement[i][j].height}rem - 1px); width: {100 *
+                  itemWidth}%;
+                  transform: translate(calc({i * 100}% - calc({overlap *
+                  100 *
+                  i}%)), {eventPlacement[i][j].startPos}rem);
+                  background-color: {itemBgs[event.type] || itemBgs.default};
+                  border-color: {itemColors[event.type] || itemColors.default};"
+                class="{durationMinutes(event) > 30
+                  ? 'py-2'
+                  : !isSameDay(event.start, event.end) &&
+                      minsToMidnight(event.start) <= 15
+                    ? 'py-0.5'
+                    : 'flex flex-col justify-center'}
+                absolute rounded-md border-l-[3px] px-3 text-sm"
+              >
+                {#if (durationMinutes(event) > 15 && isSameDay(event.start, event.end)) || (!isSameDay(event.start, event.end) && minsToMidnight(event.start) >= 15)}
+                  <p class="items-center font-semibold">
+                    {event.name}
+                  </p>
+                  <p>
+                    {formatTime(event.start)} - {formatTime(event.end)}{event.location
+                      ? ", " + event.location
+                      : ""}
+                  </p>
+                  {#if durationMinutes(event) >= 60 && event.description}
+                    <p class="truncate text-wrap" style="height: calc(100% - 2.5rem)">
+                      {event.description}
+                    </p>
+                  {/if}
+                {:else if minsToMidnight(event.start) <= 15}
+                  <!-- Not enough room (Restricted by date display) -->
+                  <p class="text-sm h-full">
+                    <span class="font-semibold">{event.name}</span>,
+                    {formatTime(event.start)} - {formatTime(event.end)}{event.location
+                      ? ", " + event.location
+                      : ""}
+                  </p>
+                {:else}
+                  <!-- Not enough room (Event is too short) -->
+                  <p class="text-sm h-full flex items-center">
+                    <span class="font-semibold">{event.name}</span>,
+                    {formatTime(event.start)} - {formatTime(event.end)}{event.location
+                      ? ", " + event.location
+                      : ""}
                   </p>
                 {/if}
-              {:else if minsToMidnight(event.start) <= 15}
-                <!-- Not enough room (Restricted by date display) -->
-                <p class="text-sm h-full">
-                  <span class="font-semibold">{event.name}</span>,
-                  {formatTime(event.start)} - {formatTime(event.end)}{event.location
-                    ? ", " + event.location
-                    : ""}
-                </p>
-              {:else}
-                <!-- Not enough room (Event is too short) -->
-                <p class="text-sm h-full flex items-center">
-                  <span class="font-semibold">{event.name}</span>,
-                  {formatTime(event.start)} - {formatTime(event.end)}{event.location
-                    ? ", " + event.location
-                    : ""}
-                </p>
-              {/if}
-            </div>
+              </div>
+            </button>
           {/each}
         {/each}
       </div>
@@ -549,6 +624,6 @@
 
 <style>
   .w-schedule {
-    width: max(100%, 46rem);
+    width: max(100%, 70rem);
   }
 </style>
