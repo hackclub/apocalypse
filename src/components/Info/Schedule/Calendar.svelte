@@ -118,7 +118,7 @@
   let followTime = true;
 
   function updateCurrentTime() {
-    currentTime = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000);
+    currentTime = normalizeToUTC(new Date());
 
     setTimeout(updateCurrentTime, 60000 - (Date.now() % 60000));
 
