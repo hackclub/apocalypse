@@ -44,7 +44,7 @@
             href="/event"
             target="_blank"
             class="inline-block px-12 py-1 font-sans border-accent2 border-4 text-white text-base sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
-            >Links</a
+            >Event Information</a
           >
         </div>
       </div>
