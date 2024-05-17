@@ -10,7 +10,7 @@ const videoWall = Boolean(Astro.url.searchParams.get("videowall")) || false;
 <Layout title="Apocalypse: Event Information">
   <div class=`${videoWall ? "h-screen" : ""} flex flex-col`>
     <Header {videoWall} />
-    <div class="flex grow flex-col space-y-8 pt-4">
+    <div class=`flex grow flex-col space-y-8 ${videoWall ? 'pt-2' : 'pt-4'}`>
       <Schedule {videoWall} />
       {!videoWall && <Links />}
     </div>

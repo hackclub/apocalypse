@@ -6,7 +6,9 @@ interface Props {
 const { videoWall = false } = Astro.props;
 ---
 
-<section class="flex w-screen justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10 lg:pt-12">
+<section
+  class=`flex w-screen justify-center px-4 ${videoWall ? 'pt-3' : 'pt-6 sm:px-6 sm:pt-8 lg:px-10 lg:pt-12'}`
+>
   <div class=`${videoWall ? '' : 'max-w-6xl'} grow`>
     <div class="flex flex-col space-y-1 lg:flex-row lg:items-center lg:space-y-0">
       <div class="flex grow flex-row items-center space-x-2">
@@ -20,7 +22,7 @@ const { videoWall = false } = Astro.props;
       <div
         class="flex items-center space-x-6 text-center font-sans text-xs xs:text-sm sm:text-xl lg:ml-auto lg:space-y-3 lg:text-right"
       >
-        <div class={videoWall ? "text-2xl" : ""}>
+        <div class={videoWall ? "text-2xl" : "w-full"}>
           <p>May 17, 6 PM - May 19, 2 PM • Shopify Toronto</p>
           <p>
             Need urgent help? Call <a href="tel:+18556254225" class="hover:underline"

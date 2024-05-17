@@ -17,7 +17,9 @@ interface Props {
 const { videoWall = false } = Astro.props;
 ---
 
-<section class="flex w-screen grow justify-center px-4 sm:px-6 lg:px-10">
+<section
+  class=`flex w-screen grow justify-center ${videoWall? 'px-4' : 'px-4 sm:px-6 lg:px-10'}`
+>
   <div class=`${videoWall ? '' : 'max-w-6xl pt-4'} grow`>
     <div class=`${videoWall ? 'h-14' : ''} mb-3 flex items-baseline`>
       <h2 class="text-2xl xs:text-3xl sm:text-5xl">Live Schedule</h2>
@@ -36,9 +38,12 @@ const { videoWall = false } = Astro.props;
         preJson={resp != undefined ? await resp.json() : undefined}
         preHeaders={resp != undefined ? Object.fromEntries(resp.headers) : undefined}
         class={`${videoWall ? "overflow-hidden" : "overflow-y-scroll"} overscroll-none`}
-        height={videoWall ? "calc(100cqh - 23rem)" : "max(420px, 40vh)"}
+        height={videoWall ? "calc(100cqh - 17rem)" : "max(420px, 40vh)"}
         {videoWall}
       />
+    </div>
+    <div class=`font-sans font-xl mt-2 ${videoWall ? 'hidden' : ''}`>
+      <p>Click on an event for more information</p>
     </div>
   </div>
 </section>
