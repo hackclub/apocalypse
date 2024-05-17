@@ -14,7 +14,8 @@ export default defineConfig({
     '/international': 'https://docs.google.com/document/d/1LuZmVCTGeFPdXYAwqTYx2IHN2d7h4wjuAdhiWNuYJVI/edit?usp=sharing',
     '/id': 'https://docs.google.com/document/d/1ro77tpRs1vpQK39YGgAP4IumkNhx3-6pc41BmvI0UzA/edit?usp=sharing',
     '/packing': 'https://docs.google.com/document/d/1rGKr5Yn1uCT3fAUEEpQW2Hf3RzR6xymValoaBLmobHM/edit?usp=sharing',
-    '/grants': 'https://join.apocalypse.hackclub.com/grants'
+    '/grants': 'https://join.apocalypse.hackclub.com/grants',
+    '/showers': 'https://calendar.google.com/calendar/u/0/appointments/AcZssZ3ofoLo-abUmRCvR6_4hVMXJ3IcXXdJhcUlG94='
   },
   output: "server",
   adapter: vercel({
