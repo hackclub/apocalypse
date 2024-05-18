@@ -23,6 +23,7 @@ export default defineConfig({
     "/grants": "https://join.apocalypse.hackclub.com/grants",
     "/showers":
       "https://calendar.google.com/calendar/u/0/appointments/AcZssZ3ofoLo-abUmRCvR6_4hVMXJ3IcXXdJhcUlG94=",
+    "/badge": "https://github.com/LimesKey/NameTagPCB",
     "/": "event",
   },
   output: "server",
