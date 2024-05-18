@@ -594,7 +594,7 @@
         </div>
         {#if !followTime}
           <div
-            class="absolute top-0 z-50 left-0 right-0 flex bottom-0 justify-center pointer-events-none"
+            class="absolute top-0 z-40 left-0 right-0 flex bottom-0 justify-center pointer-events-none"
           >
             <div
               class="h-7 rounded-full sticky left-0 right-0 top-0 flex items-center justify-center"
