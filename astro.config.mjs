@@ -24,6 +24,7 @@ export default defineConfig({
     "/showers":
       "https://calendar.google.com/calendar/u/0/appointments/AcZssZ3ofoLo-abUmRCvR6_4hVMXJ3IcXXdJhcUlG94=",
     "/badge": "https://github.com/LimesKey/NameTagPCB",
+    "/ship": "https://tally.so/r/wdYg6r",
     "/": "event",
   },
   output: "server",
