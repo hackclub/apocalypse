@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import ical, { type CalendarResponse, type VEvent } from "node-ical";
 
-const supabase = createClient(import.meta.env.SUPABASE_URL, import.meta.env.SUPABASE_SECRET);
+// const supabase = createClient(import.meta.env.SUPABASE_URL, import.meta.env.SUPABASE_SECRET);
 
 type Event = {
     name: string,
@@ -94,9 +94,10 @@ async function fetchEvents(): Promise<EventResponse> {
 
 export async function GET() {
 
-    const { data, error } = await supabase.from("events").select("*").eq("id", "cache");
-    if (error) {
-        console.error("Failed to fetch from supabase, not using cache", error);
+    // const { data, error } = await supabase.from("events").select("*").eq("id", "cache");
+    // if (error) {
+    if (true) {
+        // console.error("Failed to fetch from supabase, not using cache", error);
 
         const events = await fetchEvents();
         if (events.ok == false) {
@@ -133,89 +134,89 @@ export async function GET() {
         );
     }
 
-    if (data.length == 0) {
-        console.warn("No cache found in supabase, fetching events");
-        const events = await fetchEvents();
-        if (events.ok == false) {
-            return new Response(
-                JSON.stringify({
-                    ok: false,
-                    message: "Failed to fetch events",
-                    details: events.message,
-                }),
-                {
-                    status: 500,
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Cache-Control": "no-cache, must-revalidate"
-                    },
-                },
-            );
-        }
+    // if (data.length == 0) {
+    //     console.warn("No cache found in supabase, fetching events");
+    //     const events = await fetchEvents();
+    //     if (events.ok == false) {
+    //         return new Response(
+    //             JSON.stringify({
+    //                 ok: false,
+    //                 message: "Failed to fetch events",
+    //                 details: events.message,
+    //             }),
+    //             {
+    //                 status: 500,
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     "Cache-Control": "no-cache, must-revalidate"
+    //                 },
+    //             },
+    //         );
+    //     }
 
-        await supabase.from("events").upsert({ id: "cache", last_updated: events.last_updated, events: events.events, milestones: events.milestones })
+    //     await supabase.from("events").upsert({ id: "cache", last_updated: events.last_updated, events: events.events, milestones: events.milestones })
 
-        const expires = new Date(events.last_updated);
-        expires.setMinutes(expires.getMinutes() + 1);
+    //     const expires = new Date(events.last_updated);
+    //     expires.setMinutes(expires.getMinutes() + 1);
 
-        return new Response(
-            JSON.stringify(events),
-            {
-                status: 200,
-                headers: {
-                    "Content-Type": "application/json",
-                    "Last-Modified": events.last_updated.toUTCString(),
-                    "Cache-Control": "public, must-revalidate",
-                    "Expires": expires.toUTCString(),
-                },
-            },
-        );
-    }
+    //     return new Response(
+    //         JSON.stringify(events),
+    //         {
+    //             status: 200,
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 "Last-Modified": events.last_updated.toUTCString(),
+    //                 "Cache-Control": "public, must-revalidate",
+    //                 "Expires": expires.toUTCString(),
+    //             },
+    //         },
+    //     );
+    // }
 
-    let events = {
-        ok: true,
-        last_updated: new Date(data[0].last_updated),
-        events: data[0].events,
-        milestones: data[0].milestones
-    } as EventsSuccess;
+    // let events = {
+    //     ok: true,
+    //     last_updated: new Date(data[0].last_updated),
+    //     events: data[0].events,
+    //     milestones: data[0].milestones
+    // } as EventsSuccess;
 
-    if (events.last_updated.getTime() + 60000 <= Date.now()) {
-        const newEvents = await fetchEvents();
-        if (newEvents.ok == false) {
-            return new Response(
-                JSON.stringify({
-                    ok: false,
-                    message: "Failed to fetch events",
-                    details: newEvents.message,
-                }),
-                {
-                    status: 500,
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Cache-Control": "no-cache, must-revalidate"
-                    },
-                },
-            );
-        }
+    // if (events.last_updated.getTime() + 60000 <= Date.now()) {
+    //     const newEvents = await fetchEvents();
+    //     if (newEvents.ok == false) {
+    //         return new Response(
+    //             JSON.stringify({
+    //                 ok: false,
+    //                 message: "Failed to fetch events",
+    //                 details: newEvents.message,
+    //             }),
+    //             {
+    //                 status: 500,
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     "Cache-Control": "no-cache, must-revalidate"
+    //                 },
+    //             },
+    //         );
+    //     }
 
-        await supabase.from("events").upsert({ id: "cache", last_updated: newEvents.last_updated, events: newEvents.events, milestones: newEvents.milestones })
+    //     await supabase.from("events").upsert({ id: "cache", last_updated: newEvents.last_updated, events: newEvents.events, milestones: newEvents.milestones })
 
-        events = newEvents;
-    }
+    //     events = newEvents;
+    // }
 
-    const expires = new Date(events.last_updated);
-    expires.setMinutes(expires.getMinutes() + 1);
+    // const expires = new Date(events.last_updated);
+    // expires.setMinutes(expires.getMinutes() + 1);
 
-    return new Response(
-        JSON.stringify(events),
-        {
-            status: 200,
-            headers: {
-                "Content-Type": "application/json",
-                "Last-Modified": events.last_updated.toUTCString(),
-                "Cache-Control": "public, must-revalidate",
-                "Expires": expires.toUTCString(),
-            },
-        },
-    );
+    // return new Response(
+    //     JSON.stringify(events),
+    //     {
+    //         status: 200,
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Last-Modified": events.last_updated.toUTCString(),
+    //             "Cache-Control": "public, must-revalidate",
+    //             "Expires": expires.toUTCString(),
+    //         },
+    //     },
+    // );
 }
