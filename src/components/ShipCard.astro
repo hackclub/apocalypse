@@ -23,14 +23,14 @@ if (parsedTeam.length == 1) {
 {href.length > 0 && (
 <a {href} target="_blank" rel="noopener noreferrer">
   <div
-    class=`relative h-[20rem] lg:h-[24rem] overflow-hidden border-2 border-accent font-sans shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.2)] motion-safe:transition-all motion-safe:hover:scale-105 ${rot}`
+    class=`relative h-[14rem] lg:h-[15rem] xl:h-[16rem] overflow-hidden border-2 border-accent font-sans shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.2)] motion-safe:transition-all motion-safe:hover:scale-105 ${rot}`
   >
-    <div class="z-20 flex h-full flex-col p-8 lg:p-12 pb-20 lg:pb-28">
-      <div class="w-[90%] grow space-y-2">
-        <p class="font-main text-4xl sm:text-5xl leading-8 sm:leading-10">{name}</p>
-        <p class="text-sm sm:text-base" set:html={teamString} />
+    <div class="z-20 flex h-full flex-col p-8 lg:p-8 pb-12 lg:pb-14">
+      <div class="w-[90%] grow space-y-1">
+        <p class="font-main text-3xl leading-6">{name}</p>
+        <p class="text-xs sm:text-xs" set:html={teamString} />
       </div>
-      <div class="w-[60%] text-xs sm:text-sm"><p>{description}</p></div>
+      <div class="w-[60%] text-[0.6rem] leading-[0.75rem]"><p>{description}</p></div>
     </div>
     <div
       class="absolute bottom-0 left-[40%] right-0 top-0 -z-50 bg-cover bg-center bg-no-repeat"
@@ -42,30 +42,30 @@ if (parsedTeam.length == 1) {
     >
     </div>
 
-    <div class="opacity-50">
+    <div class="opacity-50 -z-10">
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 -mb-[5.5rem] h-[30%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 -mb-[1.5rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-1.svg);"
       >
       </div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-20 -mb-[5.25rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-20 -mb-[1.25rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-2.svg);"
       >
       </div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-30 -mb-[5rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-30 -mb-[1rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-3.svg);"
       >
       </div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-40 -mb-[4rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-40 -mb-[0.75rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-4.svg);"
       >
       </div>
     </div>
     <div
-      class="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-dark-bg/50 to-transparent"
+      class="absolute bottom-0 left-0 right-0 h-[25%] bg-gradient-to-t from-dark-bg/75 to-transparent"
     >
     </div>
 
@@ -75,14 +75,14 @@ if (parsedTeam.length == 1) {
 
 {href.length == 0 && (
   <div
-    class='relative h-[20rem] lg:h-[24rem] overflow-hidden border-2 border-accent font-sans shadow-[6px_6px_rgba(0,0,0,0.3)]'
+    class=`relative h-[14rem] lg:h-[15rem] xl:h-[16rem] overflow-hidden border-2 border-accent font-sans shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.2)] motion-safe:transition-all motion-safe:hover:scale-105 ${rot}`
   >
-    <div class="z-20 flex h-full flex-col p-8 lg:p-12 pb-20 lg:pb-28">
-      <div class="w-[90%] grow space-y-2">
-        <p class="font-main text-4xl sm:text-5xl leading-8 sm:leading-10">{name}</p>
-        <p class="text-sm sm:text-base" set:html={teamString} />
+    <div class="z-20 flex h-full flex-col p-8 lg:p-8 pb-12 lg:pb-14">
+      <div class="w-[90%] grow space-y-1">
+        <p class="font-main text-3xl leading-6">{name}</p>
+        <p class="text-xs sm:text-xs" set:html={teamString} />
       </div>
-      <div class="w-[60%] text-xs sm:text-sm"><p>{description}</p></div>
+      <div class="w-[60%] text-[0.6rem] leading-[0.75rem]"><p>{description}</p></div>
     </div>
     <div
       class="absolute bottom-0 left-[40%] right-0 top-0 -z-50 bg-cover bg-center bg-no-repeat"
@@ -94,30 +94,30 @@ if (parsedTeam.length == 1) {
     >
     </div>
 
-    <div class="opacity-50">
+    <div class="opacity-50 -z-10">
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 -mb-[5.5rem] h-[30%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 -mb-[1.5rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-1.svg);"
       >
       </div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-20 -mb-[5.25rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-20 -mb-[1.25rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-2.svg);"
       >
       </div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-30 -mb-[5rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-30 -mb-[1rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-3.svg);"
       >
       </div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-40 -mb-[4rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-40 -mb-[0.75rem] h-[25%] bg-contain bg-bottom bg-repeat-x"
         style="background-image: url(/hero/parallax-4.svg);"
       >
       </div>
     </div>
     <div
-      class="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-dark-bg/50 to-transparent"
+      class="absolute bottom-0 left-0 right-0 h-[25%] bg-gradient-to-t from-dark-bg/75 to-transparent"
     >
     </div>
 
