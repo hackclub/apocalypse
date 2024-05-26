@@ -1,0 +1,410 @@
+---
+import Footer from "../components/Footer.astro";
+import ShipCard from "../components/ShipCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+let ships = [
+  {
+    name: "Zombie Translator",
+    description: "Two way translator for Toronto slang and zombie.",
+    href: "https://github.com/kvnyng/zombie-yute",
+    imgSrc: "/ships/zombie-translator.png",
+    team: "Rhys P, Kevin Y, Kyle L",
+  },
+  {
+    name: "STONY",
+    description: "A 3-in-1 zombie tortue device.",
+    href: "https://github.com/KaranChawlaD/Apocalypse",
+    imgSrc: "/ships/stony.png",
+    team: "Karan C, Vicky C, Ryan S, Darren S",
+  },
+  {
+    name: "wrapped",
+    description: "wrapped wraps your and your friend's life stats in one place.",
+    href: "https://github.com/RawPikachu/wrap",
+    imgSrc: "/ships/wrapped.png",
+    team: "Yiming C, Leo H, Yohance P, Casper C",
+  },
+  {
+    name: "Zombie Boxer ",
+    description: "This is a wearable glove that will help you with self-defense.",
+    href: "",
+    imgSrc: "/ships/zombie-boxer.png",
+    team: "Kunshpreet",
+  },
+  {
+    name: "Moan-to-Speech",
+    description:
+      "A translator app that translates between the Grrs and Grah's of zombie speech to english.",
+    href: "https://github.com/Skilled5041/apohacks-frontend",
+    imgSrc: "/ships/moan-to-speech.png",
+    team: "James C, Emilio M, Danie P, Aaron W",
+  },
+  {
+    name: "Zombie Home Defense System",
+    description: "Zombie vs. Human detection system.",
+    href: "https://github.com/ryan11yuan/Zombie-Home-Defense-System",
+    imgSrc: "/ships/zombie-home-defense-system.png",
+    team: "Ryan Y, Yugraj D, Nikhil M, Evan Y",
+  },
+  {
+    name: "graggleblogfiggle",
+    description: "A little pea trying to make it big in the world.",
+    href: "https://github.com/Stwikeyy/graggleblogfiggle",
+    imgSrc: "/ships/graggleblogfiggle.png",
+    team: "Linqi L, Victoria W, Aleesha A, Prisca C",
+  },
+  {
+    name: "Apocalypse Alley",
+    description:
+      "A website to revolutionize the marketplace for a zombie-infested world.",
+    href: "https://github.com/B-Eddie/Website",
+    imgSrc: "/ships/apocalypse-alley.png",
+    team: "Ilya A J, Eddie B",
+  },
+  {
+    name: "Outpost",
+    description: "This is a trading/bidding application.",
+    href: "https://github.com/ruqayahrr/outpost.git",
+    imgSrc: "/ships/outpost.png",
+    team: "Felix P, Ruqayah R, Brianna A, Jerry L",
+  },
+  {
+    name: "Zombie Laser Tag",
+    description: "Shoot at zombies with a laser gun to get points.",
+    href: "",
+    imgSrc: "/ships/zombie-laser-tag.png",
+    team: "Anant B, Gavin M, Siddhartha T",
+  },
+  {
+    name: "Apocalift",
+    description:
+      "Apocalift: Remote RC vehicle rentals for survivors to explore and monitor zombie-infested terrains.",
+    href: "https://github.com/vichua2006/ApoclaypseHacks2024",
+    imgSrc: "/ships/apocalift.png",
+    team: "Victor H, Rohan K, Eric L, Jayden L",
+  },
+  {
+    name: "ApocaLedger",
+    description:
+      "Our team's top worry during the apocalypse: how to pay taxes and keep the IRS thriving.",
+    href: "https://github.com/jpt1729/irs-app",
+    imgSrc: "/ships/apocaledger.png",
+    team: "John T A,  Zoya H, Alex N, Lena C A",
+  },
+  {
+    name: "Zombie Apocalypse simulator",
+    description:
+      "A zombie apocalypse simulator to test your skills of the zombie hoarding outside.",
+    href: "https://github.com/Aruyan23/FunnyDrabScan",
+    imgSrc: "/ships/zombie-apocalypse-simulator.png",
+    team: "Shreenay A",
+  },
+  {
+    name: "Informedead",
+    description:
+      "Apocalyptic communicators with no reliance on cellular data or other infrastructure.",
+    href: "https://github.com/EerierGosling/Informedead",
+    imgSrc: "/ships/informedead.png",
+    team: "Julian K, Evan G, Cassandra J, Sofia E",
+  },
+  {
+    name: "zomBAE",
+    description:
+      "Find love during the apocalypse with zomBAE, find your aPOOKIElypse today!",
+    href: "https://github.com/sophian098/apocalypse-website",
+    imgSrc: "/ships/zombae.png",
+    team: "Sophia N, Nuo Z W, Ching L L, Joyi X",
+  },
+  {
+    name: "Zinder",
+    description:
+      "Humans can befriend zombies through this dating-like app, creating a connected apocalyptic society.",
+    href: "https://x.thunkable.com/copy/20de6e54c59e2992e5e961c9746bed50",
+    imgSrc: "/ships/zinder.png",
+    team: "Daniella A, Bianca A, Zara K",
+  },
+  {
+    name: "Zombie Hunger Games",
+    description:
+      "Many zombies compete in this text-based PvP game, but only one may enter the humans' bunker!",
+    href: "https://github.com/MichaByte/apocalypse",
+    imgSrc: "/ships/zombie-hunger-games.png",
+    team: "Micha A",
+  },
+  {
+    name: "USS Apocalypse",
+    description:
+      "We built a car with a drone pad, taser prongs, and speakers playing communist music to stop zombies.",
+    href: "https://github.com/MarkDanishevsky/uss-apocalypse",
+    imgSrc: "/ships/uss-apocalypse.png",
+    team: "Ivan S, Shrey S, Mark D, Sharon B",
+  },
+  {
+    name: "The Screamers",
+    description:
+      " basically our idea is to make an alarming system alerting all computers zombies are near.",
+    href: "serenityux.github.io/ContentLuminousCodewarrior/",
+    imgSrc: "/ships/the-screamers.png",
+    team: "Thomas S,	Hajrah S, Kieve J",
+  },
+  {
+    name: "Memory Capsule",
+    description: "A box holding the memories of the past.",
+    href: "https://github.com/techpixel/apocalypse",
+    imgSrc: "/ships/memory-capsule.png",
+    team: "Manitej B, Alexander P",
+  },
+  {
+    name: "SurvivorLog",
+    description:
+      "Help fighters record their daily killings of zombies to exchange for resources.",
+    href: "https://github.com/bianca-8/SurvivorLog",
+    imgSrc: "/ships/survivorlog.png",
+    team: "Anya H, Brianna W, Bianca B",
+  },
+  {
+    name: "Disaster Survival Senarios",
+    description:
+      "We have simulations on how to survive a disaster and a chat bot to gamble bottle caps.",
+    href: "https://github.com/Vmaster1/Apocalypse-Hackathon-Project/tree/main",
+    imgSrc: "/ships/disaster-survival-senarios.png",
+    team: "Ved M, Devansh G, Saisrikara D, Aryan K",
+  },
+  {
+    name: "Yummificator 5000",
+    description:
+      "This Minecraft mod allows users to cook + consume zombie flesh and craft a stew. Plus, flamethrower.",
+    href: "https://github.com/awang-bot/Zompocalypse",
+    imgSrc: "/ships/yummificator-5000.png",
+    team: "Atisa W",
+  },
+  {
+    name: "The Last Escape",
+    description: "The project aims to enhance urban resilience and preparedness.",
+    href: "https://github.com/sukhmani1313/thelastescape",
+    imgSrc: "/ships/the-last-escape.png",
+    team: "Anvi D, Sukhmani B, Ekveer C",
+  },
+  {
+    name: "Elephalert",
+    description:
+      "Elephalert alerts humans to any zombie near a safe facility, disguised as a cute, squeaky elephant.",
+    href: "https://github.com/andrearyang/Elephalert",
+    imgSrc: "/ships/elephalert.png",
+    team: "Savina J, Andrea Y",
+  },
+  {
+    name: "ZomBae #2",
+    description:
+      "Zombae is the first dating platform designed for both humans AND zombies to find their new partner.",
+    href: "https://abir-kh.github.io/2024-Apocalypse-Hackathon/",
+    imgSrc: "/ships/zombae-2.png",
+    team: "Abir K H, Dominic L, Samuel H, Isaac X",
+  },
+  {
+    name: "Apocalypse Handbook",
+    description:
+      "Comprehensive handbook about everything known about plants and zombies during the apocalypse.",
+    href: "https://github.com/Thewerdo/apohacks-handbook",
+    imgSrc: "/ships/apocalypse-handbook.png",
+    team: "Aiden W",
+  },
+  {
+    name: "Dual Zombie Defense HQ",
+    description:
+      "This is the ultimate zombie defense system. It has a sonar, trapdoor, and a web dashboard.",
+    href: "https://github.com/qcoral/apocalypse-project-2024",
+    imgSrc: "/ships/dual-zombie-defense-hq.png",
+    team: "Alex R, Jaehyeong P, Shanvanth A",
+  },
+  {
+    name: "Friendly Fire",
+    description: "Boogie bomb.",
+    href: "https://github.com/possiblyselena/FriendlyFire",
+    imgSrc: "/ships/friendly-fire.png",
+    team: "Selena N, Ethan T, Chayanth S, Aneek M",
+  },
+  {
+    name: "ZomTrackTO",
+    description: "A Zombie Tracking Platform to Survive the Apocalypse in Toronto.",
+    href: "https://github.com/alisohaila/ZomTrackTO",
+    imgSrc: "/ships/zomtrackto.png",
+    team: "Sohaila A, Falak A",
+  },
+  {
+    name: "Practical Illumination",
+    description: "4x4x4 LED cube.",
+    href: "https://github.com/nosaboy/Apocalypse2024",
+    imgSrc: "/ships/practical-illumination.png",
+    team: "Kevin X, Zachary K, Kyna S",
+  },
+  {
+    name: "Zhield",
+    description: "Protect yourself during the looming apocalypse.",
+    href: "https://github.com/Lynzzyr/Zhield",
+    imgSrc: "/ships/zhield.png",
+    team: "Arnnav K, Brandon N, Yohance P, Kevin Di",
+  },
+  {
+    name: "A.R.M.S",
+    description:
+      "A calculated droid tele-operated by an IoT server which can perform various recon tasks.",
+    href: "",
+    imgSrc: "/ships/a-r-m-s.png",
+    team: "Jeevan S, Yahya A, Rababb P, Edwin Z",
+  },
+  {
+    name: "Your Apocalypse Tracker",
+    description:
+      "App with the functions to notify the user whenever the motion sensor detects motion.",
+    href: "https://github.com/Richard342594736/yourapocalypsetracker",
+    imgSrc: "/ships/your-apocalypse-tracker.png",
+    team: "Richard L, Rosabel Z, Chris H",
+  },
+  {
+    name: "Apocalypse: The Game",
+    description:
+      "Grab your phones and tag each other, scan beacons, and win in Apocalypse: The Game!",
+    href: "https://github.com/recursiveforte/apo-zombie-app",
+    imgSrc: "/ships/apocalypse-the-game.png",
+    team: "JC, Cheru B, Mason M, Charlie W",
+  },
+  {
+    name: "Zombie Cross",
+    description: "A research team tank built to study zombies.",
+    href: "github.com/Prabh2006/ZombieCross",
+    imgSrc: "/ships/zombie-cross.png",
+    team: "Krish P, Azhaf S, Tanvir S, Prabhgun B",
+  },
+  {
+    name: "APOC Trading Centre",
+    description: "Post-apocalyptic trading app that lets users trade amazing item!",
+    href: "https://github.com/willcagas/APOC-Trade-Center",
+    imgSrc: "/ships/apoc-trading-centre.png",
+    team: "William C, Anthony G, Nicholas G, Mikael G",
+  },
+  {
+    name: "Undead Gambling",
+    description: "gambling with poker.",
+    href: "https://github.com/WaterThePotatoes/undead-gambling",
+    imgSrc: "/ships/undead-gambling.png",
+    team: "Tony Y, Ivan J, Sean J, Aayan",
+  },
+  {
+    name: "Tartarus",
+    description: "The modern prison platform for paranormal creatures.",
+    href: "https://github.com/northeastprince/tartarus",
+    imgSrc: "/ships/tartarus.png",
+    team: "Matt A",
+  },
+  {
+    name: "Lyfe Saver",
+    description: "A health tracker with an intelligible AI friend.",
+    href: "https://github.com/LAKSHYAJAIN16/apocalypse-hackathon",
+    imgSrc: "/ships/lyfe-saver.png",
+    team: "Lakshya J, Junaid M, George F, Nathan P",
+  },
+];
+
+ships = ships.sort(() => Math.random() - 0.5);
+---
+
+<Layout title="Apocalypse: Toronto's zombified high school hackathon!">
+  <main>
+    <div
+      class="relative flex justify-center bg-gradient-to-br from-purple-800 to-fuchsia-700 px-6 sm:px-12 md:px-20"
+    >
+      <a
+        class="absolute left-8 top-6 motion-safe:transition-all motion-safe:hover:-translate-x-2"
+        href="/"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="size-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+        </svg>
+      </a>
+      <div class="flex max-w-6xl grow">
+        <div class="grow space-y-2 py-8 sm:py-12 md:py-16">
+          <p class="font-sans text-xs xs:text-sm sm:text-base lg:text-lg">
+            May 17 - 19, 2024; 44 hrs @ Shopify Toronto
+          </p>
+          <h1
+            class="text-2xl leading-5 xs:text-4xl xs:leading-7 sm:text-5xl sm:leading-10 lg:text-6xl lg:leading-none"
+          >
+            <span class="text-accent2">150 teens</span> built the wackiest projects to<br
+              class="hidden sm:inline"
+            />
+             survive the <span class="text-accent">zombie apocalypse</span>.
+          </h1>
+        </div>
+        <div class="hidden overflow-hidden lg:flex xl:pr-8">
+          <img
+            class="hover:motion-safe:wobble -mb-2 ml-auto mt-auto size-48"
+            src="/yippee_orph.png"
+            alt="orphmoji yippee"
+          />
+        </div>
+      </div>
+    </div>
+    <h2
+      class="py-12 text-center text-2xl leading-5 xs:text-4xl xs:leading-7 sm:text-5xl sm:leading-10 lg:text-6xl lg:leading-none"
+    >
+      Here are the <span class="text-accent">40 projects</span> they shipped!
+    </h2>
+    <div class="flex justify-center px-6 pb-20 sm:px-12 md:px-20">
+      <div class="grid max-w-6xl grow grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+        {
+          ships.map((ship) => (
+            <ShipCard
+              name={ship.name}
+              description={ship.description}
+              href={ship.href}
+              imgSrc={ship.imgSrc}
+              team={ship.team}
+            />
+          ))
+        }
+      </div>
+    </div>
+    <footer>
+      <Footer />
+    </footer>
+  </main>
+
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes wobble {
+        0% {
+          transform: rotate(-1deg);
+        }
+        25% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-2deg);
+        }
+        75% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(-1deg);
+        }
+      }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hover\:motion-safe\:wobble:hover {
+        animation: wobble 1s infinite;
+      }
+    }
+  </style>
+</Layout>

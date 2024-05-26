@@ -1,0 +1,126 @@
+---
+const { name, description, href, team, imgSrc } = Astro.props;
+
+let possibleRots = ["motion-safe:hover:rotate-1", "motion-safe:hover:-rotate-1"];
+let rot = possibleRots[Math.floor(Math.random() * possibleRots.length)];
+
+let parsedTeam = team.split(", ");
+
+let teamString = "";
+if (parsedTeam.length == 1) {
+  teamString = parsedTeam[0];
+} else if (parsedTeam.length == 2) {
+  teamString = `${parsedTeam[0]} and ${parsedTeam[1]}`;
+} else if (parsedTeam.length == 3) {
+  teamString = `${parsedTeam.slice(0, -1).join(", ")}, and ${parsedTeam[2]}`;
+} else if (parsedTeam.length == 4) {
+  teamString = `${parsedTeam.slice(0, 2).join(", ")}, <br /> ${parsedTeam[2]}, and ${
+    parsedTeam[3]
+  }`;
+}
+---
+
+{href.length > 0 && (
+<a {href} target="_blank" rel="noopener noreferrer">
+  <div
+    class=`relative h-[20rem] lg:h-[24rem] overflow-hidden border-2 border-accent font-sans shadow-[6px_6px_rgba(0,0,0,0.3)] motion-safe:hover:shadow-[8px_8px_rgba(0,0,0,0.2)] motion-safe:transition-all motion-safe:hover:scale-105 ${rot}`
+  >
+    <div class="z-20 flex h-full flex-col p-8 lg:p-12 pb-20 lg:pb-28">
+      <div class="w-[90%] grow space-y-2">
+        <p class="font-main text-4xl sm:text-5xl leading-8 sm:leading-10">{name}</p>
+        <p class="text-sm sm:text-base" set:html={teamString} />
+      </div>
+      <div class="w-[60%] text-xs sm:text-sm"><p>{description}</p></div>
+    </div>
+    <div
+      class="absolute bottom-0 left-[40%] right-0 top-0 -z-50 bg-cover bg-center bg-no-repeat"
+      style=`background-image: url("${imgSrc}")`
+    >
+    </div>
+    <div
+      class="from-darker-bg via-darker-bg/80 absolute bottom-0 left-[39%] right-0 top-0 -z-50 bg-gradient-to-r from-10% via-40% to-transparent"
+    >
+    </div>
+
+    <div class="opacity-50">
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 -mb-[5.5rem] h-[30%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-1.svg);"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-20 -mb-[5.25rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-2.svg);"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-30 -mb-[5rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-3.svg);"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-40 -mb-[4rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-4.svg);"
+      >
+      </div>
+    </div>
+    <div
+      class="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-dark-bg/50 to-transparent"
+    >
+    </div>
+
+    <div class="bg-darker-bg absolute bottom-0 left-0 right-0 top-0 -z-[60]"></div>
+  </div>
+</a>)}
+
+{href.length == 0 && (
+  <div
+    class='relative h-[20rem] lg:h-[24rem] overflow-hidden border-2 border-accent font-sans shadow-[6px_6px_rgba(0,0,0,0.3)]'
+  >
+    <div class="z-20 flex h-full flex-col p-8 lg:p-12 pb-20 lg:pb-28">
+      <div class="w-[90%] grow space-y-2">
+        <p class="font-main text-4xl sm:text-5xl leading-8 sm:leading-10">{name}</p>
+        <p class="text-sm sm:text-base" set:html={teamString} />
+      </div>
+      <div class="w-[60%] text-xs sm:text-sm"><p>{description}</p></div>
+    </div>
+    <div
+      class="absolute bottom-0 left-[40%] right-0 top-0 -z-50 bg-cover bg-center bg-no-repeat"
+      style=`background-image: url("${imgSrc}")`
+    >
+    </div>
+    <div
+      class="from-darker-bg via-darker-bg/80 absolute bottom-0 left-[39%] right-0 top-0 -z-50 bg-gradient-to-r from-10% via-40% to-transparent"
+    >
+    </div>
+
+    <div class="opacity-50">
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 -mb-[5.5rem] h-[30%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-1.svg);"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-20 -mb-[5.25rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-2.svg);"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-30 -mb-[5rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-3.svg);"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 right-0 -z-40 -mb-[4rem] h-[40%] bg-contain bg-bottom bg-repeat-x"
+        style="background-image: url(/hero/parallax-4.svg);"
+      >
+      </div>
+    </div>
+    <div
+      class="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-dark-bg/50 to-transparent"
+    >
+    </div>
+
+    <div class="bg-darker-bg absolute bottom-0 left-0 right-0 top-0 -z-[60]"></div>
+  </div>
+)}
