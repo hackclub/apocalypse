@@ -9,6 +9,7 @@ export default {
         "primary-bg": "#401986",
         "secondary-bg": "#6B5FFE",
         "dark-bg": "#2B1B50",
+        "darker-bg": "#110B20",
         "light-bg": "#EDDAF8",
         dark: "#A183B2",
         accent: "#79E2F0",
