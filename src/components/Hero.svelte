@@ -49,7 +49,13 @@
           <a
             href="/ships"
             class="inline-block px-12 py-1 font-sans text-base border-accent2 border-4 bg-accent2 sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
-            >Check out the Projects!</a
+            >Project Gallery</a
+          >
+          <a
+            href="https://hackclub.com/slack"
+            target="_blank"
+            class="inline-block px-12 py-1 font-sans border-accent2 border-4 text-white text-base sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
+            >Join the Slack</a
           >
         </div>
       </div>
