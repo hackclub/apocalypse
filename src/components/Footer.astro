@@ -1,10 +1,86 @@
+---
+const organizers = [
+  {
+    name: "Acon Lin",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/60.png",
+    site: "https://www.linkedin.com/in/yinuolin/", // TODO: Replace with personal site
+  },
+  {
+    name: "Arav Narula",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/71.png",
+    site: "https://www.linkedin.com/in/arav-narula-280897216/",
+  },
+  {
+    name: "Mutammim Sarkar",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/92.png",
+    site: "https://www.mutammim.com/",
+  },
+  {
+    name: "Shayaan Azeem",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/83.png",
+    site: "https://www.linkedin.com/in/shayaan-azeem/",
+  },
+  {
+    name: "Ryan Di Lorenzo",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/04.png",
+    site: "https://limeskey.com/",
+  },
+  {
+    name: "Gregory Gu",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/15.png",
+    site: "https://www.linkedin.com/in/gregory-gu-b777212ba/ ",
+  },
+  {
+    name: "Sam Liu",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/26.png",
+    site: "https://samliu.dev/",
+  },
+  {
+    name: "Sarvesh Mohan Kumar",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/37.png",
+    site: "https://www.linkedin.com/in/sarvesh-mohan-kumar-a009ba268/",
+  },
+  {
+    name: "Evelyn Wong",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/48.png",
+    site: "http://evelynw.ong/",
+  },
+  {
+    name: "Vivian Yuan",
+    img: "https://cloud-jy1p4tt69-hack-club-bot.vercel.app/59.png",
+    site: "https://www.linkedin.com/in/vivian-yuan-240716284/", // TODO: Replace with personal site(?)
+  },
+];
+---
+
 <div class="">
-  <div class="group pb-6 text-center font-sans text-sm text-purple-100">
-    <p class="">
-      An event crafted with <span class="text-base group-hover:text-pink-400"
+  <div
+    class="group/main flex flex-col items-center pb-6 text-center font-sans text-sm text-purple-100"
+  >
+    <p class="text-base">
+      An event crafted with <span class="text-base group-hover/main:text-pink-400"
         >&#9829;</span
       > by students
     </p>
+    <p id="organizername" class="h-[1lh] pt-2 text-lg">Organizing Team</p>
+    <div class="flex flex-wrap justify-center py-5">
+      {
+        organizers.map((organizer, i) => (
+          <a
+            data-organizer={i}
+            href={organizer.site}
+            target="_blank"
+            class="group/organizer flex items-center justify-center p-2 sm:p-3"
+          >
+            <img
+              src={organizer.img}
+              alt={organizer.name}
+              class="size-16 overflow-hidden rounded-full border-[3px] border-white text-white motion-safe:transition motion-safe:duration-75 motion-safe:group-hover/organizer:scale-105 motion-safe:group-hover/organizer:border-accent"
+            />
+          </a>
+        ))
+      }
+    </div>
     <p>
       Our <a
         href="https://github.com/hackclub/apocalypse"
@@ -26,3 +102,19 @@
     </p>
   </div>
 </div>
+
+<script define:vars={{ organizers }}>
+  document.addEventListener("DOMContentLoaded", function () {
+    let name = document.getElementById("organizername");
+    document.querySelectorAll("[data-organizer]").forEach((e) => {
+      e.addEventListener("mouseover", () => {
+        name.innerHTML = organizers[e.getAttribute("data-organizer")].name;
+        name.classList.add("font-medium");
+      });
+      e.addEventListener("mouseout", () => {
+        name.innerHTML = "Organizing Team";
+        name.classList.remove("font-medium");
+      });
+    });
+  });
+</script>
