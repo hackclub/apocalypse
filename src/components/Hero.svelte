@@ -31,7 +31,7 @@
           <span class="text-accent">zombie apocalypse</span>!
         </h1>
         <h2 class="font-sans text-base sm:text-lg 3xl:text-2xl">
-          May 17-19 @ Shopify Toronto
+          May 17-19, 2024 @ Shopify Toronto
         </h2>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <!-- <a
