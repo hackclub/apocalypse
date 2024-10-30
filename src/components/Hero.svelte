@@ -47,15 +47,15 @@
             >Event Information</a
           > -->
           <a
-            href="/ships"
-            class="inline-block px-12 py-1 font-sans text-base border-accent2 border-4 bg-accent2 sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
-            >View projects</a
-          >
-          <a
             href="https://www.youtube.com/watch?v=QvCoISXfcE8"
             target="_blank"
-            class="inline-block px-12 py-1 font-sans border-accent2 border-4 text-white text-base sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
+            class="inline-block px-12 py-1 font-sans text-base border-accent2 border-4 bg-accent2 sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
             >Watch the recap</a
+          >
+          <a
+            href="/ships"
+            class="inline-block px-12 py-1 font-sans border-accent2 border-4 text-white text-base sm:px-10 3xl:px-16 sm:text-lg 3xl:text-2xl pixel-corners motion-safe:hover:scale-105 motion-safe:hover:shadow-md motion-safe:transition-all motion-safe:active:scale-100"
+            >View projects</a
           >
         </div>
       </div>
