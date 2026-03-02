@@ -27,9 +27,5 @@ export default defineConfig({
     "/ship": "https://tally.so/r/wdYg6r"
   },
   output: "server",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  adapter: vercel(),
 });
