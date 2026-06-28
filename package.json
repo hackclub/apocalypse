@@ -11,13 +11,13 @@
     "format": "npx prettier --write ."
   },
   "dependencies": {
-    "@astrojs/svelte": "^5.2.0",
+    "@astrojs/svelte": "^9.0.0",
     "@astrojs/tailwind": "^5.0.2",
-    "@astrojs/vercel": "^7.8.2",
+    "@astrojs/vercel": "^11.0.0",
     "@supabase/supabase-js": "^2.42.5",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
-    "astro": "^4.16.19",
+    "astro": "^7.0.3",
     "node-ical": "^0.18.0",
     "svelte": "^4.2.8",
     "tailwindcss": "^3.4.0"
